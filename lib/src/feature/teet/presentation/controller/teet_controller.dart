@@ -8,23 +8,11 @@ class TeetController extends _$TeetController {
   }
 
   Future<TeetPageState> _fetchData() async {
+    final teets = await ref.watch(getTeetsProvider.future);
     return TeetPageState(
       currentIndex: 0,
       isLoading: false,
-      teets: [
-        TeetEntity(
-            id: '1',
-            title: '역대 가장 빨랐던 테니스 서브의 속도는?',
-            selections: ['100', '200', '300', '400'],
-            answer: '200',
-            answerDescription: '어쩌고 저쩌고'),
-        TeetEntity(
-            id: '2',
-            title: '문제 2?',
-            selections: ['1', '2', '3', '4'],
-            answer: '3',
-            answerDescription: '블라블라블라'),
-      ],
+      teets: teets,
     );
   }
 

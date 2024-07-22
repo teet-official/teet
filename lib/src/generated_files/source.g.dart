@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'controller.dart';
+part of 'source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$teetControllerHash() => r'fa9282f18c163cafba2d3416f4a2cfb52bb564e9';
+String _$teetDataSourceHash() => r'7a6b5448044c2a8c1f6c949316fb754324fcdd5a';
 
-/// See also [TeetController].
-@ProviderFor(TeetController)
-final teetControllerProvider =
-    AutoDisposeAsyncNotifierProvider<TeetController, TeetPageState>.internal(
-  TeetController.new,
-  name: r'teetControllerProvider',
+/// See also [teetDataSource].
+@ProviderFor(teetDataSource)
+final teetDataSourceProvider = AutoDisposeProvider<TeetDataSource>.internal(
+  teetDataSource,
+  name: r'teetDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$teetControllerHash,
+      : _$teetDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$TeetController = AutoDisposeAsyncNotifier<TeetPageState>;
+typedef TeetDataSourceRef = AutoDisposeProviderRef<TeetDataSource>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/entity.dart';
@@ -39,7 +38,6 @@ class TeetPage extends ConsumerWidget {
         Text(
           teet.title,
         ),
-        Text(teet.selectedAnswer ?? ''),
         const SizedBox(
           height: 24,
         ),
