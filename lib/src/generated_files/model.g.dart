@@ -8,7 +8,7 @@ part of 'model.dart';
 
 _$TeetModelImpl _$$TeetModelImplFromJson(Map<String, dynamic> json) =>
     _$TeetModelImpl(
-      id: json['id'] as String,
+      id: (json['id'] as num).toInt(),
       title: json['title'] as String,
       selections: (json['selections'] as List<dynamic>)
           .map((e) => e as String)

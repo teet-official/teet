@@ -20,7 +20,7 @@ TeetEntity _$TeetEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TeetEntity {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   List<String> get selections => throw _privateConstructorUsedError;
   String get answer => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $TeetEntityCopyWith<$Res> {
       _$TeetEntityCopyWithImpl<$Res, TeetEntity>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String title,
       List<String> selections,
       String answer,
@@ -72,7 +72,7 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$TeetEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String title,
       List<String> selections,
       String answer,
@@ -136,7 +136,7 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$TeetEntityImpl implements _TeetEntity {
       _$$TeetEntityImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String title;
   final List<String> _selections;
@@ -243,7 +243,7 @@ class _$TeetEntityImpl implements _TeetEntity {
 
 abstract class _TeetEntity implements TeetEntity {
   factory _TeetEntity(
-      {required final String id,
+      {required final int id,
       required final String title,
       required final List<String> selections,
       required final String answer,
@@ -254,7 +254,7 @@ abstract class _TeetEntity implements TeetEntity {
       _$TeetEntityImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get title;
   @override

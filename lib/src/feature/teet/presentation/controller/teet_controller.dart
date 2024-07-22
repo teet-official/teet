@@ -17,7 +17,7 @@ class TeetController extends _$TeetController {
   }
 
   Future<void> onPressedSelectionButton(
-      String currentId, String selectedAnswer) async {
+      int currentId, String selectedAnswer) async {
     final value = state.valueOrNull;
     if (value != null) {
       final newTeet = value.teets.map((teet) {

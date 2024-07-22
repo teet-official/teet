@@ -3,7 +3,7 @@ part of '../../../../generated_files/entity.dart';
 @freezed
 class TeetEntity with _$TeetEntity {
   factory TeetEntity({
-    required String id,
+    required int id,
     required String title,
     required List<String> selections,
     required String answer,

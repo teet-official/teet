@@ -3,7 +3,7 @@ part of '../../../../generated_files/model.dart';
 @freezed
 class TeetModel with _$TeetModel {
   factory TeetModel({
-    required String id,
+    required int id,
     required String title,
     required List<String> selections,
     required String answer,
