@@ -6,7 +6,7 @@ part of 'controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$teetControllerHash() => r'98b4c830eafe30f76d666739fe5067997bf08640';
+String _$teetControllerHash() => r'e75f8535826c18d22fe9c20a8c11929056ea5723';
 
 /// See also [TeetController].
 @ProviderFor(TeetController)

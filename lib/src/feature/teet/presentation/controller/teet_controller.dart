@@ -29,7 +29,7 @@ class TeetController extends _$TeetController {
   }
 
   Future<void> onPressedSelectionButton(
-      String currentId, String seletedAnswer) async {
+      String currentId, String selectedAnswer) async {
     final value = state.valueOrNull;
     if (value != null) {
       final newTeet = value.teets.map((teet) {
@@ -40,7 +40,7 @@ class TeetController extends _$TeetController {
             selections: teet.selections,
             answer: teet.answer,
             answerDescription: teet.answerDescription,
-            seletedAnswer: seletedAnswer,
+            selectedAnswer: selectedAnswer,
           );
         }
         return teet;

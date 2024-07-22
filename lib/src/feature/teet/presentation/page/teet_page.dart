@@ -39,7 +39,7 @@ class TeetPage extends ConsumerWidget {
         Text(
           teet.title,
         ),
-        Text(teet.seletedAnswer ?? ''),
+        Text(teet.selectedAnswer ?? ''),
         const SizedBox(
           height: 24,
         ),
@@ -47,14 +47,14 @@ class TeetPage extends ConsumerWidget {
           (selection) => ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: () {
-                if (teet.seletedAnswer == null) {
+                if (teet.selectedAnswer == null) {
                   return Colors.grey;
                 }
                 if (teet.answer == selection) {
                   return Colors.blue;
                 }
-                if (teet.seletedAnswer != teet.answer &&
-                    teet.seletedAnswer == selection) {
+                if (teet.selectedAnswer != teet.answer &&
+                    teet.selectedAnswer == selection) {
                   return Colors.red;
                 }
                 return Colors.grey;

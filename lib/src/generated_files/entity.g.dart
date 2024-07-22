@@ -15,7 +15,7 @@ _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       answer: json['answer'] as String,
       answerDescription: json['answerDescription'] as String,
-      seletedAnswer: json['seletedAnswer'] as String?,
+      selectedAnswer: json['selectedAnswer'] as String?,
     );
 
 Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
@@ -25,5 +25,5 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'selections': instance.selections,
       'answer': instance.answer,
       'answerDescription': instance.answerDescription,
-      'seletedAnswer': instance.seletedAnswer,
+      'selectedAnswer': instance.selectedAnswer,
     };
