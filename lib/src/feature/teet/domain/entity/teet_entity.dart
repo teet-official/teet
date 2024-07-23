@@ -2,6 +2,8 @@ part of '../../../../generated_files/entity.dart';
 
 @freezed
 class TeetEntity with _$TeetEntity {
+  const TeetEntity._();
+
   factory TeetEntity({
     required int id,
     required String title,
@@ -12,6 +14,8 @@ class TeetEntity with _$TeetEntity {
     int? answerRate,
     int? selectedSelectionId,
   }) = _TeetEntity;
+
+  String get baseDate => DateUtil.getFormattedDateYYYYMMDD(createdAt);
 
   factory TeetEntity.fromJson(Map<String, dynamic> json) =>
       _$TeetEntityFromJson(json);

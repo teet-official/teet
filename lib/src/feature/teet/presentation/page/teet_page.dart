@@ -82,6 +82,9 @@ class TeetPage extends ConsumerWidget {
                         ? Text('정답입니다!')
                         : Text('오답입니다!'),
                     Text(teet.description),
+                    Text(
+                        '정답률: ${teet.answerRate == null ? '-' : '${teet.answerRate}%'}'),
+                    Text('기준일: ${teet.baseDate}')
                   ])),
       ],
     );

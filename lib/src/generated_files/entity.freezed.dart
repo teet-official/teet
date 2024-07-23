@@ -190,7 +190,7 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TeetEntityImpl implements _TeetEntity {
+class _$TeetEntityImpl extends _TeetEntity {
   _$TeetEntityImpl(
       {required this.id,
       required this.title,
@@ -200,7 +200,8 @@ class _$TeetEntityImpl implements _TeetEntity {
       required this.createdAt,
       this.answerRate,
       this.selectedSelectionId})
-      : _selections = selections;
+      : _selections = selections,
+        super._();
 
   factory _$TeetEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$TeetEntityImplFromJson(json);
@@ -280,7 +281,7 @@ class _$TeetEntityImpl implements _TeetEntity {
   }
 }
 
-abstract class _TeetEntity implements TeetEntity {
+abstract class _TeetEntity extends TeetEntity {
   factory _TeetEntity(
       {required final int id,
       required final String title,
@@ -290,6 +291,7 @@ abstract class _TeetEntity implements TeetEntity {
       required final DateTime createdAt,
       final int? answerRate,
       final int? selectedSelectionId}) = _$TeetEntityImpl;
+  _TeetEntity._() : super._();
 
   factory _TeetEntity.fromJson(Map<String, dynamic> json) =
       _$TeetEntityImpl.fromJson;
