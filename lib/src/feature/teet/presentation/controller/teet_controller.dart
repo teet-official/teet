@@ -16,24 +16,24 @@ class TeetController extends _$TeetController {
     );
   }
 
-//   Future<void> onPressedSelectionButton(
-//       int currentId, String selectedAnswer) async {
-//     final value = state.valueOrNull;
-//     if (value != null) {
-//       final newTeet = value.teets.map((teet) {
-//         if (teet.id == currentId) {
-//           return TeetEntity(
-//             id: teet.id,
-//             title: teet.title,
-//             selections: teet.selections,
-//             description: teet.description,
-//             type: teet.type,
-//             selectedAnswer: selectedAnswer,
-//           );
-//         }
-//         return teet;
-//       }).toList();
-//       state = AsyncValue.data(value.copyWith(teets: newTeet));
-//     }
-//   }
+  Future<void> onPressedSelectionButton(
+      int currentTeetId, int selectedSelectionId) async {
+    final value = state.valueOrNull;
+    if (value != null) {
+      final newTeet = value.teets.map((teet) {
+        if (teet.id == currentTeetId) {
+          return TeetEntity(
+            id: teet.id,
+            title: teet.title,
+            selections: teet.selections,
+            description: teet.description,
+            type: teet.type,
+            selectedSelectionId: selectedSelectionId,
+          );
+        }
+        return teet;
+      }).toList();
+      state = AsyncValue.data(value.copyWith(teets: newTeet));
+    }
+  }
 }

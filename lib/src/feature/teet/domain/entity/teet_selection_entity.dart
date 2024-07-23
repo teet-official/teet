@@ -8,7 +8,6 @@ class TeetSelectionEntity with _$TeetSelectionEntity {
     required String label,
     required int labelNo,
     required bool isAnswer,
-    String? selectedAnswer,
   }) = _TeetSelectionEntity;
 
   factory TeetSelectionEntity.fromJson(Map<String, dynamic> json) =>

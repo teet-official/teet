@@ -8,7 +8,7 @@ class TeetEntity with _$TeetEntity {
     required List<TeetSelectionEntity> selections,
     required String description,
     required String type,
-    String? selectedAnswer,
+    int? selectedSelectionId,
   }) = _TeetEntity;
 
   factory TeetEntity.fromJson(Map<String, dynamic> json) =>

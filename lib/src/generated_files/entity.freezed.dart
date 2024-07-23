@@ -26,7 +26,7 @@ mixin _$TeetEntity {
       throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  String? get selectedAnswer => throw _privateConstructorUsedError;
+  int? get selectedSelectionId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $TeetEntityCopyWith<$Res> {
       List<TeetSelectionEntity> selections,
       String description,
       String type,
-      String? selectedAnswer});
+      int? selectedSelectionId});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
     Object? selections = null,
     Object? description = null,
     Object? type = null,
-    Object? selectedAnswer = freezed,
+    Object? selectedSelectionId = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,10 +90,10 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      selectedAnswer: freezed == selectedAnswer
-          ? _value.selectedAnswer
-          : selectedAnswer // ignore: cast_nullable_to_non_nullable
-              as String?,
+      selectedSelectionId: freezed == selectedSelectionId
+          ? _value.selectedSelectionId
+          : selectedSelectionId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -112,7 +112,7 @@ abstract class _$$TeetEntityImplCopyWith<$Res>
       List<TeetSelectionEntity> selections,
       String description,
       String type,
-      String? selectedAnswer});
+      int? selectedSelectionId});
 }
 
 /// @nodoc
@@ -131,7 +131,7 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
     Object? selections = null,
     Object? description = null,
     Object? type = null,
-    Object? selectedAnswer = freezed,
+    Object? selectedSelectionId = freezed,
   }) {
     return _then(_$TeetEntityImpl(
       id: null == id
@@ -154,10 +154,10 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      selectedAnswer: freezed == selectedAnswer
-          ? _value.selectedAnswer
-          : selectedAnswer // ignore: cast_nullable_to_non_nullable
-              as String?,
+      selectedSelectionId: freezed == selectedSelectionId
+          ? _value.selectedSelectionId
+          : selectedSelectionId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -171,7 +171,7 @@ class _$TeetEntityImpl implements _TeetEntity {
       required final List<TeetSelectionEntity> selections,
       required this.description,
       required this.type,
-      this.selectedAnswer})
+      this.selectedSelectionId})
       : _selections = selections;
 
   factory _$TeetEntityImpl.fromJson(Map<String, dynamic> json) =>
@@ -194,11 +194,11 @@ class _$TeetEntityImpl implements _TeetEntity {
   @override
   final String type;
   @override
-  final String? selectedAnswer;
+  final int? selectedSelectionId;
 
   @override
   String toString() {
-    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, selectedAnswer: $selectedAnswer)';
+    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, selectedSelectionId: $selectedSelectionId)';
   }
 
   @override
@@ -213,8 +213,8 @@ class _$TeetEntityImpl implements _TeetEntity {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.selectedAnswer, selectedAnswer) ||
-                other.selectedAnswer == selectedAnswer));
+            (identical(other.selectedSelectionId, selectedSelectionId) ||
+                other.selectedSelectionId == selectedSelectionId));
   }
 
   @JsonKey(ignore: true)
@@ -226,7 +226,7 @@ class _$TeetEntityImpl implements _TeetEntity {
       const DeepCollectionEquality().hash(_selections),
       description,
       type,
-      selectedAnswer);
+      selectedSelectionId);
 
   @JsonKey(ignore: true)
   @override
@@ -249,7 +249,7 @@ abstract class _TeetEntity implements TeetEntity {
       required final List<TeetSelectionEntity> selections,
       required final String description,
       required final String type,
-      final String? selectedAnswer}) = _$TeetEntityImpl;
+      final int? selectedSelectionId}) = _$TeetEntityImpl;
 
   factory _TeetEntity.fromJson(Map<String, dynamic> json) =
       _$TeetEntityImpl.fromJson;
@@ -265,7 +265,7 @@ abstract class _TeetEntity implements TeetEntity {
   @override
   String get type;
   @override
-  String? get selectedAnswer;
+  int? get selectedSelectionId;
   @override
   @JsonKey(ignore: true)
   _$$TeetEntityImplCopyWith<_$TeetEntityImpl> get copyWith =>
