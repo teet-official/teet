@@ -24,6 +24,7 @@ class TeetPage extends ConsumerWidget {
       child: Consumer(builder: (context, ref, child) {
         return PageView.builder(
           controller: pageController,
+          scrollDirection: Axis.vertical,
           onPageChanged: (value) {},
           itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
           itemCount: state.teets.length,
@@ -41,32 +42,47 @@ class TeetPage extends ConsumerWidget {
         const SizedBox(
           height: 24,
         ),
-        ...teet.selections.map(
-          (selection) => ElevatedButton(
-            onPressed: () {
-              ref
-                  .read(teetControllerProvider.notifier)
-                  .onPressedSelectionButton(teet.id, selection.id);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: () {
-                if (teet.selectedSelectionId == null) {
-                  return Colors.grey;
-                }
+        AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: teet.selectedSelectionId == null
+                ? Column(
+                    children: teet.selections
+                        .map(
+                          (selection) => ElevatedButton(
+                            onPressed: () {
+                              ref
+                                  .read(teetControllerProvider.notifier)
+                                  .onPressedSelectionButton(
+                                      teet.id, selection.id);
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: () {
+                                if (teet.selectedSelectionId == null) {
+                                  return Colors.grey;
+                                }
 
-                if (selection.isAnswer) {
-                  return Colors.blue;
-                }
-                if (teet.selectedSelectionId == selection.id &&
-                    !selection.isAnswer) {
-                  return Colors.red;
-                }
-                return Colors.grey;
-              }(),
-            ),
-            child: Text(selection.label),
-          ),
-        ),
+                                if (selection.isAnswer) {
+                                  return Colors.blue;
+                                }
+                                if (teet.selectedSelectionId == selection.id &&
+                                    !selection.isAnswer) {
+                                  return Colors.red;
+                                }
+                                return Colors.grey;
+                              }(),
+                            ),
+                            child: Text(selection.label),
+                          ),
+                        )
+                        .toList())
+                : Column(children: [
+                    teet.selections.firstWhere((selection) {
+                      return selection.id == teet.selectedSelectionId;
+                    }).isAnswer
+                        ? Text('정답입니다!')
+                        : Text('오답입니다!'),
+                    Text(teet.description),
+                  ])),
       ],
     );
   }
