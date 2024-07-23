@@ -27,6 +27,7 @@ mixin _$TeetModel {
   String get description => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  int? get answerRate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $TeetModelCopyWith<$Res> {
       List<TeetSelectionModel> teetSelection,
       String description,
       DateTime createdAt,
-      String type});
+      String type,
+      int? answerRate});
 }
 
 /// @nodoc
@@ -67,6 +69,7 @@ class _$TeetModelCopyWithImpl<$Res, $Val extends TeetModel>
     Object? description = null,
     Object? createdAt = null,
     Object? type = null,
+    Object? answerRate = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -93,6 +96,10 @@ class _$TeetModelCopyWithImpl<$Res, $Val extends TeetModel>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      answerRate: freezed == answerRate
+          ? _value.answerRate
+          : answerRate // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -111,7 +118,8 @@ abstract class _$$TeetModelImplCopyWith<$Res>
       List<TeetSelectionModel> teetSelection,
       String description,
       DateTime createdAt,
-      String type});
+      String type,
+      int? answerRate});
 }
 
 /// @nodoc
@@ -131,6 +139,7 @@ class __$$TeetModelImplCopyWithImpl<$Res>
     Object? description = null,
     Object? createdAt = null,
     Object? type = null,
+    Object? answerRate = freezed,
   }) {
     return _then(_$TeetModelImpl(
       id: null == id
@@ -157,6 +166,10 @@ class __$$TeetModelImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      answerRate: freezed == answerRate
+          ? _value.answerRate
+          : answerRate // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -171,7 +184,8 @@ class _$TeetModelImpl implements _TeetModel {
       required final List<TeetSelectionModel> teetSelection,
       required this.description,
       required this.createdAt,
-      required this.type})
+      required this.type,
+      this.answerRate})
       : _teetSelection = teetSelection;
 
   factory _$TeetModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -195,10 +209,12 @@ class _$TeetModelImpl implements _TeetModel {
   final DateTime createdAt;
   @override
   final String type;
+  @override
+  final int? answerRate;
 
   @override
   String toString() {
-    return 'TeetModel(id: $id, title: $title, teetSelection: $teetSelection, description: $description, createdAt: $createdAt, type: $type)';
+    return 'TeetModel(id: $id, title: $title, teetSelection: $teetSelection, description: $description, createdAt: $createdAt, type: $type, answerRate: $answerRate)';
   }
 
   @override
@@ -214,7 +230,9 @@ class _$TeetModelImpl implements _TeetModel {
                 other.description == description) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.answerRate, answerRate) ||
+                other.answerRate == answerRate));
   }
 
   @JsonKey(ignore: true)
@@ -226,7 +244,8 @@ class _$TeetModelImpl implements _TeetModel {
       const DeepCollectionEquality().hash(_teetSelection),
       description,
       createdAt,
-      type);
+      type,
+      answerRate);
 
   @JsonKey(ignore: true)
   @override
@@ -249,7 +268,8 @@ abstract class _TeetModel implements TeetModel {
       required final List<TeetSelectionModel> teetSelection,
       required final String description,
       required final DateTime createdAt,
-      required final String type}) = _$TeetModelImpl;
+      required final String type,
+      final int? answerRate}) = _$TeetModelImpl;
 
   factory _TeetModel.fromJson(Map<String, dynamic> json) =
       _$TeetModelImpl.fromJson;
@@ -266,6 +286,8 @@ abstract class _TeetModel implements TeetModel {
   DateTime get createdAt;
   @override
   String get type;
+  @override
+  int? get answerRate;
   @override
   @JsonKey(ignore: true)
   _$$TeetModelImplCopyWith<_$TeetModelImpl> get copyWith =>

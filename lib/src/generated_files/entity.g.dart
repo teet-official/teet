@@ -15,6 +15,8 @@ _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       description: json['description'] as String,
       type: json['type'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      answerRate: (json['answerRate'] as num?)?.toInt(),
       selectedSelectionId: (json['selectedSelectionId'] as num?)?.toInt(),
     );
 
@@ -25,6 +27,8 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'selections': instance.selections,
       'description': instance.description,
       'type': instance.type,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'answerRate': instance.answerRate,
       'selectedSelectionId': instance.selectedSelectionId,
     };
 
@@ -36,7 +40,6 @@ _$TeetSelectionEntityImpl _$$TeetSelectionEntityImplFromJson(
       label: json['label'] as String,
       labelNo: (json['labelNo'] as num).toInt(),
       isAnswer: json['isAnswer'] as bool,
-      selectedAnswer: json['selectedAnswer'] as String?,
     );
 
 Map<String, dynamic> _$$TeetSelectionEntityImplToJson(
@@ -47,5 +50,4 @@ Map<String, dynamic> _$$TeetSelectionEntityImplToJson(
       'label': instance.label,
       'labelNo': instance.labelNo,
       'isAnswer': instance.isAnswer,
-      'selectedAnswer': instance.selectedAnswer,
     };

@@ -8,6 +8,8 @@ class TeetEntity with _$TeetEntity {
     required List<TeetSelectionEntity> selections,
     required String description,
     required String type,
+    required DateTime createdAt,
+    int? answerRate,
     int? selectedSelectionId,
   }) = _TeetEntity;
 

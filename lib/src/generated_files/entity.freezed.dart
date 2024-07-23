@@ -26,6 +26,8 @@ mixin _$TeetEntity {
       throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  int? get answerRate => throw _privateConstructorUsedError;
   int? get selectedSelectionId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,6 +48,8 @@ abstract class $TeetEntityCopyWith<$Res> {
       List<TeetSelectionEntity> selections,
       String description,
       String type,
+      DateTime createdAt,
+      int? answerRate,
       int? selectedSelectionId});
 }
 
@@ -67,6 +71,8 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
     Object? selections = null,
     Object? description = null,
     Object? type = null,
+    Object? createdAt = null,
+    Object? answerRate = freezed,
     Object? selectedSelectionId = freezed,
   }) {
     return _then(_value.copyWith(
@@ -90,6 +96,14 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      answerRate: freezed == answerRate
+          ? _value.answerRate
+          : answerRate // ignore: cast_nullable_to_non_nullable
+              as int?,
       selectedSelectionId: freezed == selectedSelectionId
           ? _value.selectedSelectionId
           : selectedSelectionId // ignore: cast_nullable_to_non_nullable
@@ -112,6 +126,8 @@ abstract class _$$TeetEntityImplCopyWith<$Res>
       List<TeetSelectionEntity> selections,
       String description,
       String type,
+      DateTime createdAt,
+      int? answerRate,
       int? selectedSelectionId});
 }
 
@@ -131,6 +147,8 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
     Object? selections = null,
     Object? description = null,
     Object? type = null,
+    Object? createdAt = null,
+    Object? answerRate = freezed,
     Object? selectedSelectionId = freezed,
   }) {
     return _then(_$TeetEntityImpl(
@@ -154,6 +172,14 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      answerRate: freezed == answerRate
+          ? _value.answerRate
+          : answerRate // ignore: cast_nullable_to_non_nullable
+              as int?,
       selectedSelectionId: freezed == selectedSelectionId
           ? _value.selectedSelectionId
           : selectedSelectionId // ignore: cast_nullable_to_non_nullable
@@ -171,6 +197,8 @@ class _$TeetEntityImpl implements _TeetEntity {
       required final List<TeetSelectionEntity> selections,
       required this.description,
       required this.type,
+      required this.createdAt,
+      this.answerRate,
       this.selectedSelectionId})
       : _selections = selections;
 
@@ -194,11 +222,15 @@ class _$TeetEntityImpl implements _TeetEntity {
   @override
   final String type;
   @override
+  final DateTime createdAt;
+  @override
+  final int? answerRate;
+  @override
   final int? selectedSelectionId;
 
   @override
   String toString() {
-    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, selectedSelectionId: $selectedSelectionId)';
+    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, createdAt: $createdAt, answerRate: $answerRate, selectedSelectionId: $selectedSelectionId)';
   }
 
   @override
@@ -213,6 +245,10 @@ class _$TeetEntityImpl implements _TeetEntity {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.type, type) || other.type == type) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.answerRate, answerRate) ||
+                other.answerRate == answerRate) &&
             (identical(other.selectedSelectionId, selectedSelectionId) ||
                 other.selectedSelectionId == selectedSelectionId));
   }
@@ -226,6 +262,8 @@ class _$TeetEntityImpl implements _TeetEntity {
       const DeepCollectionEquality().hash(_selections),
       description,
       type,
+      createdAt,
+      answerRate,
       selectedSelectionId);
 
   @JsonKey(ignore: true)
@@ -249,6 +287,8 @@ abstract class _TeetEntity implements TeetEntity {
       required final List<TeetSelectionEntity> selections,
       required final String description,
       required final String type,
+      required final DateTime createdAt,
+      final int? answerRate,
       final int? selectedSelectionId}) = _$TeetEntityImpl;
 
   factory _TeetEntity.fromJson(Map<String, dynamic> json) =
@@ -264,6 +304,10 @@ abstract class _TeetEntity implements TeetEntity {
   String get description;
   @override
   String get type;
+  @override
+  DateTime get createdAt;
+  @override
+  int? get answerRate;
   @override
   int? get selectedSelectionId;
   @override
@@ -283,7 +327,6 @@ mixin _$TeetSelectionEntity {
   String get label => throw _privateConstructorUsedError;
   int get labelNo => throw _privateConstructorUsedError;
   bool get isAnswer => throw _privateConstructorUsedError;
-  String? get selectedAnswer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -297,13 +340,7 @@ abstract class $TeetSelectionEntityCopyWith<$Res> {
           TeetSelectionEntity value, $Res Function(TeetSelectionEntity) then) =
       _$TeetSelectionEntityCopyWithImpl<$Res, TeetSelectionEntity>;
   @useResult
-  $Res call(
-      {int id,
-      int teetId,
-      String label,
-      int labelNo,
-      bool isAnswer,
-      String? selectedAnswer});
+  $Res call({int id, int teetId, String label, int labelNo, bool isAnswer});
 }
 
 /// @nodoc
@@ -324,7 +361,6 @@ class _$TeetSelectionEntityCopyWithImpl<$Res, $Val extends TeetSelectionEntity>
     Object? label = null,
     Object? labelNo = null,
     Object? isAnswer = null,
-    Object? selectedAnswer = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -347,10 +383,6 @@ class _$TeetSelectionEntityCopyWithImpl<$Res, $Val extends TeetSelectionEntity>
           ? _value.isAnswer
           : isAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectedAnswer: freezed == selectedAnswer
-          ? _value.selectedAnswer
-          : selectedAnswer // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -363,13 +395,7 @@ abstract class _$$TeetSelectionEntityImplCopyWith<$Res>
       __$$TeetSelectionEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      int teetId,
-      String label,
-      int labelNo,
-      bool isAnswer,
-      String? selectedAnswer});
+  $Res call({int id, int teetId, String label, int labelNo, bool isAnswer});
 }
 
 /// @nodoc
@@ -388,7 +414,6 @@ class __$$TeetSelectionEntityImplCopyWithImpl<$Res>
     Object? label = null,
     Object? labelNo = null,
     Object? isAnswer = null,
-    Object? selectedAnswer = freezed,
   }) {
     return _then(_$TeetSelectionEntityImpl(
       id: null == id
@@ -411,10 +436,6 @@ class __$$TeetSelectionEntityImplCopyWithImpl<$Res>
           ? _value.isAnswer
           : isAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectedAnswer: freezed == selectedAnswer
-          ? _value.selectedAnswer
-          : selectedAnswer // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -427,8 +448,7 @@ class _$TeetSelectionEntityImpl implements _TeetSelectionEntity {
       required this.teetId,
       required this.label,
       required this.labelNo,
-      required this.isAnswer,
-      this.selectedAnswer});
+      required this.isAnswer});
 
   factory _$TeetSelectionEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$TeetSelectionEntityImplFromJson(json);
@@ -443,12 +463,10 @@ class _$TeetSelectionEntityImpl implements _TeetSelectionEntity {
   final int labelNo;
   @override
   final bool isAnswer;
-  @override
-  final String? selectedAnswer;
 
   @override
   String toString() {
-    return 'TeetSelectionEntity(id: $id, teetId: $teetId, label: $label, labelNo: $labelNo, isAnswer: $isAnswer, selectedAnswer: $selectedAnswer)';
+    return 'TeetSelectionEntity(id: $id, teetId: $teetId, label: $label, labelNo: $labelNo, isAnswer: $isAnswer)';
   }
 
   @override
@@ -461,15 +479,13 @@ class _$TeetSelectionEntityImpl implements _TeetSelectionEntity {
             (identical(other.label, label) || other.label == label) &&
             (identical(other.labelNo, labelNo) || other.labelNo == labelNo) &&
             (identical(other.isAnswer, isAnswer) ||
-                other.isAnswer == isAnswer) &&
-            (identical(other.selectedAnswer, selectedAnswer) ||
-                other.selectedAnswer == selectedAnswer));
+                other.isAnswer == isAnswer));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, teetId, label, labelNo, isAnswer, selectedAnswer);
+  int get hashCode =>
+      Object.hash(runtimeType, id, teetId, label, labelNo, isAnswer);
 
   @JsonKey(ignore: true)
   @override
@@ -492,8 +508,7 @@ abstract class _TeetSelectionEntity implements TeetSelectionEntity {
       required final int teetId,
       required final String label,
       required final int labelNo,
-      required final bool isAnswer,
-      final String? selectedAnswer}) = _$TeetSelectionEntityImpl;
+      required final bool isAnswer}) = _$TeetSelectionEntityImpl;
 
   factory _TeetSelectionEntity.fromJson(Map<String, dynamic> json) =
       _$TeetSelectionEntityImpl.fromJson;
@@ -508,8 +523,6 @@ abstract class _TeetSelectionEntity implements TeetSelectionEntity {
   int get labelNo;
   @override
   bool get isAnswer;
-  @override
-  String? get selectedAnswer;
   @override
   @JsonKey(ignore: true)
   _$$TeetSelectionEntityImplCopyWith<_$TeetSelectionEntityImpl> get copyWith =>

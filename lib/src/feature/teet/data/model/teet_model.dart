@@ -10,6 +10,7 @@ class TeetModel with _$TeetModel {
     required String description,
     required DateTime createdAt,
     required String type,
+    int? answerRate,
   }) = _TeetModel;
 
   factory TeetModel.fromJson(Map<String, dynamic> json) =>
@@ -24,5 +25,7 @@ extension TeetExtension on TeetModel {
             teetSelection.map((selection) => selection.toEntity()).toList(),
         description: description,
         type: type,
+        answerRate: answerRate,
+        createdAt: createdAt,
       );
 }

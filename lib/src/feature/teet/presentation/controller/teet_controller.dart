@@ -22,12 +22,7 @@ class TeetController extends _$TeetController {
     if (value != null) {
       final newTeet = value.teets.map((teet) {
         if (teet.id == currentTeetId) {
-          return TeetEntity(
-            id: teet.id,
-            title: teet.title,
-            selections: teet.selections,
-            description: teet.description,
-            type: teet.type,
+          return teet.copyWith(
             selectedSelectionId: selectedSelectionId,
           );
         }
