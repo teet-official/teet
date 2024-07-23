@@ -1,0 +1,16 @@
+part of '../../../../generated_files/entity.dart';
+
+@freezed
+class TeetSelectionEntity with _$TeetSelectionEntity {
+  factory TeetSelectionEntity({
+    required int id,
+    required int teetId,
+    required String label,
+    required int labelNo,
+    required bool isAnswer,
+    String? selectedAnswer,
+  }) = _TeetSelectionEntity;
+
+  factory TeetSelectionEntity.fromJson(Map<String, dynamic> json) =>
+      _$TeetSelectionEntityFromJson(json);
+}

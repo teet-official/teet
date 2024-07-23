@@ -43,27 +43,8 @@ class TeetPage extends ConsumerWidget {
         ),
         ...teet.selections.map(
           (selection) => ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: () {
-                if (teet.selectedAnswer == null) {
-                  return Colors.grey;
-                }
-                if (teet.answer == selection) {
-                  return Colors.blue;
-                }
-                if (teet.selectedAnswer != teet.answer &&
-                    teet.selectedAnswer == selection) {
-                  return Colors.red;
-                }
-                return Colors.grey;
-              }(),
-            ),
-            onPressed: () {
-              ref
-                  .read(teetControllerProvider.notifier)
-                  .onPressedSelectionButton(teet.id, selection);
-            },
-            child: Text(selection),
+            onPressed: () {},
+            child: Text(selection.label),
           ),
         ),
       ],

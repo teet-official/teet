@@ -5,9 +5,9 @@ class TeetEntity with _$TeetEntity {
   factory TeetEntity({
     required int id,
     required String title,
-    required List<String> selections,
-    required String answer,
-    required String answerDescription,
+    required List<TeetSelectionEntity> selections,
+    required String description,
+    required String type,
     String? selectedAnswer,
   }) = _TeetEntity;
 
