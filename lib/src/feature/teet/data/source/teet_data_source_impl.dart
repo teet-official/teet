@@ -6,7 +6,7 @@ class TeetDataSourceImpl implements TeetDataSource {
   @override
   Future<List<TeetModel>> getTeets() async {
     final result = await client.from('teet').select('*, teet_selection(*)');
-    print('result:: $result');
+
     return result
         .map(
           (json) => TeetModel.fromJson(json),

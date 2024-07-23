@@ -8,14 +8,14 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text('Sign-in'),
+          title: const Text('Sign-in'),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
               context.pop();
             },
           )),
-      body: Text('sign-in page'),
+      body: const Text('sign-in page'),
     );
   }
 }

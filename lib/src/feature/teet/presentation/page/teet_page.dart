@@ -10,27 +10,26 @@ class TeetPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(teetControllerProvider);
 
-    return Scaffold(
-        body: switch (state) {
-      AsyncData(:final value) => _buildList(value),
-      AsyncError() => const Text('Error'),
-      _ => const Text('Loading'),
-    });
+    return SafeArea(
+      child: switch (state) {
+        AsyncData(:final value) => _buildList(value),
+        AsyncError() => const Text('Error'),
+        _ => const Text('Loading'),
+      },
+    );
   }
 
   _buildList(TeetPageState state) {
     final PageController pageController = PageController(initialPage: 0);
-    return SafeArea(
-      child: Consumer(builder: (context, ref, child) {
-        return PageView.builder(
-          controller: pageController,
-          scrollDirection: Axis.vertical,
-          onPageChanged: (value) {},
-          itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
-          itemCount: state.teets.length,
-        );
-      }),
-    );
+    return Consumer(builder: (context, ref, child) {
+      return PageView.builder(
+        controller: pageController,
+        scrollDirection: Axis.vertical,
+        onPageChanged: (value) {},
+        itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
+        itemCount: state.teets.length,
+      );
+    });
   }
 
   _buildItem(TeetEntity teet, WidgetRef ref) {
@@ -79,8 +78,8 @@ class TeetPage extends ConsumerWidget {
                     teet.selections.firstWhere((selection) {
                       return selection.id == teet.selectedSelectionId;
                     }).isAnswer
-                        ? Text('정답입니다!')
-                        : Text('오답입니다!'),
+                        ? const Text('정답입니다!')
+                        : const Text('오답입니다!'),
                     Text(teet.description),
                     Text(
                         '정답률: ${teet.answerRate == null ? '-' : '${teet.answerRate}%'}'),
