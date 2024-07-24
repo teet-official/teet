@@ -28,7 +28,7 @@ class MainPage extends ConsumerWidget {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           letIndexChange: (value) {
-            if (tabs[value]["name"] == "ProfilePage" && !auth.isSingIn) {
+            if (tabs[value]["name"] == "ProfilePage" && !auth.isSignIn) {
               context.push('/auth/sign-in');
               return false;
             }

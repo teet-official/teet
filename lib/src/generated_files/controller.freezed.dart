@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthState {
-  bool get isSingIn => throw _privateConstructorUsedError;
+  bool get isSignIn => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool isSingIn});
+  $Res call({bool isSignIn});
 }
 
 /// @nodoc
@@ -44,12 +44,12 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSingIn = null,
+    Object? isSignIn = null,
   }) {
     return _then(_value.copyWith(
-      isSingIn: null == isSingIn
-          ? _value.isSingIn
-          : isSingIn // ignore: cast_nullable_to_non_nullable
+      isSignIn: null == isSignIn
+          ? _value.isSignIn
+          : isSignIn // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -63,7 +63,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
       __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isSingIn});
+  $Res call({bool isSignIn});
 }
 
 /// @nodoc
@@ -77,12 +77,12 @@ class __$$AuthStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isSingIn = null,
+    Object? isSignIn = null,
   }) {
     return _then(_$AuthStateImpl(
-      isSingIn: null == isSingIn
-          ? _value.isSingIn
-          : isSingIn // ignore: cast_nullable_to_non_nullable
+      isSignIn: null == isSignIn
+          ? _value.isSignIn
+          : isSignIn // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -91,15 +91,15 @@ class __$$AuthStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthStateImpl implements _AuthState {
-  _$AuthStateImpl({this.isSingIn = false});
+  _$AuthStateImpl({this.isSignIn = false});
 
   @override
   @JsonKey()
-  final bool isSingIn;
+  final bool isSignIn;
 
   @override
   String toString() {
-    return 'AuthState(isSingIn: $isSingIn)';
+    return 'AuthState(isSignIn: $isSignIn)';
   }
 
   @override
@@ -107,12 +107,12 @@ class _$AuthStateImpl implements _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthStateImpl &&
-            (identical(other.isSingIn, isSingIn) ||
-                other.isSingIn == isSingIn));
+            (identical(other.isSignIn, isSignIn) ||
+                other.isSignIn == isSignIn));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isSingIn);
+  int get hashCode => Object.hash(runtimeType, isSignIn);
 
   @JsonKey(ignore: true)
   @override
@@ -122,10 +122,10 @@ class _$AuthStateImpl implements _AuthState {
 }
 
 abstract class _AuthState implements AuthState {
-  factory _AuthState({final bool isSingIn}) = _$AuthStateImpl;
+  factory _AuthState({final bool isSignIn}) = _$AuthStateImpl;
 
   @override
-  bool get isSingIn;
+  bool get isSignIn;
   @override
   @JsonKey(ignore: true)
   _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>

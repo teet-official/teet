@@ -39,7 +39,7 @@ class AuthController extends _$AuthController {
       );
 
       state = AuthState(
-        isSingIn: true,
+        isSignIn: true,
       );
     } on Exception catch (e) {
       // TODO
@@ -50,7 +50,7 @@ class AuthController extends _$AuthController {
     try {
       await Supabase.instance.client.auth.signOut();
       state = AuthState(
-        isSingIn: false,
+        isSignIn: false,
       );
     } on Exception catch (e) {
       // TODO

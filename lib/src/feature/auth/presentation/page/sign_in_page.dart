@@ -26,7 +26,7 @@ class SignInPage extends ConsumerWidget {
         },
         child: Column(
           children: [
-            Text('isSingIn: ${state.isSingIn}'),
+            Text('isSignIn: ${state.isSignIn}'),
             const Text('Sign in with Google'),
           ],
         ),
