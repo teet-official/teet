@@ -6,6 +6,21 @@ part of 'source.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$authDataSourceHash() => r'e956704a2de74719431b77c01638a087141b7a17';
+
+/// See also [authDataSource].
+@ProviderFor(authDataSource)
+final authDataSourceProvider = AutoDisposeProvider<AuthDataSource>.internal(
+  authDataSource,
+  name: r'authDataSourceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$authDataSourceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef AuthDataSourceRef = AutoDisposeProviderRef<AuthDataSource>;
 String _$teetDataSourceHash() => r'7a6b5448044c2a8c1f6c949316fb754324fcdd5a';
 
 /// See also [teetDataSource].
