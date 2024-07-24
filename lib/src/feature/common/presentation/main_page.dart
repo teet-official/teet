@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:teet/src/feature/auth/presentation/sign_in_page.dart';
 import 'package:teet/src/feature/profile/presentation/profile_page.dart';
 import 'package:teet/src/feature/teet/presentation/page/teet_page.dart';
 
@@ -14,7 +15,7 @@ class MainPageState extends State<MainPage> {
   int selectedIndex = 0;
   final tabs = [
     const TeetPage(),
-    const ProfilePage(),
+    const SignInPage(),
   ];
 
   @override
