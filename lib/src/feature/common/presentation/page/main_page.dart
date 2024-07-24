@@ -6,19 +6,8 @@ import 'package:teet/src/feature/profile/presentation/profile_page.dart';
 import 'package:teet/src/feature/teet/presentation/page/teet_page.dart';
 import 'package:teet/src/generated_files/controller.dart';
 
-class MainPage extends ConsumerStatefulWidget {
-  const MainPage({super.key});
-
-  @override
-  MainPageState createState() => MainPageState();
-}
-
-class MainPageState extends ConsumerState<MainPage> {
-  int selectedIndex = 0;
-  // final tabs = [
-  //   const TeetPage(),
-  //   const ProfilePage(),
-  // ];
+class MainPage extends ConsumerWidget {
+  MainPage({super.key});
 
   final tabs = [
     {
@@ -32,8 +21,9 @@ class MainPageState extends ConsumerState<MainPage> {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.watch(authControllerProvider);
+    final state = ref.watch(mainControllerProvider);
 
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
@@ -44,7 +34,7 @@ class MainPageState extends ConsumerState<MainPage> {
             }
             return true;
           },
-          index: selectedIndex,
+          index: state.bottomNavigationBarIndex,
           items: const [
             Icon(Icons.home_outlined, size: 30),
             Icon(Icons.account_circle_outlined, size: 30),
@@ -55,13 +45,13 @@ class MainPageState extends ConsumerState<MainPage> {
           animationCurve: Curves.easeInOutQuart,
           animationDuration: const Duration(milliseconds: 600),
           onTap: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
+            ref
+                .read(mainControllerProvider.notifier)
+                .setBottomNavigationBarIndex(index);
           },
         ),
         body: IndexedStack(
-          index: selectedIndex,
+          index: state.bottomNavigationBarIndex,
           children: tabs.map((tab) => tab['widget'] as Widget).toList(),
         ));
   }

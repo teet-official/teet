@@ -45,4 +45,15 @@ class AuthController extends _$AuthController {
       // TODO
     }
   }
+
+  Future<void> onPressedSignOutButton() async {
+    try {
+      await Supabase.instance.client.auth.signOut();
+      state = AuthState(
+        isSingIn: false,
+      );
+    } on Exception catch (e) {
+      // TODO
+    }
+  }
 }
