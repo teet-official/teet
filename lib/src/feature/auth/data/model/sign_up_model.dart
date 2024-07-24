@@ -21,4 +21,7 @@ class SignUpModel with _$SignUpModel {
       ageRange: entity.ageRange!.toString(),
     );
   }
+
+  factory SignUpModel.fromJson(Map<String, dynamic> json) =>
+      _$SignUpModelFromJson(json);
 }

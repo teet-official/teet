@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) {
+  return _SignUpModel.fromJson(json);
+}
+
 /// @nodoc
 mixin _$SignUpModel {
   String get uid => throw _privateConstructorUsedError;
@@ -23,6 +27,7 @@ mixin _$SignUpModel {
   String get ageRange => throw _privateConstructorUsedError;
   int? get answerRate => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SignUpModelCopyWith<SignUpModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -168,6 +173,9 @@ class _$SignUpModelImpl implements _SignUpModel {
       required this.ageRange,
       this.answerRate});
 
+  factory _$SignUpModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SignUpModelImplFromJson(json);
+
   @override
   final String uid;
   @override
@@ -203,6 +211,7 @@ class _$SignUpModelImpl implements _SignUpModel {
                 other.answerRate == answerRate));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, uid, nickname, profileImageUrl,
       gender, ageRange, answerRate);
@@ -212,6 +221,13 @@ class _$SignUpModelImpl implements _SignUpModel {
   @pragma('vm:prefer-inline')
   _$$SignUpModelImplCopyWith<_$SignUpModelImpl> get copyWith =>
       __$$SignUpModelImplCopyWithImpl<_$SignUpModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SignUpModelImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _SignUpModel implements SignUpModel {
@@ -222,6 +238,9 @@ abstract class _SignUpModel implements SignUpModel {
       required final String gender,
       required final String ageRange,
       final int? answerRate}) = _$SignUpModelImpl;
+
+  factory _SignUpModel.fromJson(Map<String, dynamic> json) =
+      _$SignUpModelImpl.fromJson;
 
   @override
   String get uid;

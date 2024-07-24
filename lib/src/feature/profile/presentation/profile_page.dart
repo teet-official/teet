@@ -15,7 +15,7 @@ class ProfilePage extends ConsumerWidget {
             .read(mainControllerProvider.notifier)
             .setBottomNavigationBarIndex(0);
       },
-      child: Text('Sign Out'),
+      child: const Text('Sign Out'),
     ));
   }
 }
