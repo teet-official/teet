@@ -133,6 +133,139 @@ abstract class _AuthState implements AuthState {
 }
 
 /// @nodoc
+mixin _$SignUpPageState {
+  SignUpEntity get signUpEntity => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignUpPageStateCopyWith<SignUpPageState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignUpPageStateCopyWith<$Res> {
+  factory $SignUpPageStateCopyWith(
+          SignUpPageState value, $Res Function(SignUpPageState) then) =
+      _$SignUpPageStateCopyWithImpl<$Res, SignUpPageState>;
+  @useResult
+  $Res call({SignUpEntity signUpEntity});
+
+  $SignUpEntityCopyWith<$Res> get signUpEntity;
+}
+
+/// @nodoc
+class _$SignUpPageStateCopyWithImpl<$Res, $Val extends SignUpPageState>
+    implements $SignUpPageStateCopyWith<$Res> {
+  _$SignUpPageStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? signUpEntity = null,
+  }) {
+    return _then(_value.copyWith(
+      signUpEntity: null == signUpEntity
+          ? _value.signUpEntity
+          : signUpEntity // ignore: cast_nullable_to_non_nullable
+              as SignUpEntity,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SignUpEntityCopyWith<$Res> get signUpEntity {
+    return $SignUpEntityCopyWith<$Res>(_value.signUpEntity, (value) {
+      return _then(_value.copyWith(signUpEntity: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SignUpPageStateImplCopyWith<$Res>
+    implements $SignUpPageStateCopyWith<$Res> {
+  factory _$$SignUpPageStateImplCopyWith(_$SignUpPageStateImpl value,
+          $Res Function(_$SignUpPageStateImpl) then) =
+      __$$SignUpPageStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({SignUpEntity signUpEntity});
+
+  @override
+  $SignUpEntityCopyWith<$Res> get signUpEntity;
+}
+
+/// @nodoc
+class __$$SignUpPageStateImplCopyWithImpl<$Res>
+    extends _$SignUpPageStateCopyWithImpl<$Res, _$SignUpPageStateImpl>
+    implements _$$SignUpPageStateImplCopyWith<$Res> {
+  __$$SignUpPageStateImplCopyWithImpl(
+      _$SignUpPageStateImpl _value, $Res Function(_$SignUpPageStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? signUpEntity = null,
+  }) {
+    return _then(_$SignUpPageStateImpl(
+      signUpEntity: null == signUpEntity
+          ? _value.signUpEntity
+          : signUpEntity // ignore: cast_nullable_to_non_nullable
+              as SignUpEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignUpPageStateImpl implements _SignUpPageState {
+  _$SignUpPageStateImpl({required this.signUpEntity});
+
+  @override
+  final SignUpEntity signUpEntity;
+
+  @override
+  String toString() {
+    return 'SignUpPageState(signUpEntity: $signUpEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpPageStateImpl &&
+            (identical(other.signUpEntity, signUpEntity) ||
+                other.signUpEntity == signUpEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, signUpEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpPageStateImplCopyWith<_$SignUpPageStateImpl> get copyWith =>
+      __$$SignUpPageStateImplCopyWithImpl<_$SignUpPageStateImpl>(
+          this, _$identity);
+}
+
+abstract class _SignUpPageState implements SignUpPageState {
+  factory _SignUpPageState({required final SignUpEntity signUpEntity}) =
+      _$SignUpPageStateImpl;
+
+  @override
+  SignUpEntity get signUpEntity;
+  @override
+  @JsonKey(ignore: true)
+  _$$SignUpPageStateImplCopyWith<_$SignUpPageStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MainPageState {
   int get bottomNavigationBarIndex => throw _privateConstructorUsedError;
 

@@ -20,11 +20,11 @@ SignUpEntity _$SignUpEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SignUpEntity {
-  String get uid => throw _privateConstructorUsedError;
-  String get nickname => throw _privateConstructorUsedError;
-  String get profileImageUrl => throw _privateConstructorUsedError;
-  Gender get gender => throw _privateConstructorUsedError;
-  AgeRange get ageRange => throw _privateConstructorUsedError;
+  String? get uid => throw _privateConstructorUsedError;
+  String? get nickname => throw _privateConstructorUsedError;
+  String? get profileImageUrl => throw _privateConstructorUsedError;
+  Gender? get gender => throw _privateConstructorUsedError;
+  AgeRange? get ageRange => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,11 +39,11 @@ abstract class $SignUpEntityCopyWith<$Res> {
       _$SignUpEntityCopyWithImpl<$Res, SignUpEntity>;
   @useResult
   $Res call(
-      {String uid,
-      String nickname,
-      String profileImageUrl,
-      Gender gender,
-      AgeRange ageRange});
+      {String? uid,
+      String? nickname,
+      String? profileImageUrl,
+      Gender? gender,
+      AgeRange? ageRange});
 }
 
 /// @nodoc
@@ -59,33 +59,33 @@ class _$SignUpEntityCopyWithImpl<$Res, $Val extends SignUpEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = null,
-    Object? nickname = null,
-    Object? profileImageUrl = null,
-    Object? gender = null,
-    Object? ageRange = null,
+    Object? uid = freezed,
+    Object? nickname = freezed,
+    Object? profileImageUrl = freezed,
+    Object? gender = freezed,
+    Object? ageRange = freezed,
   }) {
     return _then(_value.copyWith(
-      uid: null == uid
+      uid: freezed == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      nickname: null == nickname
+              as String?,
+      nickname: freezed == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
-              as String,
-      profileImageUrl: null == profileImageUrl
+              as String?,
+      profileImageUrl: freezed == profileImageUrl
           ? _value.profileImageUrl
           : profileImageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
+              as String?,
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      ageRange: null == ageRange
+              as Gender?,
+      ageRange: freezed == ageRange
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
-              as AgeRange,
+              as AgeRange?,
     ) as $Val);
   }
 }
@@ -99,11 +99,11 @@ abstract class _$$SignUpEntityImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uid,
-      String nickname,
-      String profileImageUrl,
-      Gender gender,
-      AgeRange ageRange});
+      {String? uid,
+      String? nickname,
+      String? profileImageUrl,
+      Gender? gender,
+      AgeRange? ageRange});
 }
 
 /// @nodoc
@@ -117,33 +117,33 @@ class __$$SignUpEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? uid = null,
-    Object? nickname = null,
-    Object? profileImageUrl = null,
-    Object? gender = null,
-    Object? ageRange = null,
+    Object? uid = freezed,
+    Object? nickname = freezed,
+    Object? profileImageUrl = freezed,
+    Object? gender = freezed,
+    Object? ageRange = freezed,
   }) {
     return _then(_$SignUpEntityImpl(
-      uid: null == uid
+      uid: freezed == uid
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
-              as String,
-      nickname: null == nickname
+              as String?,
+      nickname: freezed == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
-              as String,
-      profileImageUrl: null == profileImageUrl
+              as String?,
+      profileImageUrl: freezed == profileImageUrl
           ? _value.profileImageUrl
           : profileImageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
+              as String?,
+      gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      ageRange: null == ageRange
+              as Gender?,
+      ageRange: freezed == ageRange
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
-              as AgeRange,
+              as AgeRange?,
     ));
   }
 }
@@ -152,25 +152,25 @@ class __$$SignUpEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SignUpEntityImpl implements _SignUpEntity {
   _$SignUpEntityImpl(
-      {required this.uid,
-      required this.nickname,
-      required this.profileImageUrl,
-      required this.gender,
-      required this.ageRange});
+      {this.uid,
+      this.nickname,
+      this.profileImageUrl,
+      this.gender,
+      this.ageRange});
 
   factory _$SignUpEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$SignUpEntityImplFromJson(json);
 
   @override
-  final String uid;
+  final String? uid;
   @override
-  final String nickname;
+  final String? nickname;
   @override
-  final String profileImageUrl;
+  final String? profileImageUrl;
   @override
-  final Gender gender;
+  final Gender? gender;
   @override
-  final AgeRange ageRange;
+  final AgeRange? ageRange;
 
   @override
   String toString() {
@@ -213,25 +213,25 @@ class _$SignUpEntityImpl implements _SignUpEntity {
 
 abstract class _SignUpEntity implements SignUpEntity {
   factory _SignUpEntity(
-      {required final String uid,
-      required final String nickname,
-      required final String profileImageUrl,
-      required final Gender gender,
-      required final AgeRange ageRange}) = _$SignUpEntityImpl;
+      {final String? uid,
+      final String? nickname,
+      final String? profileImageUrl,
+      final Gender? gender,
+      final AgeRange? ageRange}) = _$SignUpEntityImpl;
 
   factory _SignUpEntity.fromJson(Map<String, dynamic> json) =
       _$SignUpEntityImpl.fromJson;
 
   @override
-  String get uid;
+  String? get uid;
   @override
-  String get nickname;
+  String? get nickname;
   @override
-  String get profileImageUrl;
+  String? get profileImageUrl;
   @override
-  Gender get gender;
+  Gender? get gender;
   @override
-  AgeRange get ageRange;
+  AgeRange? get ageRange;
   @override
   @JsonKey(ignore: true)
   _$$SignUpEntityImplCopyWith<_$SignUpEntityImpl> get copyWith =>

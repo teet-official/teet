@@ -14,11 +14,11 @@ class SignUpModel with _$SignUpModel {
 
   factory SignUpModel.fromSignUpEntity(SignUpEntity entity) {
     return SignUpModel(
-      uid: entity.uid,
-      nickname: entity.nickname,
-      profileImageUrl: entity.profileImageUrl,
-      gender: entity.gender.toString(),
-      ageRange: entity.ageRange.toString(),
+      uid: entity.uid!,
+      nickname: entity.nickname!,
+      profileImageUrl: entity.profileImageUrl!,
+      gender: entity.gender!.toString(),
+      ageRange: entity.ageRange!.toString(),
     );
   }
 }

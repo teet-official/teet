@@ -19,10 +19,15 @@ class SignInPage extends ConsumerWidget {
             },
           )),
       body: ElevatedButton(
-        onPressed: () {
-          ref
+        onPressed: () async {
+          await ref
               .watch(authControllerProvider.notifier)
               .onPressedGoogleSignInButton();
+          if (!state.isSignIn) {
+            if (context.mounted) {
+              context.push('/auth/sign-up');
+            }
+          }
         },
         child: Column(
           children: [
