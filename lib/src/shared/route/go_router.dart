@@ -1,6 +1,5 @@
 part of '../../generated_files/provider.dart';
 
-// GoRouter configuration
 @riverpod
 class GoRouterProvider extends _$GoRouterProvider {
   @override
@@ -9,7 +8,7 @@ class GoRouterProvider extends _$GoRouterProvider {
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const MainPage(),
+          builder: (context, state) => MainPage(),
         ),
         GoRoute(
           path: '/auth/sign-in',

@@ -133,6 +133,127 @@ abstract class _AuthState implements AuthState {
 }
 
 /// @nodoc
+mixin _$MainPageState {
+  int get bottomNavigationBarIndex => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $MainPageStateCopyWith<MainPageState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MainPageStateCopyWith<$Res> {
+  factory $MainPageStateCopyWith(
+          MainPageState value, $Res Function(MainPageState) then) =
+      _$MainPageStateCopyWithImpl<$Res, MainPageState>;
+  @useResult
+  $Res call({int bottomNavigationBarIndex});
+}
+
+/// @nodoc
+class _$MainPageStateCopyWithImpl<$Res, $Val extends MainPageState>
+    implements $MainPageStateCopyWith<$Res> {
+  _$MainPageStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bottomNavigationBarIndex = null,
+  }) {
+    return _then(_value.copyWith(
+      bottomNavigationBarIndex: null == bottomNavigationBarIndex
+          ? _value.bottomNavigationBarIndex
+          : bottomNavigationBarIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$MainPageStateImplCopyWith<$Res>
+    implements $MainPageStateCopyWith<$Res> {
+  factory _$$MainPageStateImplCopyWith(
+          _$MainPageStateImpl value, $Res Function(_$MainPageStateImpl) then) =
+      __$$MainPageStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int bottomNavigationBarIndex});
+}
+
+/// @nodoc
+class __$$MainPageStateImplCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$MainPageStateImpl>
+    implements _$$MainPageStateImplCopyWith<$Res> {
+  __$$MainPageStateImplCopyWithImpl(
+      _$MainPageStateImpl _value, $Res Function(_$MainPageStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bottomNavigationBarIndex = null,
+  }) {
+    return _then(_$MainPageStateImpl(
+      bottomNavigationBarIndex: null == bottomNavigationBarIndex
+          ? _value.bottomNavigationBarIndex
+          : bottomNavigationBarIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MainPageStateImpl implements _MainPageState {
+  const _$MainPageStateImpl({this.bottomNavigationBarIndex = 0});
+
+  @override
+  @JsonKey()
+  final int bottomNavigationBarIndex;
+
+  @override
+  String toString() {
+    return 'MainPageState(bottomNavigationBarIndex: $bottomNavigationBarIndex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MainPageStateImpl &&
+            (identical(
+                    other.bottomNavigationBarIndex, bottomNavigationBarIndex) ||
+                other.bottomNavigationBarIndex == bottomNavigationBarIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, bottomNavigationBarIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MainPageStateImplCopyWith<_$MainPageStateImpl> get copyWith =>
+      __$$MainPageStateImplCopyWithImpl<_$MainPageStateImpl>(this, _$identity);
+}
+
+abstract class _MainPageState implements MainPageState {
+  const factory _MainPageState({final int bottomNavigationBarIndex}) =
+      _$MainPageStateImpl;
+
+  @override
+  int get bottomNavigationBarIndex;
+  @override
+  @JsonKey(ignore: true)
+  _$$MainPageStateImplCopyWith<_$MainPageStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TeetPageState {
   bool get isLoading => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
