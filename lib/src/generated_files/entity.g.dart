@@ -6,6 +6,38 @@ part of 'entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$SignUpEntityImpl _$$SignUpEntityImplFromJson(Map<String, dynamic> json) =>
+    _$SignUpEntityImpl(
+      uid: json['uid'] as String,
+      nickname: json['nickname'] as String,
+      profileImageUrl: json['profileImageUrl'] as String,
+      gender: $enumDecode(_$GenderEnumMap, json['gender']),
+      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
+    );
+
+Map<String, dynamic> _$$SignUpEntityImplToJson(_$SignUpEntityImpl instance) =>
+    <String, dynamic>{
+      'uid': instance.uid,
+      'nickname': instance.nickname,
+      'profileImageUrl': instance.profileImageUrl,
+      'gender': _$GenderEnumMap[instance.gender]!,
+      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
+    };
+
+const _$GenderEnumMap = {
+  Gender.man: 'man',
+  Gender.woman: 'woman',
+  Gender.undefined: 'undefined',
+};
+
+const _$AgeRangeEnumMap = {
+  AgeRange.teenager: 'teenager',
+  AgeRange.twenties: 'twenties',
+  AgeRange.thirties: 'thirties',
+  AgeRange.forties: 'forties',
+  AgeRange.undefined: 'undefined',
+};
+
 _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
     _$TeetEntityImpl(
       id: (json['id'] as num).toInt(),

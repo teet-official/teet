@@ -14,6 +14,230 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+SignUpEntity _$SignUpEntityFromJson(Map<String, dynamic> json) {
+  return _SignUpEntity.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SignUpEntity {
+  String get uid => throw _privateConstructorUsedError;
+  String get nickname => throw _privateConstructorUsedError;
+  String get profileImageUrl => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
+  AgeRange get ageRange => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SignUpEntityCopyWith<SignUpEntity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignUpEntityCopyWith<$Res> {
+  factory $SignUpEntityCopyWith(
+          SignUpEntity value, $Res Function(SignUpEntity) then) =
+      _$SignUpEntityCopyWithImpl<$Res, SignUpEntity>;
+  @useResult
+  $Res call(
+      {String uid,
+      String nickname,
+      String profileImageUrl,
+      Gender gender,
+      AgeRange ageRange});
+}
+
+/// @nodoc
+class _$SignUpEntityCopyWithImpl<$Res, $Val extends SignUpEntity>
+    implements $SignUpEntityCopyWith<$Res> {
+  _$SignUpEntityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uid = null,
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+  }) {
+    return _then(_value.copyWith(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SignUpEntityImplCopyWith<$Res>
+    implements $SignUpEntityCopyWith<$Res> {
+  factory _$$SignUpEntityImplCopyWith(
+          _$SignUpEntityImpl value, $Res Function(_$SignUpEntityImpl) then) =
+      __$$SignUpEntityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String uid,
+      String nickname,
+      String profileImageUrl,
+      Gender gender,
+      AgeRange ageRange});
+}
+
+/// @nodoc
+class __$$SignUpEntityImplCopyWithImpl<$Res>
+    extends _$SignUpEntityCopyWithImpl<$Res, _$SignUpEntityImpl>
+    implements _$$SignUpEntityImplCopyWith<$Res> {
+  __$$SignUpEntityImplCopyWithImpl(
+      _$SignUpEntityImpl _value, $Res Function(_$SignUpEntityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uid = null,
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+  }) {
+    return _then(_$SignUpEntityImpl(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SignUpEntityImpl implements _SignUpEntity {
+  _$SignUpEntityImpl(
+      {required this.uid,
+      required this.nickname,
+      required this.profileImageUrl,
+      required this.gender,
+      required this.ageRange});
+
+  factory _$SignUpEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SignUpEntityImplFromJson(json);
+
+  @override
+  final String uid;
+  @override
+  final String nickname;
+  @override
+  final String profileImageUrl;
+  @override
+  final Gender gender;
+  @override
+  final AgeRange ageRange;
+
+  @override
+  String toString() {
+    return 'SignUpEntity(uid: $uid, nickname: $nickname, profileImageUrl: $profileImageUrl, gender: $gender, ageRange: $ageRange)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpEntityImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.ageRange, ageRange) ||
+                other.ageRange == ageRange));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, uid, nickname, profileImageUrl, gender, ageRange);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpEntityImplCopyWith<_$SignUpEntityImpl> get copyWith =>
+      __$$SignUpEntityImplCopyWithImpl<_$SignUpEntityImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SignUpEntityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _SignUpEntity implements SignUpEntity {
+  factory _SignUpEntity(
+      {required final String uid,
+      required final String nickname,
+      required final String profileImageUrl,
+      required final Gender gender,
+      required final AgeRange ageRange}) = _$SignUpEntityImpl;
+
+  factory _SignUpEntity.fromJson(Map<String, dynamic> json) =
+      _$SignUpEntityImpl.fromJson;
+
+  @override
+  String get uid;
+  @override
+  String get nickname;
+  @override
+  String get profileImageUrl;
+  @override
+  Gender get gender;
+  @override
+  AgeRange get ageRange;
+  @override
+  @JsonKey(ignore: true)
+  _$$SignUpEntityImplCopyWith<_$SignUpEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 TeetEntity _$TeetEntityFromJson(Map<String, dynamic> json) {
   return _TeetEntity.fromJson(json);
 }

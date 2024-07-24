@@ -14,6 +14,233 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+/// @nodoc
+mixin _$SignUpModel {
+  String get uid => throw _privateConstructorUsedError;
+  String get nickname => throw _privateConstructorUsedError;
+  String get profileImageUrl => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get ageRange => throw _privateConstructorUsedError;
+  int? get answerRate => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignUpModelCopyWith<SignUpModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignUpModelCopyWith<$Res> {
+  factory $SignUpModelCopyWith(
+          SignUpModel value, $Res Function(SignUpModel) then) =
+      _$SignUpModelCopyWithImpl<$Res, SignUpModel>;
+  @useResult
+  $Res call(
+      {String uid,
+      String nickname,
+      String profileImageUrl,
+      String gender,
+      String ageRange,
+      int? answerRate});
+}
+
+/// @nodoc
+class _$SignUpModelCopyWithImpl<$Res, $Val extends SignUpModel>
+    implements $SignUpModelCopyWith<$Res> {
+  _$SignUpModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uid = null,
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+    Object? answerRate = freezed,
+  }) {
+    return _then(_value.copyWith(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as String,
+      answerRate: freezed == answerRate
+          ? _value.answerRate
+          : answerRate // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SignUpModelImplCopyWith<$Res>
+    implements $SignUpModelCopyWith<$Res> {
+  factory _$$SignUpModelImplCopyWith(
+          _$SignUpModelImpl value, $Res Function(_$SignUpModelImpl) then) =
+      __$$SignUpModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String uid,
+      String nickname,
+      String profileImageUrl,
+      String gender,
+      String ageRange,
+      int? answerRate});
+}
+
+/// @nodoc
+class __$$SignUpModelImplCopyWithImpl<$Res>
+    extends _$SignUpModelCopyWithImpl<$Res, _$SignUpModelImpl>
+    implements _$$SignUpModelImplCopyWith<$Res> {
+  __$$SignUpModelImplCopyWithImpl(
+      _$SignUpModelImpl _value, $Res Function(_$SignUpModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uid = null,
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+    Object? answerRate = freezed,
+  }) {
+    return _then(_$SignUpModelImpl(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as String,
+      answerRate: freezed == answerRate
+          ? _value.answerRate
+          : answerRate // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$SignUpModelImpl implements _SignUpModel {
+  _$SignUpModelImpl(
+      {required this.uid,
+      required this.nickname,
+      required this.profileImageUrl,
+      required this.gender,
+      required this.ageRange,
+      this.answerRate});
+
+  @override
+  final String uid;
+  @override
+  final String nickname;
+  @override
+  final String profileImageUrl;
+  @override
+  final String gender;
+  @override
+  final String ageRange;
+  @override
+  final int? answerRate;
+
+  @override
+  String toString() {
+    return 'SignUpModel(uid: $uid, nickname: $nickname, profileImageUrl: $profileImageUrl, gender: $gender, ageRange: $ageRange, answerRate: $answerRate)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpModelImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.ageRange, ageRange) ||
+                other.ageRange == ageRange) &&
+            (identical(other.answerRate, answerRate) ||
+                other.answerRate == answerRate));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uid, nickname, profileImageUrl,
+      gender, ageRange, answerRate);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpModelImplCopyWith<_$SignUpModelImpl> get copyWith =>
+      __$$SignUpModelImplCopyWithImpl<_$SignUpModelImpl>(this, _$identity);
+}
+
+abstract class _SignUpModel implements SignUpModel {
+  factory _SignUpModel(
+      {required final String uid,
+      required final String nickname,
+      required final String profileImageUrl,
+      required final String gender,
+      required final String ageRange,
+      final int? answerRate}) = _$SignUpModelImpl;
+
+  @override
+  String get uid;
+  @override
+  String get nickname;
+  @override
+  String get profileImageUrl;
+  @override
+  String get gender;
+  @override
+  String get ageRange;
+  @override
+  int? get answerRate;
+  @override
+  @JsonKey(ignore: true)
+  _$$SignUpModelImplCopyWith<_$SignUpModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 TeetModel _$TeetModelFromJson(Map<String, dynamic> json) {
   return _TeetModel.fromJson(json);
 }
