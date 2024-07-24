@@ -1,27 +1,49 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:teet/src/feature/auth/presentation/sign_in_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:teet/src/feature/profile/presentation/profile_page.dart';
 import 'package:teet/src/feature/teet/presentation/page/teet_page.dart';
+import 'package:teet/src/generated_files/controller.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends ConsumerStatefulWidget {
   const MainPage({super.key});
 
   @override
   MainPageState createState() => MainPageState();
 }
 
-class MainPageState extends State<MainPage> {
+class MainPageState extends ConsumerState<MainPage> {
   int selectedIndex = 0;
+  // final tabs = [
+  //   const TeetPage(),
+  //   const ProfilePage(),
+  // ];
+
   final tabs = [
-    const TeetPage(),
-    const SignInPage(),
+    {
+      "name": "TeetPage",
+      "widget": const TeetPage(),
+    },
+    {
+      "name": "ProfilePage",
+      "widget": const ProfilePage(),
+    }
   ];
 
   @override
   Widget build(BuildContext context) {
+    final auth = ref.watch(authControllerProvider);
+
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
+          letIndexChange: (value) {
+            if (tabs[value]["name"] == "ProfilePage" && !auth.isSingIn) {
+              context.push('/auth/sign-in');
+              return false;
+            }
+            return true;
+          },
           index: selectedIndex,
           items: const [
             Icon(Icons.home_outlined, size: 30),
@@ -38,6 +60,9 @@ class MainPageState extends State<MainPage> {
             });
           },
         ),
-        body: IndexedStack(index: selectedIndex, children: tabs));
+        body: IndexedStack(
+          index: selectedIndex,
+          children: tabs.map((tab) => tab['widget'] as Widget).toList(),
+        ));
   }
 }

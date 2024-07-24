@@ -1,17 +1,21 @@
-import 'package:go_router/go_router.dart';
-import 'package:teet/src/feature/auth/presentation/sign_in_page.dart';
-import 'package:teet/src/feature/common/presentation/main_page.dart';
+part of '../../generated_files/provider.dart';
 
 // GoRouter configuration
-final router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const MainPage(),
-    ),
-    GoRoute(
-      path: '/auth/sign-in',
-      builder: (context, state) => const SignInPage(),
-    )
-  ],
-);
+@riverpod
+class GoRouterProvider extends _$GoRouterProvider {
+  @override
+  GoRouter build() {
+    return GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const MainPage(),
+        ),
+        GoRoute(
+          path: '/auth/sign-in',
+          builder: (context, state) => const SignInPage(),
+        )
+      ],
+    );
+  }
+}
