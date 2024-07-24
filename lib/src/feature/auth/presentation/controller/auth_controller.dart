@@ -30,11 +30,25 @@ class AuthController extends _$AuthController {
         throw 'No ID Token found.';
       }
 
-      await Supabase.instance.client.auth.signInWithIdToken(
+      final singInResult =
+          await Supabase.instance.client.auth.signInWithIdToken(
         provider: OAuthProvider.google,
         idToken: idToken,
         accessToken: accessToken,
       );
+      final signInUser = singInResult.user;
+      if (signInUser == null) {
+        throw 'No user found.';
+      }
+
+      // TODO: if user is new, navigate to sign up page
+      if (true) {
+        final signUpState = ref.watch(signUpControllerProvider.notifier);
+        signUpState.setUid(signInUser.id);
+        signUpState.setNickname(signInUser.userMetadata?["name"]);
+        signUpState.setProfileImageUrl(signInUser.userMetadata?["avatar_url"]);
+        return;
+      }
 
       state = AuthState(
         isSignIn: true,

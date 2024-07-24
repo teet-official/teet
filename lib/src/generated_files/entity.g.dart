@@ -8,11 +8,11 @@ part of 'entity.dart';
 
 _$SignUpEntityImpl _$$SignUpEntityImplFromJson(Map<String, dynamic> json) =>
     _$SignUpEntityImpl(
-      uid: json['uid'] as String,
-      nickname: json['nickname'] as String,
-      profileImageUrl: json['profileImageUrl'] as String,
-      gender: $enumDecode(_$GenderEnumMap, json['gender']),
-      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
+      uid: json['uid'] as String?,
+      nickname: json['nickname'] as String?,
+      profileImageUrl: json['profileImageUrl'] as String?,
+      gender: $enumDecodeNullable(_$GenderEnumMap, json['gender']),
+      ageRange: $enumDecodeNullable(_$AgeRangeEnumMap, json['ageRange']),
     );
 
 Map<String, dynamic> _$$SignUpEntityImplToJson(_$SignUpEntityImpl instance) =>
@@ -20,8 +20,8 @@ Map<String, dynamic> _$$SignUpEntityImplToJson(_$SignUpEntityImpl instance) =>
       'uid': instance.uid,
       'nickname': instance.nickname,
       'profileImageUrl': instance.profileImageUrl,
-      'gender': _$GenderEnumMap[instance.gender]!,
-      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
+      'gender': _$GenderEnumMap[instance.gender],
+      'ageRange': _$AgeRangeEnumMap[instance.ageRange],
     };
 
 const _$GenderEnumMap = {
