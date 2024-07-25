@@ -103,3 +103,22 @@ Map<String, dynamic> _$$TeetSelectionEntityImplToJson(
       'labelNo': instance.labelNo,
       'isAnswer': instance.isAnswer,
     };
+
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+      id: json['id'] as String,
+      nickname: json['nickname'] as String,
+      avatarUrl: json['avatarUrl'] as String,
+      gender: $enumDecode(_$GenderEnumMap, json['gender']),
+      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
+      createdAt: json['createdAt'] as String,
+    );
+
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'nickname': instance.nickname,
+      'avatarUrl': instance.avatarUrl,
+      'gender': _$GenderEnumMap[instance.gender]!,
+      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
+      'createdAt': instance.createdAt,
+    };

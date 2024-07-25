@@ -9,17 +9,20 @@ class SignUpModel with _$SignUpModel {
     required String profileImageUrl,
     required String gender,
     required String ageRange,
-    int? answerRate,
   }) = _SignUpModel;
 
   factory SignUpModel.fromSignUpEntity(SignUpEntity entity) {
-    return SignUpModel(
-      uid: entity.uid!,
-      nickname: entity.nickname!,
-      profileImageUrl: entity.profileImageUrl!,
-      gender: entity.gender!.toString(),
-      ageRange: entity.ageRange!.toString(),
-    );
+    try {
+      return SignUpModel(
+        uid: entity.uid!,
+        nickname: entity.nickname!,
+        profileImageUrl: entity.profileImageUrl!,
+        gender: entity.gender!.toString(),
+        ageRange: entity.ageRange!.toString(),
+      );
+    } catch (e) {
+      throw Exception('SignUpModel.fromSignUpEntity: $e');
+    }
   }
 
   factory SignUpModel.fromJson(Map<String, dynamic> json) =>
