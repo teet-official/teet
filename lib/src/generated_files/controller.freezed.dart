@@ -135,6 +135,8 @@ abstract class _AuthState implements AuthState {
 /// @nodoc
 mixin _$SignUpPageState {
   SignUpEntity get signUpEntity => throw _privateConstructorUsedError;
+  List<InterestCategoryEntity> get allInterestCategory =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpPageStateCopyWith<SignUpPageState> get copyWith =>
@@ -147,7 +149,9 @@ abstract class $SignUpPageStateCopyWith<$Res> {
           SignUpPageState value, $Res Function(SignUpPageState) then) =
       _$SignUpPageStateCopyWithImpl<$Res, SignUpPageState>;
   @useResult
-  $Res call({SignUpEntity signUpEntity});
+  $Res call(
+      {SignUpEntity signUpEntity,
+      List<InterestCategoryEntity> allInterestCategory});
 
   $SignUpEntityCopyWith<$Res> get signUpEntity;
 }
@@ -166,12 +170,17 @@ class _$SignUpPageStateCopyWithImpl<$Res, $Val extends SignUpPageState>
   @override
   $Res call({
     Object? signUpEntity = null,
+    Object? allInterestCategory = null,
   }) {
     return _then(_value.copyWith(
       signUpEntity: null == signUpEntity
           ? _value.signUpEntity
           : signUpEntity // ignore: cast_nullable_to_non_nullable
               as SignUpEntity,
+      allInterestCategory: null == allInterestCategory
+          ? _value.allInterestCategory
+          : allInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
     ) as $Val);
   }
 
@@ -192,7 +201,9 @@ abstract class _$$SignUpPageStateImplCopyWith<$Res>
       __$$SignUpPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SignUpEntity signUpEntity});
+  $Res call(
+      {SignUpEntity signUpEntity,
+      List<InterestCategoryEntity> allInterestCategory});
 
   @override
   $SignUpEntityCopyWith<$Res> get signUpEntity;
@@ -210,12 +221,17 @@ class __$$SignUpPageStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? signUpEntity = null,
+    Object? allInterestCategory = null,
   }) {
     return _then(_$SignUpPageStateImpl(
       signUpEntity: null == signUpEntity
           ? _value.signUpEntity
           : signUpEntity // ignore: cast_nullable_to_non_nullable
               as SignUpEntity,
+      allInterestCategory: null == allInterestCategory
+          ? _value._allInterestCategory
+          : allInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
     ));
   }
 }
@@ -223,14 +239,25 @@ class __$$SignUpPageStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SignUpPageStateImpl implements _SignUpPageState {
-  _$SignUpPageStateImpl({required this.signUpEntity});
+  _$SignUpPageStateImpl(
+      {required this.signUpEntity,
+      required final List<InterestCategoryEntity> allInterestCategory})
+      : _allInterestCategory = allInterestCategory;
 
   @override
   final SignUpEntity signUpEntity;
+  final List<InterestCategoryEntity> _allInterestCategory;
+  @override
+  List<InterestCategoryEntity> get allInterestCategory {
+    if (_allInterestCategory is EqualUnmodifiableListView)
+      return _allInterestCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allInterestCategory);
+  }
 
   @override
   String toString() {
-    return 'SignUpPageState(signUpEntity: $signUpEntity)';
+    return 'SignUpPageState(signUpEntity: $signUpEntity, allInterestCategory: $allInterestCategory)';
   }
 
   @override
@@ -239,11 +266,14 @@ class _$SignUpPageStateImpl implements _SignUpPageState {
         (other.runtimeType == runtimeType &&
             other is _$SignUpPageStateImpl &&
             (identical(other.signUpEntity, signUpEntity) ||
-                other.signUpEntity == signUpEntity));
+                other.signUpEntity == signUpEntity) &&
+            const DeepCollectionEquality()
+                .equals(other._allInterestCategory, _allInterestCategory));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, signUpEntity);
+  int get hashCode => Object.hash(runtimeType, signUpEntity,
+      const DeepCollectionEquality().hash(_allInterestCategory));
 
   @JsonKey(ignore: true)
   @override
@@ -254,11 +284,15 @@ class _$SignUpPageStateImpl implements _SignUpPageState {
 }
 
 abstract class _SignUpPageState implements SignUpPageState {
-  factory _SignUpPageState({required final SignUpEntity signUpEntity}) =
+  factory _SignUpPageState(
+          {required final SignUpEntity signUpEntity,
+          required final List<InterestCategoryEntity> allInterestCategory}) =
       _$SignUpPageStateImpl;
 
   @override
   SignUpEntity get signUpEntity;
+  @override
+  List<InterestCategoryEntity> get allInterestCategory;
   @override
   @JsonKey(ignore: true)
   _$$SignUpPageStateImplCopyWith<_$SignUpPageStateImpl> get copyWith =>

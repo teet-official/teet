@@ -22,12 +22,12 @@ final authControllerProvider =
 );
 
 typedef _$AuthController = AutoDisposeNotifier<AuthState>;
-String _$signUpControllerHash() => r'787b52f207cb2973f6584756d80282cfcb985510';
+String _$signUpControllerHash() => r'9316df3895e783699c866603692804c2795a2f37';
 
 /// See also [SignUpController].
 @ProviderFor(SignUpController)
-final signUpControllerProvider =
-    AutoDisposeNotifierProvider<SignUpController, SignUpPageState>.internal(
+final signUpControllerProvider = AutoDisposeAsyncNotifierProvider<
+    SignUpController, SignUpPageState>.internal(
   SignUpController.new,
   name: r'signUpControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -37,7 +37,7 @@ final signUpControllerProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$SignUpController = AutoDisposeNotifier<SignUpPageState>;
+typedef _$SignUpController = AutoDisposeAsyncNotifier<SignUpPageState>;
 String _$mainControllerHash() => r'ddfb8c288cfbdcb9c47481fb2e78a898f97f97d1';
 
 /// See also [MainController].

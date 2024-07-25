@@ -9,6 +9,7 @@ class SignInPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(authControllerProvider);
+    final stateinit = ref.watch(signUpControllerProvider);
     return Scaffold(
       appBar: AppBar(
           title: const Text('Sign-in'),

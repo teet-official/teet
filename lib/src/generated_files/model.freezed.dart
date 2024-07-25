@@ -14,6 +14,166 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+InterestCategoryModel _$InterestCategoryModelFromJson(
+    Map<String, dynamic> json) {
+  return _InterestCategoryModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$InterestCategoryModel {
+  int get id => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InterestCategoryModelCopyWith<InterestCategoryModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InterestCategoryModelCopyWith<$Res> {
+  factory $InterestCategoryModelCopyWith(InterestCategoryModel value,
+          $Res Function(InterestCategoryModel) then) =
+      _$InterestCategoryModelCopyWithImpl<$Res, InterestCategoryModel>;
+  @useResult
+  $Res call({int id, String label});
+}
+
+/// @nodoc
+class _$InterestCategoryModelCopyWithImpl<$Res,
+        $Val extends InterestCategoryModel>
+    implements $InterestCategoryModelCopyWith<$Res> {
+  _$InterestCategoryModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? label = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InterestCategoryModelImplCopyWith<$Res>
+    implements $InterestCategoryModelCopyWith<$Res> {
+  factory _$$InterestCategoryModelImplCopyWith(
+          _$InterestCategoryModelImpl value,
+          $Res Function(_$InterestCategoryModelImpl) then) =
+      __$$InterestCategoryModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String label});
+}
+
+/// @nodoc
+class __$$InterestCategoryModelImplCopyWithImpl<$Res>
+    extends _$InterestCategoryModelCopyWithImpl<$Res,
+        _$InterestCategoryModelImpl>
+    implements _$$InterestCategoryModelImplCopyWith<$Res> {
+  __$$InterestCategoryModelImplCopyWithImpl(_$InterestCategoryModelImpl _value,
+      $Res Function(_$InterestCategoryModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? label = null,
+  }) {
+    return _then(_$InterestCategoryModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$InterestCategoryModelImpl implements _InterestCategoryModel {
+  _$InterestCategoryModelImpl({required this.id, required this.label});
+
+  factory _$InterestCategoryModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InterestCategoryModelImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String label;
+
+  @override
+  String toString() {
+    return 'InterestCategoryModel(id: $id, label: $label)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InterestCategoryModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.label, label) || other.label == label));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, label);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InterestCategoryModelImplCopyWith<_$InterestCategoryModelImpl>
+      get copyWith => __$$InterestCategoryModelImplCopyWithImpl<
+          _$InterestCategoryModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InterestCategoryModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _InterestCategoryModel implements InterestCategoryModel {
+  factory _InterestCategoryModel(
+      {required final int id,
+      required final String label}) = _$InterestCategoryModelImpl;
+
+  factory _InterestCategoryModel.fromJson(Map<String, dynamic> json) =
+      _$InterestCategoryModelImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get label;
+  @override
+  @JsonKey(ignore: true)
+  _$$InterestCategoryModelImplCopyWith<_$InterestCategoryModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) {
   return _SignUpModel.fromJson(json);
 }

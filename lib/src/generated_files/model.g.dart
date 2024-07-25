@@ -6,6 +6,20 @@ part of 'model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$InterestCategoryModelImpl _$$InterestCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InterestCategoryModelImpl(
+      id: (json['id'] as num).toInt(),
+      label: json['label'] as String,
+    );
+
+Map<String, dynamic> _$$InterestCategoryModelImplToJson(
+        _$InterestCategoryModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+    };
+
 _$SignUpModelImpl _$$SignUpModelImplFromJson(Map<String, dynamic> json) =>
     _$SignUpModelImpl(
       uid: json['uid'] as String,

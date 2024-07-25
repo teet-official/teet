@@ -3,40 +3,85 @@ part of '../../../../generated_files/controller.dart';
 @riverpod
 class SignUpController extends _$SignUpController {
   @override
-  SignUpPageState build() {
+  FutureOr<SignUpPageState> build() async {
+    final allInterestCategory = await _fetchAllInterestCategory();
     return SignUpPageState(
       signUpEntity: SignUpEntity(),
+      allInterestCategory: allInterestCategory,
     );
+  }
+
+  _fetchAllInterestCategory() async {
+    final interestCategories =
+        await ref.watch(getInterestCategoryProvider.future);
+    return interestCategories;
   }
 
   void setUid(String uid) {
-    state = SignUpPageState(
-      signUpEntity: state.signUpEntity.copyWith(uid: uid),
-    );
+    final value = state.valueOrNull;
+    if (value != null) {
+      state = AsyncValue.data(value.copyWith(
+        signUpEntity: value.signUpEntity.copyWith(uid: uid),
+      ));
+    }
   }
 
   void setProfileImageUrl(String profileImageUrl) {
-    state = SignUpPageState(
-      signUpEntity:
-          state.signUpEntity.copyWith(profileImageUrl: profileImageUrl),
-    );
+    final value = state.valueOrNull;
+    if (value != null) {
+      state = AsyncValue.data(value.copyWith(
+        signUpEntity:
+            value.signUpEntity.copyWith(profileImageUrl: profileImageUrl),
+      ));
+    }
   }
 
   void setNickname(String nickname) {
-    state = SignUpPageState(
-      signUpEntity: state.signUpEntity.copyWith(nickname: nickname),
-    );
+    final value = state.valueOrNull;
+    if (value != null) {
+      state = AsyncValue.data(value.copyWith(
+        signUpEntity: value.signUpEntity.copyWith(nickname: nickname),
+      ));
+    }
   }
 
   void setGender(Gender gender) {
-    state = SignUpPageState(
-      signUpEntity: state.signUpEntity.copyWith(gender: gender),
-    );
+    final value = state.valueOrNull;
+    if (value != null) {
+      state = AsyncValue.data(value.copyWith(
+        signUpEntity: value.signUpEntity.copyWith(gender: gender),
+      ));
+    }
   }
 
   void setAgeRange(AgeRange ageRange) {
-    state = SignUpPageState(
-      signUpEntity: state.signUpEntity.copyWith(ageRange: ageRange),
+    final value = state.valueOrNull;
+    if (value != null) {
+      state = AsyncValue.data(value.copyWith(
+        signUpEntity: value.signUpEntity.copyWith(ageRange: ageRange),
+      ));
+    }
+  }
+
+  void setInterestCategoryIds(int selectedInterestCategoryIds) {
+    final value = state.valueOrNull;
+    if (value == null) return;
+
+    final interestCategoryIdsList =
+        value.signUpEntity.selectedInterestCategoryIds.toList();
+
+    if (interestCategoryIdsList.contains(selectedInterestCategoryIds)) {
+      interestCategoryIdsList.remove(selectedInterestCategoryIds);
+    } else {
+      interestCategoryIdsList.add(selectedInterestCategoryIds);
+    }
+
+    state = AsyncValue.data(
+      value.copyWith(
+        signUpEntity: value.signUpEntity.copyWith(
+          selectedInterestCategoryIds: interestCategoryIdsList,
+        ),
+      ),
     );
   }
 }
