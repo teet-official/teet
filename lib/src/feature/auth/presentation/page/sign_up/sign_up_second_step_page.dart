@@ -20,13 +20,15 @@ class SignUpSecondStepPage extends ConsumerWidget {
                 const Text('3개 이상 선택해주세요.'),
                 _buildInterestCategorySelector(value),
                 ElevatedButton(
-                  onPressed: () async {
-                    await ref
-                        .read(authControllerProvider.notifier)
-                        .onPressedSignUpButton();
-                    if (!context.mounted) return;
-                    context.go('/');
-                  },
+                  onPressed: value.canPressSignUpButton
+                      ? () async {
+                          await ref
+                              .read(authControllerProvider.notifier)
+                              .onPressedSignUpButton();
+                          if (!context.mounted) return;
+                          context.go('/');
+                        }
+                      : null,
                   child: const Text('완료'),
                 ),
               ],
