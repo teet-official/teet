@@ -93,6 +93,8 @@ class SignUpController extends _$SignUpController {
         signUpEntity: value.signUpEntity.copyWith(
           selectedInterestCategoryIds: interestCategoryIdsList,
         ),
+        canPressSignUpButton:
+            interestCategoryIdsList.length >= 3 && value.canPressNextButton,
       ),
     );
   }
