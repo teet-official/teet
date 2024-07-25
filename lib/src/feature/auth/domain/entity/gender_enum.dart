@@ -10,4 +10,8 @@ enum Gender {
     return Gender.values
         .firstWhere((value) => value == value, orElse: () => Gender.undefined);
   }
+
+  isNotEmpty() {
+    return value.isNotEmpty;
+  }
 }

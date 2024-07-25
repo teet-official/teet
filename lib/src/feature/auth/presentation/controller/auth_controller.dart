@@ -32,11 +32,26 @@ class AuthController extends _$AuthController {
         throw 'No ID Token found.';
       }
 
-      await Supabase.instance.client.auth.signInWithIdToken(
+      final singInResult =
+          await Supabase.instance.client.auth.signInWithIdToken(
         provider: OAuthProvider.google,
         idToken: idToken,
         accessToken: accessToken,
       );
+      final signInUser = singInResult.user;
+      if (signInUser == null) {
+        throw 'No user found.';
+      }
+
+      final isExistUser = await isExistUserByUid(signInUser.id.toString());
+
+      if (!isExistUser) {
+        final signUpState = ref.watch(signUpControllerProvider.notifier);
+        signUpState.setUid(signInUser.id);
+        signUpState.setNickname(signInUser.userMetadata?["name"]);
+        signUpState.setProfileImageUrl(signInUser.userMetadata?["avatar_url"]);
+        return;
+      }
 
       state = AuthState(
         isSignIn: true,
@@ -55,5 +70,18 @@ class AuthController extends _$AuthController {
     } on Exception catch (e) {
       // TODO
     }
+  }
+
+  Future<bool> isExistUserByUid(String uid) async {
+    final isExists = await ref.read(isExistUserByUidProvider(uid).future);
+    return isExists;
+  }
+
+  Future<void> onPressedSignUpButton() async {
+    final signUpPageState = await ref.read(signUpControllerProvider.future);
+    await ref.watch(signUpProvider(signUpPageState.signUpEntity).future);
+    state = AuthState(
+      isSignIn: true,
+    );
   }
 }

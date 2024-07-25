@@ -6,6 +6,20 @@ part of 'model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$InterestCategoryModelImpl _$$InterestCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InterestCategoryModelImpl(
+      id: (json['id'] as num).toInt(),
+      label: json['label'] as String,
+    );
+
+Map<String, dynamic> _$$InterestCategoryModelImplToJson(
+        _$InterestCategoryModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+    };
+
 _$SignUpModelImpl _$$SignUpModelImplFromJson(Map<String, dynamic> json) =>
     _$SignUpModelImpl(
       uid: json['uid'] as String,
@@ -13,7 +27,6 @@ _$SignUpModelImpl _$$SignUpModelImplFromJson(Map<String, dynamic> json) =>
       profileImageUrl: json['profile_image_url'] as String,
       gender: json['gender'] as String,
       ageRange: json['age_range'] as String,
-      answerRate: (json['answer_rate'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$SignUpModelImplToJson(_$SignUpModelImpl instance) =>
@@ -23,7 +36,6 @@ Map<String, dynamic> _$$SignUpModelImplToJson(_$SignUpModelImpl instance) =>
       'profile_image_url': instance.profileImageUrl,
       'gender': instance.gender,
       'age_range': instance.ageRange,
-      'answer_rate': instance.answerRate,
     };
 
 _$TeetModelImpl _$$TeetModelImplFromJson(Map<String, dynamic> json) =>

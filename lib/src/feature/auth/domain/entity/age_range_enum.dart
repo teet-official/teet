@@ -12,4 +12,8 @@ enum AgeRange {
     return AgeRange.values.firstWhere((value) => value == value,
         orElse: () => AgeRange.undefined);
   }
+
+  isNotEmpty() {
+    return value.isNotEmpty;
+  }
 }

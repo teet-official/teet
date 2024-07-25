@@ -9,6 +9,7 @@ class SignInPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(authControllerProvider);
+    final signUpState = ref.watch(signUpControllerProvider);
     return Scaffold(
       appBar: AppBar(
           title: const Text('Sign-in'),
@@ -19,10 +20,19 @@ class SignInPage extends ConsumerWidget {
             },
           )),
       body: ElevatedButton(
-        onPressed: () {
-          ref
-              .watch(authControllerProvider.notifier)
+        onPressed: () async {
+          await ref
+              .read(authControllerProvider.notifier)
               .onPressedGoogleSignInButton();
+
+          final isSignIn = ref.read(authControllerProvider).isSignIn;
+
+          if (!context.mounted) return;
+          if (isSignIn) {
+            context.push('/');
+          } else {
+            context.push('/auth/sign-up');
+          }
         },
         child: Column(
           children: [

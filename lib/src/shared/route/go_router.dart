@@ -13,7 +13,16 @@ class GoRouterProvider extends _$GoRouterProvider {
         GoRoute(
           path: '/auth/sign-in',
           builder: (context, state) => const SignInPage(),
-        )
+        ),
+        GoRoute(
+            path: '/auth/sign-up',
+            builder: (context, state) => const SignUpFirstStepPage(),
+            routes: [
+              GoRoute(
+                path: 'second-step',
+                builder: (context, state) => const SignUpSecondStepPage(),
+              )
+            ]),
       ],
     );
   }

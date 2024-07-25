@@ -6,13 +6,32 @@ part of 'entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_$InterestCategoryEntityImpl _$$InterestCategoryEntityImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InterestCategoryEntityImpl(
+      id: (json['id'] as num).toInt(),
+      label: json['label'] as String,
+    );
+
+Map<String, dynamic> _$$InterestCategoryEntityImplToJson(
+        _$InterestCategoryEntityImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+    };
+
 _$SignUpEntityImpl _$$SignUpEntityImplFromJson(Map<String, dynamic> json) =>
     _$SignUpEntityImpl(
-      uid: json['uid'] as String,
-      nickname: json['nickname'] as String,
-      profileImageUrl: json['profileImageUrl'] as String,
-      gender: $enumDecode(_$GenderEnumMap, json['gender']),
-      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
+      uid: json['uid'] as String?,
+      nickname: json['nickname'] as String?,
+      profileImageUrl: json['profileImageUrl'] as String?,
+      gender: $enumDecodeNullable(_$GenderEnumMap, json['gender']),
+      ageRange: $enumDecodeNullable(_$AgeRangeEnumMap, json['ageRange']),
+      selectedInterestCategoryIds:
+          (json['selectedInterestCategoryIds'] as List<dynamic>?)
+                  ?.map((e) => (e as num).toInt())
+                  .toList() ??
+              const [],
     );
 
 Map<String, dynamic> _$$SignUpEntityImplToJson(_$SignUpEntityImpl instance) =>
@@ -20,8 +39,9 @@ Map<String, dynamic> _$$SignUpEntityImplToJson(_$SignUpEntityImpl instance) =>
       'uid': instance.uid,
       'nickname': instance.nickname,
       'profileImageUrl': instance.profileImageUrl,
-      'gender': _$GenderEnumMap[instance.gender]!,
-      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
+      'gender': _$GenderEnumMap[instance.gender],
+      'ageRange': _$AgeRangeEnumMap[instance.ageRange],
+      'selectedInterestCategoryIds': instance.selectedInterestCategoryIds,
     };
 
 const _$GenderEnumMap = {
@@ -82,4 +102,23 @@ Map<String, dynamic> _$$TeetSelectionEntityImplToJson(
       'label': instance.label,
       'labelNo': instance.labelNo,
       'isAnswer': instance.isAnswer,
+    };
+
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+      id: json['id'] as String,
+      nickname: json['nickname'] as String,
+      avatarUrl: json['avatarUrl'] as String,
+      gender: $enumDecode(_$GenderEnumMap, json['gender']),
+      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
+      createdAt: json['createdAt'] as String,
+    );
+
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'nickname': instance.nickname,
+      'avatarUrl': instance.avatarUrl,
+      'gender': _$GenderEnumMap[instance.gender]!,
+      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
+      'createdAt': instance.createdAt,
     };

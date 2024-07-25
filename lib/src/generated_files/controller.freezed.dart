@@ -133,6 +133,223 @@ abstract class _AuthState implements AuthState {
 }
 
 /// @nodoc
+mixin _$SignUpPageState {
+  SignUpEntity get signUpEntity => throw _privateConstructorUsedError;
+  List<InterestCategoryEntity> get allInterestCategory =>
+      throw _privateConstructorUsedError;
+  bool get canPressNextButton => throw _privateConstructorUsedError;
+  bool get canPressSignUpButton => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignUpPageStateCopyWith<SignUpPageState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignUpPageStateCopyWith<$Res> {
+  factory $SignUpPageStateCopyWith(
+          SignUpPageState value, $Res Function(SignUpPageState) then) =
+      _$SignUpPageStateCopyWithImpl<$Res, SignUpPageState>;
+  @useResult
+  $Res call(
+      {SignUpEntity signUpEntity,
+      List<InterestCategoryEntity> allInterestCategory,
+      bool canPressNextButton,
+      bool canPressSignUpButton});
+
+  $SignUpEntityCopyWith<$Res> get signUpEntity;
+}
+
+/// @nodoc
+class _$SignUpPageStateCopyWithImpl<$Res, $Val extends SignUpPageState>
+    implements $SignUpPageStateCopyWith<$Res> {
+  _$SignUpPageStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? signUpEntity = null,
+    Object? allInterestCategory = null,
+    Object? canPressNextButton = null,
+    Object? canPressSignUpButton = null,
+  }) {
+    return _then(_value.copyWith(
+      signUpEntity: null == signUpEntity
+          ? _value.signUpEntity
+          : signUpEntity // ignore: cast_nullable_to_non_nullable
+              as SignUpEntity,
+      allInterestCategory: null == allInterestCategory
+          ? _value.allInterestCategory
+          : allInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
+      canPressNextButton: null == canPressNextButton
+          ? _value.canPressNextButton
+          : canPressNextButton // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canPressSignUpButton: null == canPressSignUpButton
+          ? _value.canPressSignUpButton
+          : canPressSignUpButton // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SignUpEntityCopyWith<$Res> get signUpEntity {
+    return $SignUpEntityCopyWith<$Res>(_value.signUpEntity, (value) {
+      return _then(_value.copyWith(signUpEntity: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$SignUpPageStateImplCopyWith<$Res>
+    implements $SignUpPageStateCopyWith<$Res> {
+  factory _$$SignUpPageStateImplCopyWith(_$SignUpPageStateImpl value,
+          $Res Function(_$SignUpPageStateImpl) then) =
+      __$$SignUpPageStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {SignUpEntity signUpEntity,
+      List<InterestCategoryEntity> allInterestCategory,
+      bool canPressNextButton,
+      bool canPressSignUpButton});
+
+  @override
+  $SignUpEntityCopyWith<$Res> get signUpEntity;
+}
+
+/// @nodoc
+class __$$SignUpPageStateImplCopyWithImpl<$Res>
+    extends _$SignUpPageStateCopyWithImpl<$Res, _$SignUpPageStateImpl>
+    implements _$$SignUpPageStateImplCopyWith<$Res> {
+  __$$SignUpPageStateImplCopyWithImpl(
+      _$SignUpPageStateImpl _value, $Res Function(_$SignUpPageStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? signUpEntity = null,
+    Object? allInterestCategory = null,
+    Object? canPressNextButton = null,
+    Object? canPressSignUpButton = null,
+  }) {
+    return _then(_$SignUpPageStateImpl(
+      signUpEntity: null == signUpEntity
+          ? _value.signUpEntity
+          : signUpEntity // ignore: cast_nullable_to_non_nullable
+              as SignUpEntity,
+      allInterestCategory: null == allInterestCategory
+          ? _value._allInterestCategory
+          : allInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
+      canPressNextButton: null == canPressNextButton
+          ? _value.canPressNextButton
+          : canPressNextButton // ignore: cast_nullable_to_non_nullable
+              as bool,
+      canPressSignUpButton: null == canPressSignUpButton
+          ? _value.canPressSignUpButton
+          : canPressSignUpButton // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignUpPageStateImpl extends _SignUpPageState {
+  _$SignUpPageStateImpl(
+      {required this.signUpEntity,
+      required final List<InterestCategoryEntity> allInterestCategory,
+      this.canPressNextButton = false,
+      this.canPressSignUpButton = false})
+      : _allInterestCategory = allInterestCategory,
+        super._();
+
+  @override
+  final SignUpEntity signUpEntity;
+  final List<InterestCategoryEntity> _allInterestCategory;
+  @override
+  List<InterestCategoryEntity> get allInterestCategory {
+    if (_allInterestCategory is EqualUnmodifiableListView)
+      return _allInterestCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allInterestCategory);
+  }
+
+  @override
+  @JsonKey()
+  final bool canPressNextButton;
+  @override
+  @JsonKey()
+  final bool canPressSignUpButton;
+
+  @override
+  String toString() {
+    return 'SignUpPageState(signUpEntity: $signUpEntity, allInterestCategory: $allInterestCategory, canPressNextButton: $canPressNextButton, canPressSignUpButton: $canPressSignUpButton)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpPageStateImpl &&
+            (identical(other.signUpEntity, signUpEntity) ||
+                other.signUpEntity == signUpEntity) &&
+            const DeepCollectionEquality()
+                .equals(other._allInterestCategory, _allInterestCategory) &&
+            (identical(other.canPressNextButton, canPressNextButton) ||
+                other.canPressNextButton == canPressNextButton) &&
+            (identical(other.canPressSignUpButton, canPressSignUpButton) ||
+                other.canPressSignUpButton == canPressSignUpButton));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      signUpEntity,
+      const DeepCollectionEquality().hash(_allInterestCategory),
+      canPressNextButton,
+      canPressSignUpButton);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpPageStateImplCopyWith<_$SignUpPageStateImpl> get copyWith =>
+      __$$SignUpPageStateImplCopyWithImpl<_$SignUpPageStateImpl>(
+          this, _$identity);
+}
+
+abstract class _SignUpPageState extends SignUpPageState {
+  factory _SignUpPageState(
+      {required final SignUpEntity signUpEntity,
+      required final List<InterestCategoryEntity> allInterestCategory,
+      final bool canPressNextButton,
+      final bool canPressSignUpButton}) = _$SignUpPageStateImpl;
+  _SignUpPageState._() : super._();
+
+  @override
+  SignUpEntity get signUpEntity;
+  @override
+  List<InterestCategoryEntity> get allInterestCategory;
+  @override
+  bool get canPressNextButton;
+  @override
+  bool get canPressSignUpButton;
+  @override
+  @JsonKey(ignore: true)
+  _$$SignUpPageStateImplCopyWith<_$SignUpPageStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MainPageState {
   int get bottomNavigationBarIndex => throw _privateConstructorUsedError;
 
