@@ -76,4 +76,12 @@ class AuthController extends _$AuthController {
     final isExists = await ref.read(isExistUserByUidProvider(uid).future);
     return isExists;
   }
+
+  Future<void> onPressedSignUpButton() async {
+    final signUpPageState = await ref.read(signUpControllerProvider.future);
+    await ref.watch(signUpProvider(signUpPageState.signUpEntity).future);
+    state = AuthState(
+      isSignIn: true,
+    );
+  }
 }

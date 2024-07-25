@@ -27,7 +27,6 @@ _$SignUpModelImpl _$$SignUpModelImplFromJson(Map<String, dynamic> json) =>
       profileImageUrl: json['profile_image_url'] as String,
       gender: json['gender'] as String,
       ageRange: json['age_range'] as String,
-      answerRate: (json['answer_rate'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$SignUpModelImplToJson(_$SignUpModelImpl instance) =>
@@ -37,7 +36,6 @@ Map<String, dynamic> _$$SignUpModelImplToJson(_$SignUpModelImpl instance) =>
       'profile_image_url': instance.profileImageUrl,
       'gender': instance.gender,
       'age_range': instance.ageRange,
-      'answer_rate': instance.answerRate,
     };
 
 _$TeetModelImpl _$$TeetModelImplFromJson(Map<String, dynamic> json) =>

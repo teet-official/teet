@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:teet/src/generated_files/controller.dart';
 
 class SignUpSecondStepPage extends ConsumerWidget {
@@ -21,8 +20,12 @@ class SignUpSecondStepPage extends ConsumerWidget {
                 const Text('3개 이상 선택해주세요.'),
                 _buildInterestCategorySelector(value),
                 ElevatedButton(
-                  onPressed: () {
-                    inspect(value);
+                  onPressed: () async {
+                    await ref
+                        .read(authControllerProvider.notifier)
+                        .onPressedSignUpButton();
+                    if (!context.mounted) return;
+                    context.go('/');
                   },
                   child: const Text('완료'),
                 ),

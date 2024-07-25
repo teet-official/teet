@@ -185,7 +185,6 @@ mixin _$SignUpModel {
   String get profileImageUrl => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get ageRange => throw _privateConstructorUsedError;
-  int? get answerRate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -204,8 +203,7 @@ abstract class $SignUpModelCopyWith<$Res> {
       String nickname,
       String profileImageUrl,
       String gender,
-      String ageRange,
-      int? answerRate});
+      String ageRange});
 }
 
 /// @nodoc
@@ -226,7 +224,6 @@ class _$SignUpModelCopyWithImpl<$Res, $Val extends SignUpModel>
     Object? profileImageUrl = null,
     Object? gender = null,
     Object? ageRange = null,
-    Object? answerRate = freezed,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
@@ -249,10 +246,6 @@ class _$SignUpModelCopyWithImpl<$Res, $Val extends SignUpModel>
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
               as String,
-      answerRate: freezed == answerRate
-          ? _value.answerRate
-          : answerRate // ignore: cast_nullable_to_non_nullable
-              as int?,
     ) as $Val);
   }
 }
@@ -270,8 +263,7 @@ abstract class _$$SignUpModelImplCopyWith<$Res>
       String nickname,
       String profileImageUrl,
       String gender,
-      String ageRange,
-      int? answerRate});
+      String ageRange});
 }
 
 /// @nodoc
@@ -290,7 +282,6 @@ class __$$SignUpModelImplCopyWithImpl<$Res>
     Object? profileImageUrl = null,
     Object? gender = null,
     Object? ageRange = null,
-    Object? answerRate = freezed,
   }) {
     return _then(_$SignUpModelImpl(
       uid: null == uid
@@ -313,10 +304,6 @@ class __$$SignUpModelImplCopyWithImpl<$Res>
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
               as String,
-      answerRate: freezed == answerRate
-          ? _value.answerRate
-          : answerRate // ignore: cast_nullable_to_non_nullable
-              as int?,
     ));
   }
 }
@@ -330,8 +317,7 @@ class _$SignUpModelImpl implements _SignUpModel {
       required this.nickname,
       required this.profileImageUrl,
       required this.gender,
-      required this.ageRange,
-      this.answerRate});
+      required this.ageRange});
 
   factory _$SignUpModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SignUpModelImplFromJson(json);
@@ -346,12 +332,10 @@ class _$SignUpModelImpl implements _SignUpModel {
   final String gender;
   @override
   final String ageRange;
-  @override
-  final int? answerRate;
 
   @override
   String toString() {
-    return 'SignUpModel(uid: $uid, nickname: $nickname, profileImageUrl: $profileImageUrl, gender: $gender, ageRange: $ageRange, answerRate: $answerRate)';
+    return 'SignUpModel(uid: $uid, nickname: $nickname, profileImageUrl: $profileImageUrl, gender: $gender, ageRange: $ageRange)';
   }
 
   @override
@@ -366,15 +350,13 @@ class _$SignUpModelImpl implements _SignUpModel {
                 other.profileImageUrl == profileImageUrl) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.ageRange, ageRange) ||
-                other.ageRange == ageRange) &&
-            (identical(other.answerRate, answerRate) ||
-                other.answerRate == answerRate));
+                other.ageRange == ageRange));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, nickname, profileImageUrl,
-      gender, ageRange, answerRate);
+  int get hashCode => Object.hash(
+      runtimeType, uid, nickname, profileImageUrl, gender, ageRange);
 
   @JsonKey(ignore: true)
   @override
@@ -396,8 +378,7 @@ abstract class _SignUpModel implements SignUpModel {
       required final String nickname,
       required final String profileImageUrl,
       required final String gender,
-      required final String ageRange,
-      final int? answerRate}) = _$SignUpModelImpl;
+      required final String ageRange}) = _$SignUpModelImpl;
 
   factory _SignUpModel.fromJson(Map<String, dynamic> json) =
       _$SignUpModelImpl.fromJson;
@@ -412,8 +393,6 @@ abstract class _SignUpModel implements SignUpModel {
   String get gender;
   @override
   String get ageRange;
-  @override
-  int? get answerRate;
   @override
   @JsonKey(ignore: true)
   _$$SignUpModelImplCopyWith<_$SignUpModelImpl> get copyWith =>
