@@ -14,14 +14,6 @@ class SignUpFirstStepPage extends ConsumerWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('회원가입'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                context.push('/auth/sign-up/second-step');
-              },
-              child: const Text('다음'),
-            )
-          ],
         ),
         body: switch (state) {
           AsyncData(:final value) => Column(
@@ -40,7 +32,15 @@ class SignUpFirstStepPage extends ConsumerWidget {
                 _buildAgeRangeSelector(value),
                 Text(
                   value.signUpEntity.toString(),
-                )
+                ),
+                Text(
+                  value.canPressNextButton.toString(),
+                ),
+                ElevatedButton(
+                    onPressed: value.canPressNextButton
+                        ? () => context.push('/auth/sign-up/second-step')
+                        : null,
+                    child: const Text('다음')),
               ],
             ),
           _ => const Text('Loading')

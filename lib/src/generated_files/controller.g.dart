@@ -6,7 +6,7 @@ part of 'controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'831f05c0e1f54f292e704bccb0bdc00e352a9fca';
+String _$authControllerHash() => r'937002aee71753a4374542a738d618f52be676b0';
 
 /// See also [AuthController].
 @ProviderFor(AuthController)
@@ -22,7 +22,7 @@ final authControllerProvider =
 );
 
 typedef _$AuthController = AutoDisposeNotifier<AuthState>;
-String _$signUpControllerHash() => r'9bf4941ba35df58091b8da227d935502dd18b1c5';
+String _$signUpControllerHash() => r'cc5a94375ec7d8a310e78e7d36e12243c6de5653';
 
 /// See also [SignUpController].
 @ProviderFor(SignUpController)

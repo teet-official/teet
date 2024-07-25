@@ -41,6 +41,10 @@ class SignUpController extends _$SignUpController {
     if (value != null) {
       state = AsyncValue.data(value.copyWith(
         signUpEntity: value.signUpEntity.copyWith(nickname: nickname),
+        canPressNextButton: nickname != '' &&
+            nickname.isNotEmpty &&
+            value.signUpEntity.gender != null &&
+            value.signUpEntity.ageRange != null,
       ));
     }
   }
@@ -50,6 +54,10 @@ class SignUpController extends _$SignUpController {
     if (value != null) {
       state = AsyncValue.data(value.copyWith(
         signUpEntity: value.signUpEntity.copyWith(gender: gender),
+        canPressNextButton: value.signUpEntity.nickname != '' &&
+            value.signUpEntity.nickname != null &&
+            value.signUpEntity.nickname!.isNotEmpty &&
+            value.signUpEntity.ageRange != null,
       ));
     }
   }
@@ -59,6 +67,10 @@ class SignUpController extends _$SignUpController {
     if (value != null) {
       state = AsyncValue.data(value.copyWith(
         signUpEntity: value.signUpEntity.copyWith(ageRange: ageRange),
+        canPressNextButton: value.signUpEntity.nickname != '' &&
+            value.signUpEntity.nickname != null &&
+            value.signUpEntity.nickname!.isNotEmpty &&
+            value.signUpEntity.gender != null,
       ));
     }
   }
