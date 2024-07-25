@@ -41,8 +41,9 @@ class AuthController extends _$AuthController {
         throw 'No user found.';
       }
 
-      // TODO: if user is new, navigate to sign up page
-      if (true) {
+      final isExistUser = await isExistUserByUid(signInUser.id.toString());
+
+      if (!isExistUser) {
         final signUpState = ref.watch(signUpControllerProvider.notifier);
         signUpState.setUid(signInUser.id);
         signUpState.setNickname(signInUser.userMetadata?["name"]);
@@ -67,5 +68,10 @@ class AuthController extends _$AuthController {
     } on Exception catch (e) {
       // TODO
     }
+  }
+
+  Future<bool> isExistUserByUid(String uid) async {
+    final isExists = await ref.read(isExistUserByUidProvider(uid).future);
+    return isExists;
   }
 }
