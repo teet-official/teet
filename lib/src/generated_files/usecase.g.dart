@@ -6,6 +6,154 @@ part of 'usecase.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+String _$signUpHash() => r'ebc2993aa295715ec76d8aaf0034a889261ef79c';
+
+/// Copied from Dart SDK
+class _SystemHash {
+  _SystemHash._();
+
+  static int combine(int hash, int value) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + value);
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
+    return hash ^ (hash >> 6);
+  }
+
+  static int finish(int hash) {
+    // ignore: parameter_assignments
+    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
+    // ignore: parameter_assignments
+    hash = hash ^ (hash >> 11);
+    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+  }
+}
+
+/// See also [signUp].
+@ProviderFor(signUp)
+const signUpProvider = SignUpFamily();
+
+/// See also [signUp].
+class SignUpFamily extends Family<AsyncValue<void>> {
+  /// See also [signUp].
+  const SignUpFamily();
+
+  /// See also [signUp].
+  SignUpProvider call(
+    SignUpEntity signUpEntity,
+  ) {
+    return SignUpProvider(
+      signUpEntity,
+    );
+  }
+
+  @override
+  SignUpProvider getProviderOverride(
+    covariant SignUpProvider provider,
+  ) {
+    return call(
+      provider.signUpEntity,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'signUpProvider';
+}
+
+/// See also [signUp].
+class SignUpProvider extends AutoDisposeFutureProvider<void> {
+  /// See also [signUp].
+  SignUpProvider(
+    SignUpEntity signUpEntity,
+  ) : this._internal(
+          (ref) => signUp(
+            ref as SignUpRef,
+            signUpEntity,
+          ),
+          from: signUpProvider,
+          name: r'signUpProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$signUpHash,
+          dependencies: SignUpFamily._dependencies,
+          allTransitiveDependencies: SignUpFamily._allTransitiveDependencies,
+          signUpEntity: signUpEntity,
+        );
+
+  SignUpProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.signUpEntity,
+  }) : super.internal();
+
+  final SignUpEntity signUpEntity;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(SignUpRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: SignUpProvider._internal(
+        (ref) => create(ref as SignUpRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        signUpEntity: signUpEntity,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _SignUpProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SignUpProvider && other.signUpEntity == signUpEntity;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, signUpEntity.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SignUpRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `signUpEntity` of this provider.
+  SignUpEntity get signUpEntity;
+}
+
+class _SignUpProviderElement extends AutoDisposeFutureProviderElement<void>
+    with SignUpRef {
+  _SignUpProviderElement(super.provider);
+
+  @override
+  SignUpEntity get signUpEntity => (origin as SignUpProvider).signUpEntity;
+}
+
 String _$getInterestCategoryHash() =>
     r'd3c0b1ce89ccff548a42ad5a2fabe7b3095c0ffa';
 
@@ -39,27 +187,6 @@ final getTeetsProvider = AutoDisposeFutureProvider<List<TeetEntity>>.internal(
 
 typedef GetTeetsRef = AutoDisposeFutureProviderRef<List<TeetEntity>>;
 String _$isExistUserByUidHash() => r'1b1118fb5af624cbc25e2fd68a8107038c29133e';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
 
 /// See also [isExistUserByUid].
 @ProviderFor(isExistUserByUid)
