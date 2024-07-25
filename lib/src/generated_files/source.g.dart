@@ -21,6 +21,24 @@ final authDataSourceProvider = AutoDisposeProvider<AuthDataSource>.internal(
 );
 
 typedef AuthDataSourceRef = AutoDisposeProviderRef<AuthDataSource>;
+String _$interestCategoryDataSourceHash() =>
+    r'5bc6922914188be432a546332fa22f504e636642';
+
+/// See also [interestCategoryDataSource].
+@ProviderFor(interestCategoryDataSource)
+final interestCategoryDataSourceProvider =
+    AutoDisposeProvider<InterestCategoryDataSource>.internal(
+  interestCategoryDataSource,
+  name: r'interestCategoryDataSourceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$interestCategoryDataSourceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef InterestCategoryDataSourceRef
+    = AutoDisposeProviderRef<InterestCategoryDataSource>;
 String _$teetDataSourceHash() => r'7a6b5448044c2a8c1f6c949316fb754324fcdd5a';
 
 /// See also [teetDataSource].

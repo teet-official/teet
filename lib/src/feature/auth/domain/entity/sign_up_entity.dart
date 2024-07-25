@@ -8,6 +8,7 @@ class SignUpEntity with _$SignUpEntity {
     String? profileImageUrl,
     Gender? gender,
     AgeRange? ageRange,
+    @Default([]) List<int> selectedInterestCategoryIds,
   }) = _SignUpEntity;
 
   factory SignUpEntity.fromJson(Map<String, dynamic> json) =>

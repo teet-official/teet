@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:teet/src/feature/auth/domain/entity/age_range_enum.dart';
 import 'package:teet/src/feature/auth/domain/entity/gender_enum.dart';
 import 'package:teet/src/generated_files/controller.dart';
@@ -15,27 +16,38 @@ class SignUpFirstStepPage extends ConsumerWidget {
           title: const Text('회원가입'),
           actions: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.push('/auth/sign-up/second-step');
+              },
               child: const Text('다음'),
             )
           ],
         ),
-        body: Column(
-          children: [
-            const Text('닉네임'),
-            TextFormField(
-              initialValue: state.signUpEntity.nickname,
-              onChanged: (value) {},
+        body: switch (state) {
+          AsyncData(:final value) => Column(
+              children: [
+                const Text('닉네임'),
+                TextFormField(
+                  initialValue: value.signUpEntity.nickname,
+                  onChanged: (value) {
+                    ref
+                        .read(signUpControllerProvider.notifier)
+                        .setNickname(value);
+                  },
+                ),
+                const Text('성별'),
+                _buildGenderSelector(value),
+                _buildAgeRangeSelector(value),
+                Text(
+                  value.signUpEntity.toString(),
+                )
+              ],
             ),
-            const Text('성별'),
-            _buildGenderSelector(),
-            _buildAgeRangeSelector(),
-            Text(state.toString())
-          ],
-        ));
+          _ => const Text('Loading')
+        });
   }
 
-  _buildGenderSelector() {
+  _buildGenderSelector(SignUpPageState state) {
     const genderList = [
       {
         "label": "🙋🏻‍♂️",
@@ -56,7 +68,6 @@ class SignUpFirstStepPage extends ConsumerWidget {
 
     return Consumer(
       builder: (context, ref, child) {
-        final state = ref.watch(signUpControllerProvider);
         return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           ...genderList.map((gender) {
             return Opacity(
@@ -82,7 +93,7 @@ class SignUpFirstStepPage extends ConsumerWidget {
     );
   }
 
-  _buildAgeRangeSelector() {
+  _buildAgeRangeSelector(SignUpPageState state) {
     const ageRangeList = [
       {
         "value": AgeRange.teenager,
@@ -108,7 +119,6 @@ class SignUpFirstStepPage extends ConsumerWidget {
 
     return Consumer(
       builder: (context, ref, child) {
-        final state = ref.watch(signUpControllerProvider);
         return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           ...ageRangeList.map((ageRange) {
             return Opacity(

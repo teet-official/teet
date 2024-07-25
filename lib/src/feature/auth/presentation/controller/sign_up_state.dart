@@ -4,5 +4,6 @@ part of '../../../../generated_files/controller.dart';
 sealed class SignUpPageState with _$SignUpPageState {
   factory SignUpPageState({
     required SignUpEntity signUpEntity,
+    required List<InterestCategoryEntity> allInterestCategory,
   }) = _SignUpPageState;
 }
