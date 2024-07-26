@@ -6,38 +6,6 @@ part of 'model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InterestCategoryModelImpl _$$InterestCategoryModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$InterestCategoryModelImpl(
-      id: (json['id'] as num).toInt(),
-      label: json['label'] as String,
-    );
-
-Map<String, dynamic> _$$InterestCategoryModelImplToJson(
-        _$InterestCategoryModelImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'label': instance.label,
-    };
-
-_$SignUpModelImpl _$$SignUpModelImplFromJson(Map<String, dynamic> json) =>
-    _$SignUpModelImpl(
-      uid: json['uid'] as String,
-      nickname: json['nickname'] as String,
-      profileImageUrl: json['profile_image_url'] as String,
-      gender: json['gender'] as String,
-      ageRange: json['age_range'] as String,
-    );
-
-Map<String, dynamic> _$$SignUpModelImplToJson(_$SignUpModelImpl instance) =>
-    <String, dynamic>{
-      'uid': instance.uid,
-      'nickname': instance.nickname,
-      'profile_image_url': instance.profileImageUrl,
-      'gender': instance.gender,
-      'age_range': instance.ageRange,
-    };
-
 _$TeetModelImpl _$$TeetModelImplFromJson(Map<String, dynamic> json) =>
     _$TeetModelImpl(
       id: (json['id'] as num).toInt(),
@@ -82,4 +50,52 @@ Map<String, dynamic> _$$TeetSelectionModelImplToJson(
       'label_no': instance.labelNo,
       'is_answer': instance.isAnswer,
       'created_at': instance.createdAt.toIso8601String(),
+    };
+
+_$CreateUserModelImpl _$$CreateUserModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CreateUserModelImpl(
+      uid: json['uid'] as String,
+      nickname: json['nickname'] as String,
+      profileImageUrl: json['profile_image_url'] as String,
+      gender: json['gender'] as String,
+      ageRange: json['age_range'] as String,
+    );
+
+Map<String, dynamic> _$$CreateUserModelImplToJson(
+        _$CreateUserModelImpl instance) =>
+    <String, dynamic>{
+      'uid': instance.uid,
+      'nickname': instance.nickname,
+      'profile_image_url': instance.profileImageUrl,
+      'gender': instance.gender,
+      'age_range': instance.ageRange,
+    };
+
+_$GetAllInterestCategoryModelImpl _$$GetAllInterestCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GetAllInterestCategoryModelImpl(
+      id: (json['id'] as num).toInt(),
+      label: json['label'] as String,
+    );
+
+Map<String, dynamic> _$$GetAllInterestCategoryModelImplToJson(
+        _$GetAllInterestCategoryModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+    };
+
+_$UpdateUserInterestCategoryModelImpl
+    _$$UpdateUserInterestCategoryModelImplFromJson(Map<String, dynamic> json) =>
+        _$UpdateUserInterestCategoryModelImpl(
+          userId: (json['user_id'] as num).toInt(),
+          interestCategoryId: (json['interest_category_id'] as num).toInt(),
+        );
+
+Map<String, dynamic> _$$UpdateUserInterestCategoryModelImplToJson(
+        _$UpdateUserInterestCategoryModelImpl instance) =>
+    <String, dynamic>{
+      'user_id': instance.userId,
+      'interest_category_id': instance.interestCategoryId,
     };

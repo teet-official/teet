@@ -154,24 +154,6 @@ class _SignUpProviderElement extends AutoDisposeFutureProviderElement<void>
   SignUpEntity get signUpEntity => (origin as SignUpProvider).signUpEntity;
 }
 
-String _$getInterestCategoryHash() =>
-    r'd3c0b1ce89ccff548a42ad5a2fabe7b3095c0ffa';
-
-/// See also [getInterestCategory].
-@ProviderFor(getInterestCategory)
-final getInterestCategoryProvider =
-    AutoDisposeFutureProvider<List<InterestCategoryEntity>>.internal(
-  getInterestCategory,
-  name: r'getInterestCategoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$getInterestCategoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef GetInterestCategoryRef
-    = AutoDisposeFutureProviderRef<List<InterestCategoryEntity>>;
 String _$getTeetsHash() => r'd1084192d61ddb7f162c75176d695935e6e51888';
 
 /// See also [getTeets].
@@ -186,6 +168,24 @@ final getTeetsProvider = AutoDisposeFutureProvider<List<TeetEntity>>.internal(
 );
 
 typedef GetTeetsRef = AutoDisposeFutureProviderRef<List<TeetEntity>>;
+String _$getAllInterestCategoriesHash() =>
+    r'6ebd283aff35d42a114eee89da387279f7b79742';
+
+/// See also [getAllInterestCategories].
+@ProviderFor(getAllInterestCategories)
+final getAllInterestCategoriesProvider =
+    AutoDisposeFutureProvider<List<InterestCategoryEntity>>.internal(
+  getAllInterestCategories,
+  name: r'getAllInterestCategoriesProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getAllInterestCategoriesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetAllInterestCategoriesRef
+    = AutoDisposeFutureProviderRef<List<InterestCategoryEntity>>;
 String _$isExistUserByUidHash() => r'1b1118fb5af624cbc25e2fd68a8107038c29133e';
 
 /// See also [isExistUserByUid].

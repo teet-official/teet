@@ -14,166 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-InterestCategoryEntity _$InterestCategoryEntityFromJson(
-    Map<String, dynamic> json) {
-  return _InterestCategoryEntity.fromJson(json);
-}
-
-/// @nodoc
-mixin _$InterestCategoryEntity {
-  int get id => throw _privateConstructorUsedError;
-  String get label => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $InterestCategoryEntityCopyWith<InterestCategoryEntity> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $InterestCategoryEntityCopyWith<$Res> {
-  factory $InterestCategoryEntityCopyWith(InterestCategoryEntity value,
-          $Res Function(InterestCategoryEntity) then) =
-      _$InterestCategoryEntityCopyWithImpl<$Res, InterestCategoryEntity>;
-  @useResult
-  $Res call({int id, String label});
-}
-
-/// @nodoc
-class _$InterestCategoryEntityCopyWithImpl<$Res,
-        $Val extends InterestCategoryEntity>
-    implements $InterestCategoryEntityCopyWith<$Res> {
-  _$InterestCategoryEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? label = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$InterestCategoryEntityImplCopyWith<$Res>
-    implements $InterestCategoryEntityCopyWith<$Res> {
-  factory _$$InterestCategoryEntityImplCopyWith(
-          _$InterestCategoryEntityImpl value,
-          $Res Function(_$InterestCategoryEntityImpl) then) =
-      __$$InterestCategoryEntityImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int id, String label});
-}
-
-/// @nodoc
-class __$$InterestCategoryEntityImplCopyWithImpl<$Res>
-    extends _$InterestCategoryEntityCopyWithImpl<$Res,
-        _$InterestCategoryEntityImpl>
-    implements _$$InterestCategoryEntityImplCopyWith<$Res> {
-  __$$InterestCategoryEntityImplCopyWithImpl(
-      _$InterestCategoryEntityImpl _value,
-      $Res Function(_$InterestCategoryEntityImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? label = null,
-  }) {
-    return _then(_$InterestCategoryEntityImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$InterestCategoryEntityImpl implements _InterestCategoryEntity {
-  _$InterestCategoryEntityImpl({required this.id, required this.label});
-
-  factory _$InterestCategoryEntityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$InterestCategoryEntityImplFromJson(json);
-
-  @override
-  final int id;
-  @override
-  final String label;
-
-  @override
-  String toString() {
-    return 'InterestCategoryEntity(id: $id, label: $label)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InterestCategoryEntityImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.label, label) || other.label == label));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, label);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InterestCategoryEntityImplCopyWith<_$InterestCategoryEntityImpl>
-      get copyWith => __$$InterestCategoryEntityImplCopyWithImpl<
-          _$InterestCategoryEntityImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$InterestCategoryEntityImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _InterestCategoryEntity implements InterestCategoryEntity {
-  factory _InterestCategoryEntity(
-      {required final int id,
-      required final String label}) = _$InterestCategoryEntityImpl;
-
-  factory _InterestCategoryEntity.fromJson(Map<String, dynamic> json) =
-      _$InterestCategoryEntityImpl.fromJson;
-
-  @override
-  int get id;
-  @override
-  String get label;
-  @override
-  @JsonKey(ignore: true)
-  _$$InterestCategoryEntityImplCopyWith<_$InterestCategoryEntityImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
 SignUpEntity _$SignUpEntityFromJson(Map<String, dynamic> json) {
   return _SignUpEntity.fromJson(json);
 }
@@ -950,6 +790,166 @@ abstract class _TeetSelectionEntity implements TeetSelectionEntity {
   @JsonKey(ignore: true)
   _$$TeetSelectionEntityImplCopyWith<_$TeetSelectionEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+InterestCategoryEntity _$InterestCategoryEntityFromJson(
+    Map<String, dynamic> json) {
+  return _InterestCategoryEntity.fromJson(json);
+}
+
+/// @nodoc
+mixin _$InterestCategoryEntity {
+  int get id => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InterestCategoryEntityCopyWith<InterestCategoryEntity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InterestCategoryEntityCopyWith<$Res> {
+  factory $InterestCategoryEntityCopyWith(InterestCategoryEntity value,
+          $Res Function(InterestCategoryEntity) then) =
+      _$InterestCategoryEntityCopyWithImpl<$Res, InterestCategoryEntity>;
+  @useResult
+  $Res call({int id, String label});
+}
+
+/// @nodoc
+class _$InterestCategoryEntityCopyWithImpl<$Res,
+        $Val extends InterestCategoryEntity>
+    implements $InterestCategoryEntityCopyWith<$Res> {
+  _$InterestCategoryEntityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? label = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InterestCategoryEntityImplCopyWith<$Res>
+    implements $InterestCategoryEntityCopyWith<$Res> {
+  factory _$$InterestCategoryEntityImplCopyWith(
+          _$InterestCategoryEntityImpl value,
+          $Res Function(_$InterestCategoryEntityImpl) then) =
+      __$$InterestCategoryEntityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String label});
+}
+
+/// @nodoc
+class __$$InterestCategoryEntityImplCopyWithImpl<$Res>
+    extends _$InterestCategoryEntityCopyWithImpl<$Res,
+        _$InterestCategoryEntityImpl>
+    implements _$$InterestCategoryEntityImplCopyWith<$Res> {
+  __$$InterestCategoryEntityImplCopyWithImpl(
+      _$InterestCategoryEntityImpl _value,
+      $Res Function(_$InterestCategoryEntityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? label = null,
+  }) {
+    return _then(_$InterestCategoryEntityImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$InterestCategoryEntityImpl implements _InterestCategoryEntity {
+  _$InterestCategoryEntityImpl({required this.id, required this.label});
+
+  factory _$InterestCategoryEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InterestCategoryEntityImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String label;
+
+  @override
+  String toString() {
+    return 'InterestCategoryEntity(id: $id, label: $label)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InterestCategoryEntityImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.label, label) || other.label == label));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, label);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InterestCategoryEntityImplCopyWith<_$InterestCategoryEntityImpl>
+      get copyWith => __$$InterestCategoryEntityImplCopyWithImpl<
+          _$InterestCategoryEntityImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InterestCategoryEntityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _InterestCategoryEntity implements InterestCategoryEntity {
+  factory _InterestCategoryEntity(
+      {required final int id,
+      required final String label}) = _$InterestCategoryEntityImpl;
+
+  factory _InterestCategoryEntity.fromJson(Map<String, dynamic> json) =
+      _$InterestCategoryEntityImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get label;
+  @override
+  @JsonKey(ignore: true)
+  _$$InterestCategoryEntityImplCopyWith<_$InterestCategoryEntityImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {

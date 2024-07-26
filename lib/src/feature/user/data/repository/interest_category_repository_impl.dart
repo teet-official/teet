@@ -6,15 +6,9 @@ class InterestCategoryRepositoryImpl extends InterestCategoryRepository {
   final InterestCategoryDataSource _source;
 
   @override
-  Future<List<InterestCategoryEntity>> getInterestCategory() async {
-    final models = await _source.getInterestCategory();
-    return models
-        .map(
-          (model) => InterestCategoryEntity.fromJson(
-            model.toJson(),
-          ),
-        )
-        .toList();
+  Future<List<InterestCategoryEntity>> getAllInterestCategories() async {
+    final models = await _source.getAllInterestCategories();
+    return models.map((e) => e.toEntity()).toList();
   }
 }
 

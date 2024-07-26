@@ -6,7 +6,7 @@ part of 'repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authRepositoryHash() => r'3a1d316aac0efe675723a65fa8652758c9080321';
+String _$authRepositoryHash() => r'd95aec38ccb0ed3c6f3c085bf35458fca3918860';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)
@@ -21,6 +21,21 @@ final authRepositoryProvider = AutoDisposeProvider<AuthRepository>.internal(
 );
 
 typedef AuthRepositoryRef = AutoDisposeProviderRef<AuthRepository>;
+String _$teetRepositoryHash() => r'6881b54cd698992dc9a79bfdc458f71494584da9';
+
+/// See also [teetRepository].
+@ProviderFor(teetRepository)
+final teetRepositoryProvider = AutoDisposeProvider<TeetRepository>.internal(
+  teetRepository,
+  name: r'teetRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$teetRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef TeetRepositoryRef = AutoDisposeProviderRef<TeetRepository>;
 String _$interestCategoryRepositoryHash() =>
     r'2a779db0ff62f6877b1056713c9c98f702d98a9d';
 
@@ -39,21 +54,6 @@ final interestCategoryRepositoryProvider =
 
 typedef InterestCategoryRepositoryRef
     = AutoDisposeProviderRef<InterestCategoryRepository>;
-String _$teetRepositoryHash() => r'6881b54cd698992dc9a79bfdc458f71494584da9';
-
-/// See also [teetRepository].
-@ProviderFor(teetRepository)
-final teetRepositoryProvider = AutoDisposeProvider<TeetRepository>.internal(
-  teetRepository,
-  name: r'teetRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$teetRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef TeetRepositoryRef = AutoDisposeProviderRef<TeetRepository>;
 String _$userRepositoryHash() => r'6e94e4e3533ecb3c90dc15e03b51e4fb672bc524';
 
 /// See also [userRepository].

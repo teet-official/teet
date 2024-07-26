@@ -13,7 +13,7 @@ class SignUpController extends _$SignUpController {
 
   _fetchAllInterestCategory() async {
     final interestCategories =
-        await ref.watch(getInterestCategoryProvider.future);
+        await ref.watch(getAllInterestCategoriesProvider.future);
     return interestCategories;
   }
 
