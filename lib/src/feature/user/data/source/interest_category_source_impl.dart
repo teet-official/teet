@@ -4,13 +4,14 @@ class InterestCategoryDataSourceImpl implements InterestCategoryDataSource {
   final client = Supabase.instance.client;
 
   @override
-  Future<List<InterestCategoryModel>> getInterestCategory() async {
-    final result = await client.from('interest_category').select('id, label');
-    return result
-        .map(
-          (json) => InterestCategoryModel.fromJson(json),
-        )
+  Future<List<GetAllInterestCategoryModel>> getAllInterestCategories() async {
+    final queryResult = await client.from('interest_category').select();
+
+    final result = queryResult
+        .map((json) => GetAllInterestCategoryModel.fromJson(json))
         .toList();
+
+    return result;
   }
 }
 

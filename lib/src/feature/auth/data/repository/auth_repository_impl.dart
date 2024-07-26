@@ -1,18 +1,28 @@
 part of '../../../../generated_files/repository.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
-  AuthRepositoryImpl({required AuthDataSource source}) : _source = source;
-  final AuthDataSource _source;
+  AuthRepositoryImpl({required UserDataSource source}) : _source = source;
+  final UserDataSource _source;
 
   @override
   Future<void> signUp(SignUpEntity signUpEntity) async {
-    final model = SignUpModel.fromSignUpEntity(signUpEntity);
-    await _source.signUp(model);
+    final userModel = CreateUserModel.fromSignUpEntity(signUpEntity);
+    final createdUserId = await _source.createUser(userModel);
+
+    final updateUserInterestCategoryModel = signUpEntity
+        .selectedInterestCategoryIds
+        .map((selectedInterestCategoryId) => UpdateUserInterestCategoryModel(
+              userId: createdUserId,
+              interestCategoryId: selectedInterestCategoryId,
+            ))
+        .toList();
+
+    await _source.updateUserInterestCategory(updateUserInterestCategoryModel);
   }
 }
 
 @riverpod
 AuthRepository authRepository(AuthRepositoryRef ref) {
-  final source = ref.watch(authDataSourceProvider);
+  final source = ref.watch(userDataSourceProvider);
   return AuthRepositoryImpl(source: source);
 }

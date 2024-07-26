@@ -1,19 +1,19 @@
 part of '../../../../generated_files/model.dart';
 
 @freezed
-class SignUpModel with _$SignUpModel {
+class CreateUserModel with _$CreateUserModel {
   @JsonSerializable(fieldRename: FieldRename.snake)
-  factory SignUpModel({
+  factory CreateUserModel({
     required String uid,
     required String nickname,
     required String profileImageUrl,
     required String gender,
     required String ageRange,
-  }) = _SignUpModel;
+  }) = _CreateUserModel;
 
-  factory SignUpModel.fromSignUpEntity(SignUpEntity entity) {
+  factory CreateUserModel.fromSignUpEntity(SignUpEntity entity) {
     try {
-      return SignUpModel(
+      return CreateUserModel(
         uid: entity.uid!,
         nickname: entity.nickname!,
         profileImageUrl: entity.profileImageUrl!,
@@ -21,10 +21,10 @@ class SignUpModel with _$SignUpModel {
         ageRange: entity.ageRange!.value,
       );
     } catch (e) {
-      throw Exception('SignUpModel.fromSignUpEntity: $e');
+      throw Exception('CreateUserModel.fromCreateUserEntity: $e');
     }
   }
 
-  factory SignUpModel.fromJson(Map<String, dynamic> json) =>
-      _$SignUpModelFromJson(json);
+  factory CreateUserModel.fromJson(Map<String, dynamic> json) =>
+      _$CreateUserModelFromJson(json);
 }

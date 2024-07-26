@@ -6,20 +6,6 @@ part of 'entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InterestCategoryEntityImpl _$$InterestCategoryEntityImplFromJson(
-        Map<String, dynamic> json) =>
-    _$InterestCategoryEntityImpl(
-      id: (json['id'] as num).toInt(),
-      label: json['label'] as String,
-    );
-
-Map<String, dynamic> _$$InterestCategoryEntityImplToJson(
-        _$InterestCategoryEntityImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'label': instance.label,
-    };
-
 _$SignUpEntityImpl _$$SignUpEntityImplFromJson(Map<String, dynamic> json) =>
     _$SignUpEntityImpl(
       uid: json['uid'] as String?,
@@ -102,6 +88,20 @@ Map<String, dynamic> _$$TeetSelectionEntityImplToJson(
       'label': instance.label,
       'labelNo': instance.labelNo,
       'isAnswer': instance.isAnswer,
+    };
+
+_$InterestCategoryEntityImpl _$$InterestCategoryEntityImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InterestCategoryEntityImpl(
+      id: (json['id'] as num).toInt(),
+      label: json['label'] as String,
+    );
+
+Map<String, dynamic> _$$InterestCategoryEntityImplToJson(
+        _$InterestCategoryEntityImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
     };
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(

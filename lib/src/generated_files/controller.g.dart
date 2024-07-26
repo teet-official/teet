@@ -22,7 +22,7 @@ final authControllerProvider =
 );
 
 typedef _$AuthController = AutoDisposeNotifier<AuthState>;
-String _$signUpControllerHash() => r'ca728b5c67689cbc8969cea954eb334786ead384';
+String _$signUpControllerHash() => r'53cf9c9f825101a5c627715a9ece9621e807009f';
 
 /// See also [SignUpController].
 @ProviderFor(SignUpController)
