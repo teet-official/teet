@@ -953,17 +953,16 @@ abstract class _InterestCategoryEntity implements InterestCategoryEntity {
 }
 
 UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
-  return _User.fromJson(json);
+  return _UserEntity.fromJson(json);
 }
 
 /// @nodoc
 mixin _$UserEntity {
-  String get id => throw _privateConstructorUsedError;
-  String get nickname => throw _privateConstructorUsedError;
-  String get avatarUrl => throw _privateConstructorUsedError;
-  Gender get gender => throw _privateConstructorUsedError;
-  AgeRange get ageRange => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  UserProfileEntity get profile => throw _privateConstructorUsedError;
+  List<InterestCategoryEntity> get interestCategories =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -978,12 +977,12 @@ abstract class $UserEntityCopyWith<$Res> {
       _$UserEntityCopyWithImpl<$Res, UserEntity>;
   @useResult
   $Res call(
-      {String id,
-      String nickname,
-      String avatarUrl,
-      Gender gender,
-      AgeRange ageRange,
-      String createdAt});
+      {int id,
+      DateTime createdAt,
+      UserProfileEntity profile,
+      List<InterestCategoryEntity> interestCategories});
+
+  $UserProfileEntityCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -1000,86 +999,240 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
   @override
   $Res call({
     Object? id = null,
-    Object? nickname = null,
-    Object? avatarUrl = null,
-    Object? gender = null,
-    Object? ageRange = null,
     Object? createdAt = null,
+    Object? profile = null,
+    Object? interestCategories = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      nickname: null == nickname
-          ? _value.nickname
-          : nickname // ignore: cast_nullable_to_non_nullable
-              as String,
-      avatarUrl: null == avatarUrl
-          ? _value.avatarUrl
-          : avatarUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      ageRange: null == ageRange
-          ? _value.ageRange
-          : ageRange // ignore: cast_nullable_to_non_nullable
-              as AgeRange,
+              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as UserProfileEntity,
+      interestCategories: null == interestCategories
+          ? _value.interestCategories
+          : interestCategories // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserProfileEntityCopyWith<$Res> get profile {
+    return $UserProfileEntityCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$UserImplCopyWith<$Res> implements $UserEntityCopyWith<$Res> {
-  factory _$$UserImplCopyWith(
-          _$UserImpl value, $Res Function(_$UserImpl) then) =
-      __$$UserImplCopyWithImpl<$Res>;
+abstract class _$$UserEntityImplCopyWith<$Res>
+    implements $UserEntityCopyWith<$Res> {
+  factory _$$UserEntityImplCopyWith(
+          _$UserEntityImpl value, $Res Function(_$UserEntityImpl) then) =
+      __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String id,
-      String nickname,
-      String avatarUrl,
-      Gender gender,
-      AgeRange ageRange,
-      String createdAt});
+      {int id,
+      DateTime createdAt,
+      UserProfileEntity profile,
+      List<InterestCategoryEntity> interestCategories});
+
+  @override
+  $UserProfileEntityCopyWith<$Res> get profile;
 }
 
 /// @nodoc
-class __$$UserImplCopyWithImpl<$Res>
-    extends _$UserEntityCopyWithImpl<$Res, _$UserImpl>
-    implements _$$UserImplCopyWith<$Res> {
-  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
+class __$$UserEntityImplCopyWithImpl<$Res>
+    extends _$UserEntityCopyWithImpl<$Res, _$UserEntityImpl>
+    implements _$$UserEntityImplCopyWith<$Res> {
+  __$$UserEntityImplCopyWithImpl(
+      _$UserEntityImpl _value, $Res Function(_$UserEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = null,
-    Object? nickname = null,
-    Object? avatarUrl = null,
-    Object? gender = null,
-    Object? ageRange = null,
     Object? createdAt = null,
+    Object? profile = null,
+    Object? interestCategories = null,
   }) {
-    return _then(_$UserImpl(
+    return _then(_$UserEntityImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as UserProfileEntity,
+      interestCategories: null == interestCategories
+          ? _value._interestCategories
+          : interestCategories // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserEntityImpl implements _UserEntity {
+  _$UserEntityImpl(
+      {required this.id,
+      required this.createdAt,
+      required this.profile,
+      required final List<InterestCategoryEntity> interestCategories})
+      : _interestCategories = interestCategories;
+
+  factory _$UserEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserEntityImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final DateTime createdAt;
+  @override
+  final UserProfileEntity profile;
+  final List<InterestCategoryEntity> _interestCategories;
+  @override
+  List<InterestCategoryEntity> get interestCategories {
+    if (_interestCategories is EqualUnmodifiableListView)
+      return _interestCategories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_interestCategories);
+  }
+
+  @override
+  String toString() {
+    return 'UserEntity(id: $id, createdAt: $createdAt, profile: $profile, interestCategories: $interestCategories)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserEntityImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.profile, profile) || other.profile == profile) &&
+            const DeepCollectionEquality()
+                .equals(other._interestCategories, _interestCategories));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, createdAt, profile,
+      const DeepCollectionEquality().hash(_interestCategories));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
+      __$$UserEntityImplCopyWithImpl<_$UserEntityImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserEntityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserEntity implements UserEntity {
+  factory _UserEntity(
+          {required final int id,
+          required final DateTime createdAt,
+          required final UserProfileEntity profile,
+          required final List<InterestCategoryEntity> interestCategories}) =
+      _$UserEntityImpl;
+
+  factory _UserEntity.fromJson(Map<String, dynamic> json) =
+      _$UserEntityImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  DateTime get createdAt;
+  @override
+  UserProfileEntity get profile;
+  @override
+  List<InterestCategoryEntity> get interestCategories;
+  @override
+  @JsonKey(ignore: true)
+  _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+UserProfileEntity _$UserProfileEntityFromJson(Map<String, dynamic> json) {
+  return _UserProfileEntity.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserProfileEntity {
+  String get nickname => throw _privateConstructorUsedError;
+  String get profileImageUrl => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
+  AgeRange get ageRange => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UserProfileEntityCopyWith<UserProfileEntity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserProfileEntityCopyWith<$Res> {
+  factory $UserProfileEntityCopyWith(
+          UserProfileEntity value, $Res Function(UserProfileEntity) then) =
+      _$UserProfileEntityCopyWithImpl<$Res, UserProfileEntity>;
+  @useResult
+  $Res call(
+      {String nickname,
+      String profileImageUrl,
+      Gender gender,
+      AgeRange ageRange});
+}
+
+/// @nodoc
+class _$UserProfileEntityCopyWithImpl<$Res, $Val extends UserProfileEntity>
+    implements $UserProfileEntityCopyWith<$Res> {
+  _$UserProfileEntityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+  }) {
+    return _then(_value.copyWith(
       nickname: null == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
               as String,
-      avatarUrl: null == avatarUrl
-          ? _value.avatarUrl
-          : avatarUrl // ignore: cast_nullable_to_non_nullable
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -1089,107 +1242,142 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
               as AgeRange,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserProfileEntityImplCopyWith<$Res>
+    implements $UserProfileEntityCopyWith<$Res> {
+  factory _$$UserProfileEntityImplCopyWith(_$UserProfileEntityImpl value,
+          $Res Function(_$UserProfileEntityImpl) then) =
+      __$$UserProfileEntityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String nickname,
+      String profileImageUrl,
+      Gender gender,
+      AgeRange ageRange});
+}
+
+/// @nodoc
+class __$$UserProfileEntityImplCopyWithImpl<$Res>
+    extends _$UserProfileEntityCopyWithImpl<$Res, _$UserProfileEntityImpl>
+    implements _$$UserProfileEntityImplCopyWith<$Res> {
+  __$$UserProfileEntityImplCopyWithImpl(_$UserProfileEntityImpl _value,
+      $Res Function(_$UserProfileEntityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+  }) {
+    return _then(_$UserProfileEntityImpl(
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
               as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$UserImpl implements _User {
-  _$UserImpl(
-      {required this.id,
-      required this.nickname,
-      required this.avatarUrl,
+class _$UserProfileEntityImpl implements _UserProfileEntity {
+  _$UserProfileEntityImpl(
+      {required this.nickname,
+      required this.profileImageUrl,
       required this.gender,
-      required this.ageRange,
-      required this.createdAt});
+      required this.ageRange});
 
-  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UserImplFromJson(json);
+  factory _$UserProfileEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserProfileEntityImplFromJson(json);
 
-  @override
-  final String id;
   @override
   final String nickname;
   @override
-  final String avatarUrl;
+  final String profileImageUrl;
   @override
   final Gender gender;
   @override
   final AgeRange ageRange;
-  @override
-  final String createdAt;
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, nickname: $nickname, avatarUrl: $avatarUrl, gender: $gender, ageRange: $ageRange, createdAt: $createdAt)';
+    return 'UserProfileEntity(nickname: $nickname, profileImageUrl: $profileImageUrl, gender: $gender, ageRange: $ageRange)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserImpl &&
-            (identical(other.id, id) || other.id == id) &&
+            other is _$UserProfileEntityImpl &&
             (identical(other.nickname, nickname) ||
                 other.nickname == nickname) &&
-            (identical(other.avatarUrl, avatarUrl) ||
-                other.avatarUrl == avatarUrl) &&
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.ageRange, ageRange) ||
-                other.ageRange == ageRange) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.ageRange == ageRange));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, nickname, avatarUrl, gender, ageRange, createdAt);
+  int get hashCode =>
+      Object.hash(runtimeType, nickname, profileImageUrl, gender, ageRange);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
-      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
+  _$$UserProfileEntityImplCopyWith<_$UserProfileEntityImpl> get copyWith =>
+      __$$UserProfileEntityImplCopyWithImpl<_$UserProfileEntityImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserImplToJson(
+    return _$$UserProfileEntityImplToJson(
       this,
     );
   }
 }
 
-abstract class _User implements UserEntity {
-  factory _User(
-      {required final String id,
-      required final String nickname,
-      required final String avatarUrl,
+abstract class _UserProfileEntity implements UserProfileEntity {
+  factory _UserProfileEntity(
+      {required final String nickname,
+      required final String profileImageUrl,
       required final Gender gender,
-      required final AgeRange ageRange,
-      required final String createdAt}) = _$UserImpl;
+      required final AgeRange ageRange}) = _$UserProfileEntityImpl;
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
+  factory _UserProfileEntity.fromJson(Map<String, dynamic> json) =
+      _$UserProfileEntityImpl.fromJson;
 
-  @override
-  String get id;
   @override
   String get nickname;
   @override
-  String get avatarUrl;
+  String get profileImageUrl;
   @override
   Gender get gender;
   @override
   AgeRange get ageRange;
   @override
-  String get createdAt;
-  @override
   @JsonKey(ignore: true)
-  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+  _$$UserProfileEntityImplCopyWith<_$UserProfileEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
