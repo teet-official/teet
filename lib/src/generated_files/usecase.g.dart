@@ -313,5 +313,133 @@ class _IsExistUserByUidProviderElement
   @override
   String get uid => (origin as IsExistUserByUidProvider).uid;
 }
+
+String _$getUserIdByUidHash() => r'408abe87ac03de3bbe5464ceb91374b4b84c3cfa';
+
+/// See also [getUserIdByUid].
+@ProviderFor(getUserIdByUid)
+const getUserIdByUidProvider = GetUserIdByUidFamily();
+
+/// See also [getUserIdByUid].
+class GetUserIdByUidFamily extends Family<AsyncValue<int>> {
+  /// See also [getUserIdByUid].
+  const GetUserIdByUidFamily();
+
+  /// See also [getUserIdByUid].
+  GetUserIdByUidProvider call(
+    String uid,
+  ) {
+    return GetUserIdByUidProvider(
+      uid,
+    );
+  }
+
+  @override
+  GetUserIdByUidProvider getProviderOverride(
+    covariant GetUserIdByUidProvider provider,
+  ) {
+    return call(
+      provider.uid,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'getUserIdByUidProvider';
+}
+
+/// See also [getUserIdByUid].
+class GetUserIdByUidProvider extends AutoDisposeFutureProvider<int> {
+  /// See also [getUserIdByUid].
+  GetUserIdByUidProvider(
+    String uid,
+  ) : this._internal(
+          (ref) => getUserIdByUid(
+            ref as GetUserIdByUidRef,
+            uid,
+          ),
+          from: getUserIdByUidProvider,
+          name: r'getUserIdByUidProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getUserIdByUidHash,
+          dependencies: GetUserIdByUidFamily._dependencies,
+          allTransitiveDependencies:
+              GetUserIdByUidFamily._allTransitiveDependencies,
+          uid: uid,
+        );
+
+  GetUserIdByUidProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.uid,
+  }) : super.internal();
+
+  final String uid;
+
+  @override
+  Override overrideWith(
+    FutureOr<int> Function(GetUserIdByUidRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: GetUserIdByUidProvider._internal(
+        (ref) => create(ref as GetUserIdByUidRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        uid: uid,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<int> createElement() {
+    return _GetUserIdByUidProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetUserIdByUidProvider && other.uid == uid;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, uid.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin GetUserIdByUidRef on AutoDisposeFutureProviderRef<int> {
+  /// The parameter `uid` of this provider.
+  String get uid;
+}
+
+class _GetUserIdByUidProviderElement
+    extends AutoDisposeFutureProviderElement<int> with GetUserIdByUidRef {
+  _GetUserIdByUidProviderElement(super.provider);
+
+  @override
+  String get uid => (origin as GetUserIdByUidProvider).uid;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

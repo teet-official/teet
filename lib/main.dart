@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/provider.dart';
 
 Future<void> main() async {
@@ -19,7 +20,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(goRouterProviderProvider);
-
+    ref.watch(authControllerProvider.notifier).onInitSignIn();
     return MaterialApp.router(
       title: 'Teet',
       theme: ThemeData(

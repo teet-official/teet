@@ -5,4 +5,5 @@ abstract class UserDataSource {
   Future<void> updateUserInterestCategory(
       List<UpdateUserInterestCategoryModel> userInterestCategoryModel);
   Future<bool> isExistUserByUid(String uid);
+  Future<int> getUserIdByUid(String uid);
 }

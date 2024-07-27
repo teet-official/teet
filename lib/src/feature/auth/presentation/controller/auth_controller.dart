@@ -51,8 +51,12 @@ class AuthController extends _$AuthController {
         return;
       }
 
-      state = AuthState(
+      final userId = await ref
+          .read(getUserIdByUidProvider(signInUser.id.toString()).future);
+
+      state = state.copyWith(
         isSignIn: true,
+        userId: userId,
       );
     } on Exception catch (e) {
       // TODO
@@ -62,8 +66,9 @@ class AuthController extends _$AuthController {
   Future<void> onPressedSignOutButton() async {
     try {
       await Supabase.instance.client.auth.signOut();
-      state = AuthState(
+      state = state.copyWith(
         isSignIn: false,
+        userId: null,
       );
     } on Exception catch (e) {
       // TODO
@@ -78,8 +83,27 @@ class AuthController extends _$AuthController {
   Future<void> onPressedSignUpButton() async {
     final signUpPageState = await ref.read(signUpControllerProvider.future);
     await ref.watch(signUpProvider(signUpPageState.signUpEntity).future);
-    state = AuthState(
-      isSignIn: true,
-    );
+
+    await onInitSignIn();
+  }
+
+  Future<void> onInitSignIn() async {
+    final userResponse = await Supabase.instance.client.auth.getUser();
+    final user = userResponse.user;
+    if (user == null) {
+      return;
+    }
+
+    final isExistUser = await isExistUserByUid(user.id.toString());
+
+    if (isExistUser) {
+      final userId =
+          await ref.read(getUserIdByUidProvider(user.id.toString()).future);
+
+      state = state.copyWith(
+        isSignIn: true,
+        userId: userId,
+      );
+    }
   }
 }

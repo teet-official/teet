@@ -34,6 +34,14 @@ class UserDataSourceImpl implements UserDataSource {
 
     return result.isNotEmpty;
   }
+
+  @override
+  Future<int> getUserIdByUid(String uid) async {
+    final result =
+        await client.from('user').select('id').eq('uid', uid).single();
+
+    return result['id'] as int;
+  }
 }
 
 @riverpod
