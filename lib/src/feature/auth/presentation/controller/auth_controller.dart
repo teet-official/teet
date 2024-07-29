@@ -30,13 +30,13 @@ class AuthController extends _$AuthController {
         throw 'No ID Token found.';
       }
 
-      final singInResult =
+      final signInResult =
           await Supabase.instance.client.auth.signInWithIdToken(
         provider: OAuthProvider.google,
         idToken: idToken,
         accessToken: accessToken,
       );
-      final signInUser = singInResult.user;
+      final signInUser = signInResult.user;
       if (signInUser == null) {
         throw 'No user found.';
       }
