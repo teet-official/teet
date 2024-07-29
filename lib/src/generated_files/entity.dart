@@ -7,7 +7,7 @@ part '../feature/auth/domain/entity/sign_up_entity.dart';
 part '../feature/teet/domain/entity/teet_entity.dart';
 part '../feature/teet/domain/entity/teet_selection_entity.dart';
 part '../feature/user/domain/entity/interest_category_entity.dart';
+part '../feature/user/domain/entity/profile_entity.dart';
 part '../feature/user/domain/entity/user_entity.dart';
-part '../feature/user/domain/entity/user_profile_entity.dart';
 part 'entity.freezed.dart';
 part 'entity.g.dart';

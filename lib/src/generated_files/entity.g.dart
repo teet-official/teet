@@ -104,12 +104,27 @@ Map<String, dynamic> _$$InterestCategoryEntityImplToJson(
       'label': instance.label,
     };
 
+_$ProfileEntityImpl _$$ProfileEntityImplFromJson(Map<String, dynamic> json) =>
+    _$ProfileEntityImpl(
+      nickname: json['nickname'] as String,
+      profileImageUrl: json['profileImageUrl'] as String,
+      gender: $enumDecode(_$GenderEnumMap, json['gender']),
+      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
+    );
+
+Map<String, dynamic> _$$ProfileEntityImplToJson(_$ProfileEntityImpl instance) =>
+    <String, dynamic>{
+      'nickname': instance.nickname,
+      'profileImageUrl': instance.profileImageUrl,
+      'gender': _$GenderEnumMap[instance.gender]!,
+      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
+    };
+
 _$UserEntityImpl _$$UserEntityImplFromJson(Map<String, dynamic> json) =>
     _$UserEntityImpl(
       id: (json['id'] as num).toInt(),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      profile:
-          UserProfileEntity.fromJson(json['profile'] as Map<String, dynamic>),
+      profile: ProfileEntity.fromJson(json['profile'] as Map<String, dynamic>),
       interestCategories: (json['interestCategories'] as List<dynamic>)
           .map(
               (e) => InterestCategoryEntity.fromJson(e as Map<String, dynamic>))
@@ -122,22 +137,4 @@ Map<String, dynamic> _$$UserEntityImplToJson(_$UserEntityImpl instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'profile': instance.profile,
       'interestCategories': instance.interestCategories,
-    };
-
-_$UserProfileEntityImpl _$$UserProfileEntityImplFromJson(
-        Map<String, dynamic> json) =>
-    _$UserProfileEntityImpl(
-      nickname: json['nickname'] as String,
-      profileImageUrl: json['profileImageUrl'] as String,
-      gender: $enumDecode(_$GenderEnumMap, json['gender']),
-      ageRange: $enumDecode(_$AgeRangeEnumMap, json['ageRange']),
-    );
-
-Map<String, dynamic> _$$UserProfileEntityImplToJson(
-        _$UserProfileEntityImpl instance) =>
-    <String, dynamic>{
-      'nickname': instance.nickname,
-      'profileImageUrl': instance.profileImageUrl,
-      'gender': _$GenderEnumMap[instance.gender]!,
-      'ageRange': _$AgeRangeEnumMap[instance.ageRange]!,
     };

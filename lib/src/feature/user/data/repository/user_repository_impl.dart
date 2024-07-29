@@ -14,6 +14,13 @@ class UserRepositoryImpl extends UserRepository {
     final userId = await _source.getUserIdByUid(uid);
     return userId;
   }
+
+  @override
+  Future<UserEntity> getUserById(int id) async {
+    final getUserByIdModel = await _source.getUserById(id);
+    final userEntity = getUserByIdModel.toEntity();
+    return userEntity;
+  }
 }
 
 @riverpod

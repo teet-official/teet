@@ -11,3 +11,9 @@ Future<int> getUserIdByUid(GetUserIdByUidRef ref, String uid) async {
   final repository = ref.watch(userRepositoryProvider);
   return await repository.getUserIdByUid(uid);
 }
+
+@riverpod
+Future<UserEntity> getUserById(GetUserByIdRef ref, int id) async {
+  final repository = ref.watch(userRepositoryProvider);
+  return await repository.getUserById(id);
+}

@@ -5,7 +5,7 @@ class UserEntity with _$UserEntity {
   factory UserEntity({
     required int id,
     required DateTime createdAt,
-    required UserProfileEntity profile,
+    required ProfileEntity profile,
     required List<InterestCategoryEntity> interestCategories,
   }) = _UserEntity;
 

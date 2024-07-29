@@ -931,6 +931,611 @@ abstract class _GetAllInterestCategoryModel
       get copyWith => throw _privateConstructorUsedError;
 }
 
+GetUserByIdModel _$GetUserByIdModelFromJson(Map<String, dynamic> json) {
+  return _GetUserByIdModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GetUserByIdModel {
+  int get id => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  String get nickname => throw _privateConstructorUsedError;
+  String get profileImageUrl => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get ageRange => throw _privateConstructorUsedError;
+  List<UserInterestCategoryModel> get userInterestCategory =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetUserByIdModelCopyWith<GetUserByIdModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetUserByIdModelCopyWith<$Res> {
+  factory $GetUserByIdModelCopyWith(
+          GetUserByIdModel value, $Res Function(GetUserByIdModel) then) =
+      _$GetUserByIdModelCopyWithImpl<$Res, GetUserByIdModel>;
+  @useResult
+  $Res call(
+      {int id,
+      DateTime createdAt,
+      String nickname,
+      String profileImageUrl,
+      String gender,
+      String ageRange,
+      List<UserInterestCategoryModel> userInterestCategory});
+}
+
+/// @nodoc
+class _$GetUserByIdModelCopyWithImpl<$Res, $Val extends GetUserByIdModel>
+    implements $GetUserByIdModelCopyWith<$Res> {
+  _$GetUserByIdModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? createdAt = null,
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+    Object? userInterestCategory = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as String,
+      userInterestCategory: null == userInterestCategory
+          ? _value.userInterestCategory
+          : userInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<UserInterestCategoryModel>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$GetUserByIdModelImplCopyWith<$Res>
+    implements $GetUserByIdModelCopyWith<$Res> {
+  factory _$$GetUserByIdModelImplCopyWith(_$GetUserByIdModelImpl value,
+          $Res Function(_$GetUserByIdModelImpl) then) =
+      __$$GetUserByIdModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      DateTime createdAt,
+      String nickname,
+      String profileImageUrl,
+      String gender,
+      String ageRange,
+      List<UserInterestCategoryModel> userInterestCategory});
+}
+
+/// @nodoc
+class __$$GetUserByIdModelImplCopyWithImpl<$Res>
+    extends _$GetUserByIdModelCopyWithImpl<$Res, _$GetUserByIdModelImpl>
+    implements _$$GetUserByIdModelImplCopyWith<$Res> {
+  __$$GetUserByIdModelImplCopyWithImpl(_$GetUserByIdModelImpl _value,
+      $Res Function(_$GetUserByIdModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? createdAt = null,
+    Object? nickname = null,
+    Object? profileImageUrl = null,
+    Object? gender = null,
+    Object? ageRange = null,
+    Object? userInterestCategory = null,
+  }) {
+    return _then(_$GetUserByIdModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      profileImageUrl: null == profileImageUrl
+          ? _value.profileImageUrl
+          : profileImageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as String,
+      userInterestCategory: null == userInterestCategory
+          ? _value._userInterestCategory
+          : userInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<UserInterestCategoryModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$GetUserByIdModelImpl implements _GetUserByIdModel {
+  _$GetUserByIdModelImpl(
+      {required this.id,
+      required this.createdAt,
+      required this.nickname,
+      required this.profileImageUrl,
+      required this.gender,
+      required this.ageRange,
+      required final List<UserInterestCategoryModel> userInterestCategory})
+      : _userInterestCategory = userInterestCategory;
+
+  factory _$GetUserByIdModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetUserByIdModelImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final DateTime createdAt;
+  @override
+  final String nickname;
+  @override
+  final String profileImageUrl;
+  @override
+  final String gender;
+  @override
+  final String ageRange;
+  final List<UserInterestCategoryModel> _userInterestCategory;
+  @override
+  List<UserInterestCategoryModel> get userInterestCategory {
+    if (_userInterestCategory is EqualUnmodifiableListView)
+      return _userInterestCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_userInterestCategory);
+  }
+
+  @override
+  String toString() {
+    return 'GetUserByIdModel(id: $id, createdAt: $createdAt, nickname: $nickname, profileImageUrl: $profileImageUrl, gender: $gender, ageRange: $ageRange, userInterestCategory: $userInterestCategory)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetUserByIdModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.profileImageUrl, profileImageUrl) ||
+                other.profileImageUrl == profileImageUrl) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.ageRange, ageRange) ||
+                other.ageRange == ageRange) &&
+            const DeepCollectionEquality()
+                .equals(other._userInterestCategory, _userInterestCategory));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      createdAt,
+      nickname,
+      profileImageUrl,
+      gender,
+      ageRange,
+      const DeepCollectionEquality().hash(_userInterestCategory));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetUserByIdModelImplCopyWith<_$GetUserByIdModelImpl> get copyWith =>
+      __$$GetUserByIdModelImplCopyWithImpl<_$GetUserByIdModelImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GetUserByIdModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GetUserByIdModel implements GetUserByIdModel {
+  factory _GetUserByIdModel(
+      {required final int id,
+      required final DateTime createdAt,
+      required final String nickname,
+      required final String profileImageUrl,
+      required final String gender,
+      required final String ageRange,
+      required final List<UserInterestCategoryModel>
+          userInterestCategory}) = _$GetUserByIdModelImpl;
+
+  factory _GetUserByIdModel.fromJson(Map<String, dynamic> json) =
+      _$GetUserByIdModelImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  DateTime get createdAt;
+  @override
+  String get nickname;
+  @override
+  String get profileImageUrl;
+  @override
+  String get gender;
+  @override
+  String get ageRange;
+  @override
+  List<UserInterestCategoryModel> get userInterestCategory;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetUserByIdModelImplCopyWith<_$GetUserByIdModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+UserInterestCategoryModel _$UserInterestCategoryModelFromJson(
+    Map<String, dynamic> json) {
+  return _UserInterestCategoryModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserInterestCategoryModel {
+  InterestCategoryModel get interestCategory =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UserInterestCategoryModelCopyWith<UserInterestCategoryModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserInterestCategoryModelCopyWith<$Res> {
+  factory $UserInterestCategoryModelCopyWith(UserInterestCategoryModel value,
+          $Res Function(UserInterestCategoryModel) then) =
+      _$UserInterestCategoryModelCopyWithImpl<$Res, UserInterestCategoryModel>;
+  @useResult
+  $Res call({InterestCategoryModel interestCategory});
+
+  $InterestCategoryModelCopyWith<$Res> get interestCategory;
+}
+
+/// @nodoc
+class _$UserInterestCategoryModelCopyWithImpl<$Res,
+        $Val extends UserInterestCategoryModel>
+    implements $UserInterestCategoryModelCopyWith<$Res> {
+  _$UserInterestCategoryModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? interestCategory = null,
+  }) {
+    return _then(_value.copyWith(
+      interestCategory: null == interestCategory
+          ? _value.interestCategory
+          : interestCategory // ignore: cast_nullable_to_non_nullable
+              as InterestCategoryModel,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $InterestCategoryModelCopyWith<$Res> get interestCategory {
+    return $InterestCategoryModelCopyWith<$Res>(_value.interestCategory,
+        (value) {
+      return _then(_value.copyWith(interestCategory: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$UserInterestCategoryModelImplCopyWith<$Res>
+    implements $UserInterestCategoryModelCopyWith<$Res> {
+  factory _$$UserInterestCategoryModelImplCopyWith(
+          _$UserInterestCategoryModelImpl value,
+          $Res Function(_$UserInterestCategoryModelImpl) then) =
+      __$$UserInterestCategoryModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({InterestCategoryModel interestCategory});
+
+  @override
+  $InterestCategoryModelCopyWith<$Res> get interestCategory;
+}
+
+/// @nodoc
+class __$$UserInterestCategoryModelImplCopyWithImpl<$Res>
+    extends _$UserInterestCategoryModelCopyWithImpl<$Res,
+        _$UserInterestCategoryModelImpl>
+    implements _$$UserInterestCategoryModelImplCopyWith<$Res> {
+  __$$UserInterestCategoryModelImplCopyWithImpl(
+      _$UserInterestCategoryModelImpl _value,
+      $Res Function(_$UserInterestCategoryModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? interestCategory = null,
+  }) {
+    return _then(_$UserInterestCategoryModelImpl(
+      interestCategory: null == interestCategory
+          ? _value.interestCategory
+          : interestCategory // ignore: cast_nullable_to_non_nullable
+              as InterestCategoryModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$UserInterestCategoryModelImpl implements _UserInterestCategoryModel {
+  _$UserInterestCategoryModelImpl({required this.interestCategory});
+
+  factory _$UserInterestCategoryModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserInterestCategoryModelImplFromJson(json);
+
+  @override
+  final InterestCategoryModel interestCategory;
+
+  @override
+  String toString() {
+    return 'UserInterestCategoryModel(interestCategory: $interestCategory)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserInterestCategoryModelImpl &&
+            (identical(other.interestCategory, interestCategory) ||
+                other.interestCategory == interestCategory));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, interestCategory);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserInterestCategoryModelImplCopyWith<_$UserInterestCategoryModelImpl>
+      get copyWith => __$$UserInterestCategoryModelImplCopyWithImpl<
+          _$UserInterestCategoryModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserInterestCategoryModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserInterestCategoryModel implements UserInterestCategoryModel {
+  factory _UserInterestCategoryModel(
+          {required final InterestCategoryModel interestCategory}) =
+      _$UserInterestCategoryModelImpl;
+
+  factory _UserInterestCategoryModel.fromJson(Map<String, dynamic> json) =
+      _$UserInterestCategoryModelImpl.fromJson;
+
+  @override
+  InterestCategoryModel get interestCategory;
+  @override
+  @JsonKey(ignore: true)
+  _$$UserInterestCategoryModelImplCopyWith<_$UserInterestCategoryModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+InterestCategoryModel _$InterestCategoryModelFromJson(
+    Map<String, dynamic> json) {
+  return _InterestCategoryModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$InterestCategoryModel {
+  int get id => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InterestCategoryModelCopyWith<InterestCategoryModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InterestCategoryModelCopyWith<$Res> {
+  factory $InterestCategoryModelCopyWith(InterestCategoryModel value,
+          $Res Function(InterestCategoryModel) then) =
+      _$InterestCategoryModelCopyWithImpl<$Res, InterestCategoryModel>;
+  @useResult
+  $Res call({int id, String label});
+}
+
+/// @nodoc
+class _$InterestCategoryModelCopyWithImpl<$Res,
+        $Val extends InterestCategoryModel>
+    implements $InterestCategoryModelCopyWith<$Res> {
+  _$InterestCategoryModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? label = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InterestCategoryModelImplCopyWith<$Res>
+    implements $InterestCategoryModelCopyWith<$Res> {
+  factory _$$InterestCategoryModelImplCopyWith(
+          _$InterestCategoryModelImpl value,
+          $Res Function(_$InterestCategoryModelImpl) then) =
+      __$$InterestCategoryModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String label});
+}
+
+/// @nodoc
+class __$$InterestCategoryModelImplCopyWithImpl<$Res>
+    extends _$InterestCategoryModelCopyWithImpl<$Res,
+        _$InterestCategoryModelImpl>
+    implements _$$InterestCategoryModelImplCopyWith<$Res> {
+  __$$InterestCategoryModelImplCopyWithImpl(_$InterestCategoryModelImpl _value,
+      $Res Function(_$InterestCategoryModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? label = null,
+  }) {
+    return _then(_$InterestCategoryModelImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$InterestCategoryModelImpl implements _InterestCategoryModel {
+  _$InterestCategoryModelImpl({required this.id, required this.label});
+
+  factory _$InterestCategoryModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InterestCategoryModelImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String label;
+
+  @override
+  String toString() {
+    return 'InterestCategoryModel(id: $id, label: $label)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InterestCategoryModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.label, label) || other.label == label));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, label);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InterestCategoryModelImplCopyWith<_$InterestCategoryModelImpl>
+      get copyWith => __$$InterestCategoryModelImplCopyWithImpl<
+          _$InterestCategoryModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InterestCategoryModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _InterestCategoryModel implements InterestCategoryModel {
+  factory _InterestCategoryModel(
+      {required final int id,
+      required final String label}) = _$InterestCategoryModelImpl;
+
+  factory _InterestCategoryModel.fromJson(Map<String, dynamic> json) =
+      _$InterestCategoryModelImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get label;
+  @override
+  @JsonKey(ignore: true)
+  _$$InterestCategoryModelImplCopyWith<_$InterestCategoryModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 UpdateUserInterestCategoryModel _$UpdateUserInterestCategoryModelFromJson(
     Map<String, dynamic> json) {
   return _UpdateUserInterestCategoryModel.fromJson(json);
