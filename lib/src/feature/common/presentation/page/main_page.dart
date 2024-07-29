@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
+import 'package:teet/src/feature/auth/presentation/page/sign_in_page.dart';
 import 'package:teet/src/feature/profile/presentation/profile_page.dart';
 import 'package:teet/src/feature/teet/presentation/page/teet_page.dart';
 import 'package:teet/src/generated_files/controller.dart';
@@ -9,31 +9,37 @@ import 'package:teet/src/generated_files/controller.dart';
 class MainPage extends ConsumerWidget {
   MainPage({super.key});
 
-  final tabs = [
-    {
-      "name": "TeetPage",
-      "widget": const TeetPage(),
-    },
-    {
-      "name": "ProfilePage",
-      "widget": const ProfilePage(),
-    }
-  ];
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.watch(authControllerProvider);
     final state = ref.watch(mainControllerProvider);
 
+    final tabs = auth.isSignIn
+        ? [
+            {
+              "name": "TeetPage",
+              "widget": const TeetPage(),
+            },
+            {
+              "name": "ProfilePage",
+              "widget": const ProfilePage(),
+            }
+          ]
+        :
+        // When user is not authenticated, redirect to sign-in page
+        [
+            {
+              "name": "TeetPage",
+              "widget": const TeetPage(),
+            },
+            {
+              "name": "SignInPage",
+              "widget": const SignInPage(),
+            }
+          ];
+
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
-          letIndexChange: (value) {
-            if (tabs[value]["name"] == "ProfilePage" && !auth.isSignIn) {
-              context.push('/auth/sign-in');
-              return false;
-            }
-            return true;
-          },
           index: state.bottomNavigationBarIndex,
           items: const [
             Icon(Icons.home_outlined, size: 30),

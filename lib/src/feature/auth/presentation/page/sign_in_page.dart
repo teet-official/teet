@@ -30,7 +30,9 @@ class SignInPage extends ConsumerWidget {
 
           if (!context.mounted) return;
           if (isSignIn) {
-            context.push('/');
+            ref
+                .watch(mainControllerProvider.notifier)
+                .setBottomNavigationBarIndex(0);
           } else {
             context.push('/auth/sign-up');
           }
