@@ -42,6 +42,17 @@ class UserDataSourceImpl implements UserDataSource {
 
     return result['id'] as int;
   }
+
+  @override
+  Future<GetUserByIdModel> getUserById(int id) async {
+    final result = await client
+        .from('user')
+        .select('*, user_interest_category(interest_category(*))')
+        .eq('id', id)
+        .single();
+
+    return GetUserByIdModel.fromJson(result);
+  }
 }
 
 @riverpod

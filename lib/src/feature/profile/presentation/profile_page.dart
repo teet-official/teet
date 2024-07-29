@@ -7,15 +7,26 @@ class ProfilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final userState = ref.watch(userControllerProvider);
+
     return SafeArea(
-        child: ElevatedButton(
-      onPressed: () {
-        ref.read(authControllerProvider.notifier).onPressedSignOutButton();
-        ref
-            .read(mainControllerProvider.notifier)
-            .setBottomNavigationBarIndex(0);
-      },
-      child: const Text('Sign Out'),
-    ));
+        child: switch (userState) {
+      AsyncData(:final value) => Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                ref
+                    .read(authControllerProvider.notifier)
+                    .onPressedSignOutButton();
+                ref
+                    .read(mainControllerProvider.notifier)
+                    .setBottomNavigationBarIndex(0);
+              },
+              child: const Text('Sign Out'),
+            ),
+          ],
+        ),
+      _ => const Text('Loading')
+    });
   }
 }

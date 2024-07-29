@@ -16,5 +16,7 @@ part '../feature/common/presentation/controller/main_controller.dart';
 part '../feature/common/presentation/controller/main_page_state.dart';
 part '../feature/teet/presentation/controller/teet_controller.dart';
 part '../feature/teet/presentation/controller/teet_page_state.dart';
+part '../feature/user/presentation/controller/user_controller.dart';
+part '../feature/user/presentation/controller/user_state.dart';
 part 'controller.freezed.dart';
 part 'controller.g.dart';

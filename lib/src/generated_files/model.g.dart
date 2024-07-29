@@ -86,6 +86,60 @@ Map<String, dynamic> _$$GetAllInterestCategoryModelImplToJson(
       'label': instance.label,
     };
 
+_$GetUserByIdModelImpl _$$GetUserByIdModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GetUserByIdModelImpl(
+      id: (json['id'] as num).toInt(),
+      createdAt: DateTime.parse(json['created_at'] as String),
+      nickname: json['nickname'] as String,
+      profileImageUrl: json['profile_image_url'] as String,
+      gender: json['gender'] as String,
+      ageRange: json['age_range'] as String,
+      userInterestCategory: (json['user_interest_category'] as List<dynamic>)
+          .map((e) =>
+              UserInterestCategoryModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$$GetUserByIdModelImplToJson(
+        _$GetUserByIdModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'created_at': instance.createdAt.toIso8601String(),
+      'nickname': instance.nickname,
+      'profile_image_url': instance.profileImageUrl,
+      'gender': instance.gender,
+      'age_range': instance.ageRange,
+      'user_interest_category': instance.userInterestCategory,
+    };
+
+_$UserInterestCategoryModelImpl _$$UserInterestCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserInterestCategoryModelImpl(
+      interestCategory: InterestCategoryModel.fromJson(
+          json['interest_category'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$UserInterestCategoryModelImplToJson(
+        _$UserInterestCategoryModelImpl instance) =>
+    <String, dynamic>{
+      'interest_category': instance.interestCategory,
+    };
+
+_$InterestCategoryModelImpl _$$InterestCategoryModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InterestCategoryModelImpl(
+      id: (json['id'] as num).toInt(),
+      label: json['label'] as String,
+    );
+
+Map<String, dynamic> _$$InterestCategoryModelImplToJson(
+        _$InterestCategoryModelImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+    };
+
 _$UpdateUserInterestCategoryModelImpl
     _$$UpdateUserInterestCategoryModelImplFromJson(Map<String, dynamic> json) =>
         _$UpdateUserInterestCategoryModelImpl(

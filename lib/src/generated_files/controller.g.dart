@@ -70,5 +70,21 @@ final teetControllerProvider =
 );
 
 typedef _$TeetController = AutoDisposeAsyncNotifier<TeetPageState>;
+String _$userControllerHash() => r'33a6044e68fa57167cf267a0685f495d03cf7e41';
+
+/// See also [UserController].
+@ProviderFor(UserController)
+final userControllerProvider =
+    AutoDisposeAsyncNotifierProvider<UserController, UserState>.internal(
+  UserController.new,
+  name: r'userControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$userControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$UserController = AutoDisposeAsyncNotifier<UserState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
