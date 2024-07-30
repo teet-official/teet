@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/entity.dart';
@@ -20,18 +21,38 @@ class TeetPage extends ConsumerWidget {
   }
 
   _buildList(TeetPageState state) {
-    final PageController pageController = PageController(initialPage: 0);
+    final PageController pageController = PageController(
+      initialPage: 0,
+    );
+
     return Consumer(builder: (context, ref, child) {
-      return PageView.builder(
-        controller: pageController,
-        scrollDirection: Axis.vertical,
-        onPageChanged: (value) {
-          if (value == state.teets.length - 1) {
-            ref.read(teetControllerProvider.notifier).fetchMore();
+      return NotificationListener(
+        onNotification: (t) {
+          if (t is UserScrollNotification) {
+            if (t.direction == ScrollDirection.reverse &&
+                pageController.page == state.teets.length - 1 &&
+                state.hasReachedMax) {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('마지막 티트입니다.'),
+                ),
+              );
+            }
           }
+          return true;
         },
-        itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
-        itemCount: state.teets.length,
+        child: PageView.builder(
+          controller: pageController,
+          scrollDirection: Axis.vertical,
+          onPageChanged: (value) {
+            if (value == state.teets.length - 1) {
+              ref.read(teetControllerProvider.notifier).fetchMore();
+            }
+          },
+          itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
+          itemCount: state.teets.length,
+        ),
       );
     });
   }
