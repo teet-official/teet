@@ -7,6 +7,7 @@ import 'package:teet/src/feature/auth/domain/entity/age_range_enum.dart';
 import 'package:teet/src/feature/auth/domain/entity/gender_enum.dart';
 import 'package:teet/src/generated_files/entity.dart';
 import 'package:teet/src/generated_files/usecase.dart';
+import 'package:teet/src/shared/const/num_const.dart';
 
 part '../feature/auth/presentation/controller/auth_controller.dart';
 part '../feature/auth/presentation/controller/auth_state.dart';

@@ -154,7 +154,7 @@ class _SignUpProviderElement extends AutoDisposeFutureProviderElement<void>
   SignUpEntity get signUpEntity => (origin as SignUpProvider).signUpEntity;
 }
 
-String _$getTeetsHash() => r'e4a2aa4aecd5b509ad1a40862fa3749335223155';
+String _$getTeetsHash() => r'fcdffa5bff844dd485dc95636d80fc0c1c8dd3eb';
 
 /// See also [getTeets].
 @ProviderFor(getTeets)
@@ -167,12 +167,12 @@ class GetTeetsFamily extends Family<AsyncValue<List<TeetEntity>>> {
 
   /// See also [getTeets].
   GetTeetsProvider call(
-    int? userId, {
-    int lastIndex = 0,
-  }) {
+    int? userId,
+    int? lastIndex,
+  ) {
     return GetTeetsProvider(
       userId,
-      lastIndex: lastIndex,
+      lastIndex,
     );
   }
 
@@ -182,7 +182,7 @@ class GetTeetsFamily extends Family<AsyncValue<List<TeetEntity>>> {
   ) {
     return call(
       provider.userId,
-      lastIndex: provider.lastIndex,
+      provider.lastIndex,
     );
   }
 
@@ -205,13 +205,13 @@ class GetTeetsFamily extends Family<AsyncValue<List<TeetEntity>>> {
 class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
   /// See also [getTeets].
   GetTeetsProvider(
-    int? userId, {
-    int lastIndex = 0,
-  }) : this._internal(
+    int? userId,
+    int? lastIndex,
+  ) : this._internal(
           (ref) => getTeets(
             ref as GetTeetsRef,
             userId,
-            lastIndex: lastIndex,
+            lastIndex,
           ),
           from: getTeetsProvider,
           name: r'getTeetsProvider',
@@ -237,7 +237,7 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
   }) : super.internal();
 
   final int? userId;
-  final int lastIndex;
+  final int? lastIndex;
 
   @override
   Override overrideWith(
@@ -285,7 +285,7 @@ mixin GetTeetsRef on AutoDisposeFutureProviderRef<List<TeetEntity>> {
   int? get userId;
 
   /// The parameter `lastIndex` of this provider.
-  int get lastIndex;
+  int? get lastIndex;
 }
 
 class _GetTeetsProviderElement
@@ -296,7 +296,7 @@ class _GetTeetsProviderElement
   @override
   int? get userId => (origin as GetTeetsProvider).userId;
   @override
-  int get lastIndex => (origin as GetTeetsProvider).lastIndex;
+  int? get lastIndex => (origin as GetTeetsProvider).lastIndex;
 }
 
 String _$getAllInterestCategoriesHash() =>

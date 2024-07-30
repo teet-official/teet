@@ -4,33 +4,38 @@ class TeetDataSourceImpl implements TeetDataSource {
   final client = Supabase.instance.client;
 
   @override
-  Future<List<TeetModel>> getTeets(int? userId, {int lastIndex = 0}) async {
+  Future<List<TeetModel>> getTeets(int? userId, int? lastIndex) async {
     dynamic query;
     if (userId != null) {
       query = client
           .from('teet')
           .select('*, teet_selection(*), teet_user_selected(*)')
           .isFilter('teet_user_selected', null)
-          .filter('teet_user_selected.user_id', 'eq', userId)
-          .filter('id', 'gt', lastIndex)
+          .filter('teet_user_selected.user_id', 'eq', userId);
+      if (lastIndex != null) {
+        query = query.filter('id', 'lt', lastIndex);
+      }
+      query = query
           .order(
             'id',
             ascending: false,
           )
           .order('id', referencedTable: 'teet_selection', ascending: true)
-          .limit(10);
+          .limit(getTeetsCount);
     } else {
-      query = client
-          .from('teet')
-          .select('*, teet_selection(*)')
-          .filter('id', 'gt', lastIndex)
+      query = client.from('teet').select('*, teet_selection(*)');
+      if (lastIndex != null) {
+        query = query.filter('id', 'lt', lastIndex);
+      }
+      query = query
           .order(
             'id',
             ascending: false,
           )
           .order('id', referencedTable: 'teet_selection', ascending: true)
-          .limit(10);
+          .limit(getTeetsCount);
     }
+
     final List<Map<String, dynamic>> result = await query;
     return result
         .map(

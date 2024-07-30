@@ -25,7 +25,11 @@ class TeetPage extends ConsumerWidget {
       return PageView.builder(
         controller: pageController,
         scrollDirection: Axis.vertical,
-        onPageChanged: (value) {},
+        onPageChanged: (value) {
+          if (value == state.teets.length - 1) {
+            ref.read(teetControllerProvider.notifier).fetchMore();
+          }
+        },
         itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
         itemCount: state.teets.length,
       );

@@ -1,0 +1,1 @@
+int getTeetsCount = 10;
