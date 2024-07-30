@@ -4,7 +4,7 @@ part of '../../../../generated_files/controller.dart';
 class UserController extends _$UserController {
   @override
   FutureOr<UserState> build() async {
-    final userId = ref.watch(authControllerProvider).userId;
+    final userId = ref.read(authControllerProvider).userId;
     if (userId == null) {
       throw Exception('User not authenticated');
     }
