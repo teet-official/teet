@@ -491,8 +491,8 @@ abstract class _MainPageState implements MainPageState {
 /// @nodoc
 mixin _$TeetPageState {
   bool get isLoading => throw _privateConstructorUsedError;
-  int get currentIndex => throw _privateConstructorUsedError;
   List<TeetEntity> get teets => throw _privateConstructorUsedError;
+  int get lastId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TeetPageStateCopyWith<TeetPageState> get copyWith =>
@@ -505,7 +505,7 @@ abstract class $TeetPageStateCopyWith<$Res> {
           TeetPageState value, $Res Function(TeetPageState) then) =
       _$TeetPageStateCopyWithImpl<$Res, TeetPageState>;
   @useResult
-  $Res call({bool isLoading, int currentIndex, List<TeetEntity> teets});
+  $Res call({bool isLoading, List<TeetEntity> teets, int lastId});
 }
 
 /// @nodoc
@@ -522,22 +522,22 @@ class _$TeetPageStateCopyWithImpl<$Res, $Val extends TeetPageState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? currentIndex = null,
     Object? teets = null,
+    Object? lastId = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
       teets: null == teets
           ? _value.teets
           : teets // ignore: cast_nullable_to_non_nullable
               as List<TeetEntity>,
+      lastId: null == lastId
+          ? _value.lastId
+          : lastId // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -550,7 +550,7 @@ abstract class _$$TeetPageStateImplCopyWith<$Res>
       __$$TeetPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, int currentIndex, List<TeetEntity> teets});
+  $Res call({bool isLoading, List<TeetEntity> teets, int lastId});
 }
 
 /// @nodoc
@@ -565,22 +565,22 @@ class __$$TeetPageStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? currentIndex = null,
     Object? teets = null,
+    Object? lastId = null,
   }) {
     return _then(_$TeetPageStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      currentIndex: null == currentIndex
-          ? _value.currentIndex
-          : currentIndex // ignore: cast_nullable_to_non_nullable
-              as int,
       teets: null == teets
           ? _value._teets
           : teets // ignore: cast_nullable_to_non_nullable
               as List<TeetEntity>,
+      lastId: null == lastId
+          ? _value.lastId
+          : lastId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -589,20 +589,15 @@ class __$$TeetPageStateImplCopyWithImpl<$Res>
 
 class _$TeetPageStateImpl implements _TeetPageState {
   _$TeetPageStateImpl(
-      {this.isLoading = false,
-      this.currentIndex = 0,
-      final List<TeetEntity> teets = const []})
+      {required this.isLoading,
+      required final List<TeetEntity> teets,
+      required this.lastId})
       : _teets = teets;
 
   @override
-  @JsonKey()
   final bool isLoading;
-  @override
-  @JsonKey()
-  final int currentIndex;
   final List<TeetEntity> _teets;
   @override
-  @JsonKey()
   List<TeetEntity> get teets {
     if (_teets is EqualUnmodifiableListView) return _teets;
     // ignore: implicit_dynamic_type
@@ -610,8 +605,11 @@ class _$TeetPageStateImpl implements _TeetPageState {
   }
 
   @override
+  final int lastId;
+
+  @override
   String toString() {
-    return 'TeetPageState(isLoading: $isLoading, currentIndex: $currentIndex, teets: $teets)';
+    return 'TeetPageState(isLoading: $isLoading, teets: $teets, lastId: $lastId)';
   }
 
   @override
@@ -621,14 +619,13 @@ class _$TeetPageStateImpl implements _TeetPageState {
             other is _$TeetPageStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.currentIndex, currentIndex) ||
-                other.currentIndex == currentIndex) &&
-            const DeepCollectionEquality().equals(other._teets, _teets));
+            const DeepCollectionEquality().equals(other._teets, _teets) &&
+            (identical(other.lastId, lastId) || other.lastId == lastId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, currentIndex,
-      const DeepCollectionEquality().hash(_teets));
+  int get hashCode => Object.hash(runtimeType, isLoading,
+      const DeepCollectionEquality().hash(_teets), lastId);
 
   @JsonKey(ignore: true)
   @override
@@ -639,16 +636,16 @@ class _$TeetPageStateImpl implements _TeetPageState {
 
 abstract class _TeetPageState implements TeetPageState {
   factory _TeetPageState(
-      {final bool isLoading,
-      final int currentIndex,
-      final List<TeetEntity> teets}) = _$TeetPageStateImpl;
+      {required final bool isLoading,
+      required final List<TeetEntity> teets,
+      required final int lastId}) = _$TeetPageStateImpl;
 
   @override
   bool get isLoading;
   @override
-  int get currentIndex;
-  @override
   List<TeetEntity> get teets;
+  @override
+  int get lastId;
   @override
   @JsonKey(ignore: true)
   _$$TeetPageStateImplCopyWith<_$TeetPageStateImpl> get copyWith =>

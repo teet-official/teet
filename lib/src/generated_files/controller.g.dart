@@ -6,7 +6,7 @@ part of 'controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authControllerHash() => r'39356ddd156152ccc2398b15b3fd0c265f1093e6';
+String _$authControllerHash() => r'9d047a7ae82baea96c32ce078ef283323ea1d4a4';
 
 /// See also [AuthController].
 @ProviderFor(AuthController)
@@ -54,7 +54,7 @@ final mainControllerProvider =
 );
 
 typedef _$MainController = AutoDisposeNotifier<MainPageState>;
-String _$teetControllerHash() => r'e636b23ffbfd970129ad86f8f21fe8f2b7c0e748';
+String _$teetControllerHash() => r'5920990f182dfee3b56ee21a35d95b47a9ada9ff';
 
 /// See also [TeetController].
 @ProviderFor(TeetController)
@@ -70,7 +70,7 @@ final teetControllerProvider =
 );
 
 typedef _$TeetController = AutoDisposeAsyncNotifier<TeetPageState>;
-String _$userControllerHash() => r'33a6044e68fa57167cf267a0685f495d03cf7e41';
+String _$userControllerHash() => r'0f9542dc6168b8c796a13f9686c3b28fd0ce2e27';
 
 /// See also [UserController].
 @ProviderFor(UserController)
