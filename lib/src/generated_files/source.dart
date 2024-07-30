@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:teet/src/generated_files/model.dart';
+import 'package:teet/src/shared/const/num_const.dart';
 
 part '../feature/teet/data/source/teet_data_source.dart';
 part '../feature/teet/data/source/teet_data_source_impl.dart';

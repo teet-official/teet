@@ -9,13 +9,35 @@ class TeetController extends _$TeetController {
 
   Future<TeetPageState> _fetchData() async {
     final userId = ref.watch(authControllerProvider).userId;
-    final teets =
-        await ref.watch(getTeetsProvider(userId, lastIndex: 0).future);
+    final teets = await ref.watch(getTeetsProvider(userId, null).future);
+
     return TeetPageState(
       isLoading: false,
       teets: teets,
       lastId: teets.last.id,
+      hasReachedMax: teets.length < getTeetsCount,
     );
+  }
+
+  Future<void> fetchMore() async {
+    final userId = ref.watch(authControllerProvider).userId;
+    final value = state.valueOrNull;
+
+    if (value != null && !value.hasReachedMax) {
+      final fetchedData =
+          await ref.watch(getTeetsProvider(userId, value.lastId).future);
+
+      if (fetchedData.isEmpty) {
+        state = AsyncValue.data(value.copyWith(hasReachedMax: true));
+        return;
+      }
+
+      state = AsyncValue.data(value.copyWith(
+        teets: [...value.teets, ...fetchedData],
+        lastId: fetchedData.last.id,
+        hasReachedMax: fetchedData.length < getTeetsCount,
+      ));
+    }
   }
 
   Future<void> onPressedSelectionButton(
