@@ -88,7 +88,13 @@ class AuthController extends _$AuthController {
   }
 
   Future<void> onInitSignIn() async {
+    if (Supabase.instance.client.auth.currentSession == null) {
+      return;
+    }
+
     final userResponse = await Supabase.instance.client.auth.getUser();
+
+    await Supabase.instance.client.auth.refreshSession();
     final user = userResponse.user;
     if (user == null) {
       return;
