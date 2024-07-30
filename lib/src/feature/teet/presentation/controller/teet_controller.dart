@@ -8,11 +8,13 @@ class TeetController extends _$TeetController {
   }
 
   Future<TeetPageState> _fetchData() async {
-    final teets = await ref.watch(getTeetsProvider.future);
+    final userId = ref.watch(authControllerProvider).userId;
+    final teets =
+        await ref.watch(getTeetsProvider(userId, lastIndex: 0).future);
     return TeetPageState(
-      currentIndex: 0,
       isLoading: false,
       teets: teets,
+      lastId: teets.last.id,
     );
   }
 

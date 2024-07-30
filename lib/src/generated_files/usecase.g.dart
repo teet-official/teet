@@ -154,20 +154,151 @@ class _SignUpProviderElement extends AutoDisposeFutureProviderElement<void>
   SignUpEntity get signUpEntity => (origin as SignUpProvider).signUpEntity;
 }
 
-String _$getTeetsHash() => r'd1084192d61ddb7f162c75176d695935e6e51888';
+String _$getTeetsHash() => r'e4a2aa4aecd5b509ad1a40862fa3749335223155';
 
 /// See also [getTeets].
 @ProviderFor(getTeets)
-final getTeetsProvider = AutoDisposeFutureProvider<List<TeetEntity>>.internal(
-  getTeets,
-  name: r'getTeetsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$getTeetsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const getTeetsProvider = GetTeetsFamily();
 
-typedef GetTeetsRef = AutoDisposeFutureProviderRef<List<TeetEntity>>;
+/// See also [getTeets].
+class GetTeetsFamily extends Family<AsyncValue<List<TeetEntity>>> {
+  /// See also [getTeets].
+  const GetTeetsFamily();
+
+  /// See also [getTeets].
+  GetTeetsProvider call(
+    int? userId, {
+    int lastIndex = 0,
+  }) {
+    return GetTeetsProvider(
+      userId,
+      lastIndex: lastIndex,
+    );
+  }
+
+  @override
+  GetTeetsProvider getProviderOverride(
+    covariant GetTeetsProvider provider,
+  ) {
+    return call(
+      provider.userId,
+      lastIndex: provider.lastIndex,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'getTeetsProvider';
+}
+
+/// See also [getTeets].
+class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
+  /// See also [getTeets].
+  GetTeetsProvider(
+    int? userId, {
+    int lastIndex = 0,
+  }) : this._internal(
+          (ref) => getTeets(
+            ref as GetTeetsRef,
+            userId,
+            lastIndex: lastIndex,
+          ),
+          from: getTeetsProvider,
+          name: r'getTeetsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getTeetsHash,
+          dependencies: GetTeetsFamily._dependencies,
+          allTransitiveDependencies: GetTeetsFamily._allTransitiveDependencies,
+          userId: userId,
+          lastIndex: lastIndex,
+        );
+
+  GetTeetsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.userId,
+    required this.lastIndex,
+  }) : super.internal();
+
+  final int? userId;
+  final int lastIndex;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<TeetEntity>> Function(GetTeetsRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: GetTeetsProvider._internal(
+        (ref) => create(ref as GetTeetsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        userId: userId,
+        lastIndex: lastIndex,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<TeetEntity>> createElement() {
+    return _GetTeetsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetTeetsProvider &&
+        other.userId == userId &&
+        other.lastIndex == lastIndex;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+    hash = _SystemHash.combine(hash, lastIndex.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin GetTeetsRef on AutoDisposeFutureProviderRef<List<TeetEntity>> {
+  /// The parameter `userId` of this provider.
+  int? get userId;
+
+  /// The parameter `lastIndex` of this provider.
+  int get lastIndex;
+}
+
+class _GetTeetsProviderElement
+    extends AutoDisposeFutureProviderElement<List<TeetEntity>>
+    with GetTeetsRef {
+  _GetTeetsProviderElement(super.provider);
+
+  @override
+  int? get userId => (origin as GetTeetsProvider).userId;
+  @override
+  int get lastIndex => (origin as GetTeetsProvider).lastIndex;
+}
+
 String _$getAllInterestCategoriesHash() =>
     r'6ebd283aff35d42a114eee89da387279f7b79742';
 
