@@ -39,6 +39,12 @@ class TeetPage extends ConsumerWidget {
                 ),
               );
             }
+
+            if (t.direction == ScrollDirection.forward &&
+                pageController.page == 0) {
+              print("@@");
+              ref.read(teetControllerProvider.notifier).fetchRefresh();
+            }
           }
           return true;
         },

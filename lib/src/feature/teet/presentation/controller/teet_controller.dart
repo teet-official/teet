@@ -40,6 +40,22 @@ class TeetController extends _$TeetController {
     }
   }
 
+  Future<void> fetchRefresh() async {
+    state = const AsyncLoading();
+
+    final userId = ref.watch(authControllerProvider).userId;
+    final teets = await ref.watch(getTeetsProvider(userId, null).future);
+
+    state = AsyncValue.data(
+      TeetPageState(
+        isLoading: false,
+        teets: teets,
+        lastId: teets.last.id,
+        hasReachedMax: teets.length < getTeetsCount,
+      ),
+    );
+  }
+
   Future<void> onPressedSelectionButton(
       int currentTeetId, int selectedSelectionId) async {
     final value = state.valueOrNull;
