@@ -44,7 +44,7 @@ class TeetController extends _$TeetController {
     state = const AsyncLoading();
 
     final userId = ref.watch(authControllerProvider).userId;
-    final teets = await ref.watch(getTeetsProvider(userId, null).future);
+    final teets = await ref.refresh(getTeetsProvider(userId, null).future);
 
     state = AsyncValue.data(
       TeetPageState(
@@ -57,8 +57,15 @@ class TeetController extends _$TeetController {
   }
 
   Future<void> onPressedSelectionButton(
-      int currentTeetId, int selectedSelectionId) async {
+      int currentTeetId, int selectedSelectionId, bool isAnswer) async {
     final value = state.valueOrNull;
+    final userId = ref.read(authControllerProvider).userId;
+    if (userId != null) {
+      await ref.read(solvedTeetProvider(
+              currentTeetId, selectedSelectionId, userId, isAnswer)
+          .future);
+    }
+
     if (value != null) {
       final newTeet = value.teets.map((teet) {
         if (teet.id == currentTeetId) {

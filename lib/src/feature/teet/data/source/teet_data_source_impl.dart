@@ -43,6 +43,21 @@ class TeetDataSourceImpl implements TeetDataSource {
         )
         .toList();
   }
+
+  @override
+  Future<void> solvedTeet(
+    int teetId,
+    int selectionId,
+    int userId,
+    bool isAnswer,
+  ) async {
+    await client.from('teet_user_selected').insert({
+      'teet_id': teetId,
+      'selection_id': selectionId,
+      'user_id': userId,
+      'is_answer': isAnswer,
+    });
+  }
 }
 
 @riverpod

@@ -54,7 +54,7 @@ final mainControllerProvider =
 );
 
 typedef _$MainController = AutoDisposeNotifier<MainPageState>;
-String _$teetControllerHash() => r'9bb2bfba26ac5e9959551855daaddb9986e11fcc';
+String _$teetControllerHash() => r'b81b3b43bb964112b7b899bf88db582f3b3be97d';
 
 /// See also [TeetController].
 @ProviderFor(TeetController)

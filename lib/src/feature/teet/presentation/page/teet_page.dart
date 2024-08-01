@@ -42,7 +42,6 @@ class TeetPage extends ConsumerWidget {
 
             if (t.direction == ScrollDirection.forward &&
                 pageController.page == 0) {
-              print("@@");
               ref.read(teetControllerProvider.notifier).fetchRefresh();
             }
           }
@@ -82,8 +81,8 @@ class TeetPage extends ConsumerWidget {
                             onPressed: () {
                               ref
                                   .read(teetControllerProvider.notifier)
-                                  .onPressedSelectionButton(
-                                      teet.id, selection.id);
+                                  .onPressedSelectionButton(teet.id,
+                                      selection.id, selection.isAnswer);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: () {
