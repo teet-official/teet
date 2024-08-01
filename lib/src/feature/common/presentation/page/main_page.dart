@@ -7,7 +7,7 @@ import 'package:teet/src/feature/teet/presentation/page/teet_page.dart';
 import 'package:teet/src/generated_files/controller.dart';
 
 class MainPage extends ConsumerWidget {
-  MainPage({super.key});
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -54,6 +54,23 @@ final mainControllerProvider =
 );
 
 typedef _$MainController = AutoDisposeNotifier<MainPageState>;
+String _$editProfileControllerHash() =>
+    r'94dfc2a83e79a597b883aa8be0e7f656b6bb8514';
+
+/// See also [EditProfileController].
+@ProviderFor(EditProfileController)
+final editProfileControllerProvider = AutoDisposeNotifierProvider<
+    EditProfileController, EditProfileState>.internal(
+  EditProfileController.new,
+  name: r'editProfileControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$editProfileControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$EditProfileController = AutoDisposeNotifier<EditProfileState>;
 String _$teetControllerHash() => r'19c827b9d8db55beee64355084dccdd94fbae7b2';
 
 /// See also [TeetController].

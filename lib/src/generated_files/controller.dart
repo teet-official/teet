@@ -15,6 +15,8 @@ part '../feature/auth/presentation/controller/sign_up_controller.dart';
 part '../feature/auth/presentation/controller/sign_up_state.dart';
 part '../feature/common/presentation/controller/main_controller.dart';
 part '../feature/common/presentation/controller/main_page_state.dart';
+part '../feature/profile/controller/edit_profile_controller.dart';
+part '../feature/profile/controller/edit_profile_state.dart';
 part '../feature/teet/presentation/controller/teet_controller.dart';
 part '../feature/teet/presentation/controller/teet_page_state.dart';
 part '../feature/user/presentation/controller/user_controller.dart';
