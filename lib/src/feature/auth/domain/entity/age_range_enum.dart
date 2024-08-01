@@ -8,9 +8,19 @@ enum AgeRange {
   const AgeRange(this.value);
   final String value;
 
-  factory AgeRange.getByValue(String value) {
-    return AgeRange.values.firstWhere((value) => value == value,
-        orElse: () => AgeRange.undefined);
+  static AgeRange fromString(String value) {
+    switch (value) {
+      case 'teenager':
+        return AgeRange.teenager;
+      case 'twenties':
+        return AgeRange.twenties;
+      case 'thirties':
+        return AgeRange.thirties;
+      case 'forties':
+        return AgeRange.forties;
+      default:
+        return AgeRange.undefined;
+    }
   }
 
   isNotEmpty() {

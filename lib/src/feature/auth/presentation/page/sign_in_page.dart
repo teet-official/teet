@@ -20,29 +20,33 @@ class SignInPage extends ConsumerWidget {
               context.pop();
             },
           )),
-      body: ElevatedButton(
-        onPressed: () async {
-          await ref
-              .read(authControllerProvider.notifier)
-              .onPressedGoogleSignInButton();
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () async {
+              await ref
+                  .read(authControllerProvider.notifier)
+                  .onPressedGoogleSignInButton();
 
-          final isSignIn = ref.read(authControllerProvider).isSignIn;
+              final isSignIn = ref.read(authControllerProvider).isSignIn;
 
-          if (!context.mounted) return;
-          if (isSignIn) {
-            ref
-                .watch(mainControllerProvider.notifier)
-                .setBottomNavigationBarIndex(0);
-          } else {
-            context.push('/auth/sign-up');
-          }
-        },
-        child: Column(
-          children: [
-            Text('isSignIn: ${state.isSignIn}'),
-            const Text('Sign in with Google'),
-          ],
-        ),
+              if (!context.mounted) return;
+              if (isSignIn) {
+                ref
+                    .watch(mainControllerProvider.notifier)
+                    .setBottomNavigationBarIndex(0);
+              } else {
+                context.push('/auth/sign-up');
+              }
+            },
+            child: Column(
+              children: [
+                Text('isSignIn: ${state.isSignIn}'),
+                const Text('Sign in with Google'),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

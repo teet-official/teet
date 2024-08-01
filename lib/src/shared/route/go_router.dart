@@ -8,7 +8,7 @@ class GoRouterProvider extends _$GoRouterProvider {
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => MainPage(),
+          builder: (context, state) => const MainPage(),
         ),
         GoRoute(
           path: '/auth/sign-in',

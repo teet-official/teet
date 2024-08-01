@@ -6,9 +6,15 @@ enum Gender {
   const Gender(this.value);
   final String value;
 
-  factory Gender.getByValue(String value) {
-    return Gender.values
-        .firstWhere((value) => value == value, orElse: () => Gender.undefined);
+  static Gender fromString(String value) {
+    switch (value) {
+      case 'man':
+        return Gender.man;
+      case 'woman':
+        return Gender.woman;
+      default:
+        return Gender.undefined;
+    }
   }
 
   isNotEmpty() {

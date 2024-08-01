@@ -489,6 +489,184 @@ abstract class _MainPageState implements MainPageState {
 }
 
 /// @nodoc
+mixin _$EditProfileState {
+  String? get nickname => throw _privateConstructorUsedError;
+  Gender? get gender => throw _privateConstructorUsedError;
+  AgeRange? get ageRange => throw _privateConstructorUsedError;
+  bool get hasChanged => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $EditProfileStateCopyWith<EditProfileState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EditProfileStateCopyWith<$Res> {
+  factory $EditProfileStateCopyWith(
+          EditProfileState value, $Res Function(EditProfileState) then) =
+      _$EditProfileStateCopyWithImpl<$Res, EditProfileState>;
+  @useResult
+  $Res call(
+      {String? nickname, Gender? gender, AgeRange? ageRange, bool hasChanged});
+}
+
+/// @nodoc
+class _$EditProfileStateCopyWithImpl<$Res, $Val extends EditProfileState>
+    implements $EditProfileStateCopyWith<$Res> {
+  _$EditProfileStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nickname = freezed,
+    Object? gender = freezed,
+    Object? ageRange = freezed,
+    Object? hasChanged = null,
+  }) {
+    return _then(_value.copyWith(
+      nickname: freezed == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender?,
+      ageRange: freezed == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange?,
+      hasChanged: null == hasChanged
+          ? _value.hasChanged
+          : hasChanged // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$EditProfileStateImplCopyWith<$Res>
+    implements $EditProfileStateCopyWith<$Res> {
+  factory _$$EditProfileStateImplCopyWith(_$EditProfileStateImpl value,
+          $Res Function(_$EditProfileStateImpl) then) =
+      __$$EditProfileStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? nickname, Gender? gender, AgeRange? ageRange, bool hasChanged});
+}
+
+/// @nodoc
+class __$$EditProfileStateImplCopyWithImpl<$Res>
+    extends _$EditProfileStateCopyWithImpl<$Res, _$EditProfileStateImpl>
+    implements _$$EditProfileStateImplCopyWith<$Res> {
+  __$$EditProfileStateImplCopyWithImpl(_$EditProfileStateImpl _value,
+      $Res Function(_$EditProfileStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nickname = freezed,
+    Object? gender = freezed,
+    Object? ageRange = freezed,
+    Object? hasChanged = null,
+  }) {
+    return _then(_$EditProfileStateImpl(
+      nickname: freezed == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as Gender?,
+      ageRange: freezed == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as AgeRange?,
+      hasChanged: null == hasChanged
+          ? _value.hasChanged
+          : hasChanged // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditProfileStateImpl implements _EditProfileState {
+  _$EditProfileStateImpl(
+      {this.nickname, this.gender, this.ageRange, this.hasChanged = false});
+
+  @override
+  final String? nickname;
+  @override
+  final Gender? gender;
+  @override
+  final AgeRange? ageRange;
+  @override
+  @JsonKey()
+  final bool hasChanged;
+
+  @override
+  String toString() {
+    return 'EditProfileState(nickname: $nickname, gender: $gender, ageRange: $ageRange, hasChanged: $hasChanged)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditProfileStateImpl &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.ageRange, ageRange) ||
+                other.ageRange == ageRange) &&
+            (identical(other.hasChanged, hasChanged) ||
+                other.hasChanged == hasChanged));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, nickname, gender, ageRange, hasChanged);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditProfileStateImplCopyWith<_$EditProfileStateImpl> get copyWith =>
+      __$$EditProfileStateImplCopyWithImpl<_$EditProfileStateImpl>(
+          this, _$identity);
+}
+
+abstract class _EditProfileState implements EditProfileState {
+  factory _EditProfileState(
+      {final String? nickname,
+      final Gender? gender,
+      final AgeRange? ageRange,
+      final bool hasChanged}) = _$EditProfileStateImpl;
+
+  @override
+  String? get nickname;
+  @override
+  Gender? get gender;
+  @override
+  AgeRange? get ageRange;
+  @override
+  bool get hasChanged;
+  @override
+  @JsonKey(ignore: true)
+  _$$EditProfileStateImplCopyWith<_$EditProfileStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TeetPageState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<TeetEntity> get teets => throw _privateConstructorUsedError;

@@ -8,15 +8,15 @@ class EditInterestCategoryPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('내 관심사'),
+        title: const Text('내 관심사'),
         actions: [
           TextButton(
-            child: Text('저장'),
+            child: const Text('저장'),
             onPressed: () {},
           ),
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Text('edit interest category'),
       ),
     );

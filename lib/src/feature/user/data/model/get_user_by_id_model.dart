@@ -23,8 +23,8 @@ extension ToEntityExtensionFromGetUserByIdModel on GetUserByIdModel {
         profile: ProfileEntity(
           nickname: nickname,
           profileImageUrl: profileImageUrl,
-          gender: Gender.getByValue(gender),
-          ageRange: AgeRange.getByValue(ageRange),
+          gender: Gender.fromString(gender),
+          ageRange: AgeRange.fromString(ageRange),
         ),
         createdAt: createdAt,
         interestCategories: userInterestCategory
