@@ -23,6 +23,14 @@ class GoRouterProvider extends _$GoRouterProvider {
                 builder: (context, state) => const SignUpSecondStepPage(),
               )
             ]),
+        GoRoute(
+          path: '/profile/edit',
+          builder: (context, state) => const EditProfilePage(),
+        ),
+        GoRoute(
+          path: '/profile/interest-category/edit',
+          builder: (context, state) => const EditInterestCategoryPage(),
+        ),
       ],
     );
   }
