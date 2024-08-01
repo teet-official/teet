@@ -299,6 +299,183 @@ class _GetTeetsProviderElement
   int? get lastIndex => (origin as GetTeetsProvider).lastIndex;
 }
 
+String _$solvedTeetHash() => r'c5ec07eeb040538e14c5375e7ed567765d07ab29';
+
+/// See also [solvedTeet].
+@ProviderFor(solvedTeet)
+const solvedTeetProvider = SolvedTeetFamily();
+
+/// See also [solvedTeet].
+class SolvedTeetFamily extends Family<AsyncValue<void>> {
+  /// See also [solvedTeet].
+  const SolvedTeetFamily();
+
+  /// See also [solvedTeet].
+  SolvedTeetProvider call(
+    int teetId,
+    int selectionId,
+    int userId,
+    bool isAnswer,
+  ) {
+    return SolvedTeetProvider(
+      teetId,
+      selectionId,
+      userId,
+      isAnswer,
+    );
+  }
+
+  @override
+  SolvedTeetProvider getProviderOverride(
+    covariant SolvedTeetProvider provider,
+  ) {
+    return call(
+      provider.teetId,
+      provider.selectionId,
+      provider.userId,
+      provider.isAnswer,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'solvedTeetProvider';
+}
+
+/// See also [solvedTeet].
+class SolvedTeetProvider extends AutoDisposeFutureProvider<void> {
+  /// See also [solvedTeet].
+  SolvedTeetProvider(
+    int teetId,
+    int selectionId,
+    int userId,
+    bool isAnswer,
+  ) : this._internal(
+          (ref) => solvedTeet(
+            ref as SolvedTeetRef,
+            teetId,
+            selectionId,
+            userId,
+            isAnswer,
+          ),
+          from: solvedTeetProvider,
+          name: r'solvedTeetProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$solvedTeetHash,
+          dependencies: SolvedTeetFamily._dependencies,
+          allTransitiveDependencies:
+              SolvedTeetFamily._allTransitiveDependencies,
+          teetId: teetId,
+          selectionId: selectionId,
+          userId: userId,
+          isAnswer: isAnswer,
+        );
+
+  SolvedTeetProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.teetId,
+    required this.selectionId,
+    required this.userId,
+    required this.isAnswer,
+  }) : super.internal();
+
+  final int teetId;
+  final int selectionId;
+  final int userId;
+  final bool isAnswer;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(SolvedTeetRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: SolvedTeetProvider._internal(
+        (ref) => create(ref as SolvedTeetRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        teetId: teetId,
+        selectionId: selectionId,
+        userId: userId,
+        isAnswer: isAnswer,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _SolvedTeetProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is SolvedTeetProvider &&
+        other.teetId == teetId &&
+        other.selectionId == selectionId &&
+        other.userId == userId &&
+        other.isAnswer == isAnswer;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, teetId.hashCode);
+    hash = _SystemHash.combine(hash, selectionId.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+    hash = _SystemHash.combine(hash, isAnswer.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin SolvedTeetRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `teetId` of this provider.
+  int get teetId;
+
+  /// The parameter `selectionId` of this provider.
+  int get selectionId;
+
+  /// The parameter `userId` of this provider.
+  int get userId;
+
+  /// The parameter `isAnswer` of this provider.
+  bool get isAnswer;
+}
+
+class _SolvedTeetProviderElement extends AutoDisposeFutureProviderElement<void>
+    with SolvedTeetRef {
+  _SolvedTeetProviderElement(super.provider);
+
+  @override
+  int get teetId => (origin as SolvedTeetProvider).teetId;
+  @override
+  int get selectionId => (origin as SolvedTeetProvider).selectionId;
+  @override
+  int get userId => (origin as SolvedTeetProvider).userId;
+  @override
+  bool get isAnswer => (origin as SolvedTeetProvider).isAnswer;
+}
+
 String _$getAllInterestCategoriesHash() =>
     r'6ebd283aff35d42a114eee89da387279f7b79742';
 

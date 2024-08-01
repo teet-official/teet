@@ -9,6 +9,16 @@ class TeetRepositoryImpl extends TeetRepository {
     final models = await _source.getTeets(userId, lastIndex);
     return models.map((model) => model.toEntity()).toList();
   }
+
+  @override
+  Future<void> solvedTeet(
+    int teetId,
+    int selectionId,
+    int userId,
+    bool isAnswer,
+  ) async {
+    await _source.solvedTeet(teetId, selectionId, userId, isAnswer);
+  }
 }
 
 @riverpod
