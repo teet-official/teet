@@ -8,7 +8,6 @@ class SignInPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(authControllerProvider);
     ref.watch(signUpControllerProvider);
 
     return Scaffold(
@@ -39,10 +38,9 @@ class SignInPage extends ConsumerWidget {
                 context.push('/auth/sign-up');
               }
             },
-            child: Column(
+            child: const Column(
               children: [
-                Text('isSignIn: ${state.isSignIn}'),
-                const Text('Sign in with Google'),
+                Text('Sign in with Google'),
               ],
             ),
           )

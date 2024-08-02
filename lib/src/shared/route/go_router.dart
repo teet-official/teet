@@ -5,7 +5,12 @@ class GoRouterProvider extends _$GoRouterProvider {
   @override
   GoRouter build() {
     return GoRouter(
+      initialLocation: '/splash',
       routes: [
+        GoRoute(
+          path: '/splash',
+          builder: (context, state) => const SplashPage(),
+        ),
         GoRoute(
           path: '/',
           builder: (context, state) => const MainPage(),
