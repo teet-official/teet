@@ -70,8 +70,8 @@ class ProfilePage extends ConsumerWidget {
                     ));
               }),
               ElevatedButton(
-                onPressed: () {
-                  ref
+                onPressed: () async {
+                  await ref
                       .read(authControllerProvider.notifier)
                       .onPressedSignOutButton();
                   ref

@@ -20,7 +20,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(goRouterProviderProvider);
-    ref.watch(authControllerProvider.notifier).onInitSignIn();
+    ref.watch(authControllerProvider);
     return MaterialApp.router(
       title: 'Teet',
       theme: ThemeData(
