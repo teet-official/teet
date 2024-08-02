@@ -54,23 +54,23 @@ final mainControllerProvider =
 );
 
 typedef _$MainController = AutoDisposeNotifier<MainPageState>;
-String _$editProfileControllerHash() =>
-    r'94dfc2a83e79a597b883aa8be0e7f656b6bb8514';
+String _$updateProfileControllerHash() =>
+    r'3f84cad2c8daebe859d9383700610ae322743474';
 
-/// See also [EditProfileController].
-@ProviderFor(EditProfileController)
-final editProfileControllerProvider = AutoDisposeNotifierProvider<
-    EditProfileController, EditProfileState>.internal(
-  EditProfileController.new,
-  name: r'editProfileControllerProvider',
+/// See also [UpdateProfileController].
+@ProviderFor(UpdateProfileController)
+final updateProfileControllerProvider = AutoDisposeNotifierProvider<
+    UpdateProfileController, UpdateProfileState>.internal(
+  UpdateProfileController.new,
+  name: r'updateProfileControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$editProfileControllerHash,
+      : _$updateProfileControllerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$EditProfileController = AutoDisposeNotifier<EditProfileState>;
+typedef _$UpdateProfileController = AutoDisposeNotifier<UpdateProfileState>;
 String _$teetControllerHash() => r'19c827b9d8db55beee64355084dccdd94fbae7b2';
 
 /// See also [TeetController].
@@ -87,7 +87,7 @@ final teetControllerProvider =
 );
 
 typedef _$TeetController = AutoDisposeAsyncNotifier<TeetPageState>;
-String _$userControllerHash() => r'0f9542dc6168b8c796a13f9686c3b28fd0ce2e27';
+String _$userControllerHash() => r'a2b70555bbf7bcf8a258fb3c8e70d20f9839bb9b';
 
 /// See also [UserController].
 @ProviderFor(UserController)

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class EditInterestCategoryPage extends ConsumerWidget {
-  const EditInterestCategoryPage({super.key});
+class UpdateInterestCategoryPage extends ConsumerWidget {
+  const UpdateInterestCategoryPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,7 +17,7 @@ class EditInterestCategoryPage extends ConsumerWidget {
         ],
       ),
       body: const Center(
-        child: Text('edit interest category'),
+        child: Text('update interest category'),
       ),
     );
   }

@@ -489,31 +489,31 @@ abstract class _MainPageState implements MainPageState {
 }
 
 /// @nodoc
-mixin _$EditProfileState {
-  String? get nickname => throw _privateConstructorUsedError;
-  Gender? get gender => throw _privateConstructorUsedError;
-  AgeRange? get ageRange => throw _privateConstructorUsedError;
+mixin _$UpdateProfileState {
+  String get nickname => throw _privateConstructorUsedError;
+  Gender get gender => throw _privateConstructorUsedError;
+  AgeRange get ageRange => throw _privateConstructorUsedError;
   bool get hasChanged => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $EditProfileStateCopyWith<EditProfileState> get copyWith =>
+  $UpdateProfileStateCopyWith<UpdateProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EditProfileStateCopyWith<$Res> {
-  factory $EditProfileStateCopyWith(
-          EditProfileState value, $Res Function(EditProfileState) then) =
-      _$EditProfileStateCopyWithImpl<$Res, EditProfileState>;
+abstract class $UpdateProfileStateCopyWith<$Res> {
+  factory $UpdateProfileStateCopyWith(
+          UpdateProfileState value, $Res Function(UpdateProfileState) then) =
+      _$UpdateProfileStateCopyWithImpl<$Res, UpdateProfileState>;
   @useResult
   $Res call(
-      {String? nickname, Gender? gender, AgeRange? ageRange, bool hasChanged});
+      {String nickname, Gender gender, AgeRange ageRange, bool hasChanged});
 }
 
 /// @nodoc
-class _$EditProfileStateCopyWithImpl<$Res, $Val extends EditProfileState>
-    implements $EditProfileStateCopyWith<$Res> {
-  _$EditProfileStateCopyWithImpl(this._value, this._then);
+class _$UpdateProfileStateCopyWithImpl<$Res, $Val extends UpdateProfileState>
+    implements $UpdateProfileStateCopyWith<$Res> {
+  _$UpdateProfileStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -523,24 +523,24 @@ class _$EditProfileStateCopyWithImpl<$Res, $Val extends EditProfileState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nickname = freezed,
-    Object? gender = freezed,
-    Object? ageRange = freezed,
+    Object? nickname = null,
+    Object? gender = null,
+    Object? ageRange = null,
     Object? hasChanged = null,
   }) {
     return _then(_value.copyWith(
-      nickname: freezed == nickname
+      nickname: null == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: freezed == gender
+              as String,
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as Gender?,
-      ageRange: freezed == ageRange
+              as Gender,
+      ageRange: null == ageRange
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
-              as AgeRange?,
+              as AgeRange,
       hasChanged: null == hasChanged
           ? _value.hasChanged
           : hasChanged // ignore: cast_nullable_to_non_nullable
@@ -550,46 +550,46 @@ class _$EditProfileStateCopyWithImpl<$Res, $Val extends EditProfileState>
 }
 
 /// @nodoc
-abstract class _$$EditProfileStateImplCopyWith<$Res>
-    implements $EditProfileStateCopyWith<$Res> {
-  factory _$$EditProfileStateImplCopyWith(_$EditProfileStateImpl value,
-          $Res Function(_$EditProfileStateImpl) then) =
-      __$$EditProfileStateImplCopyWithImpl<$Res>;
+abstract class _$$UpdateProfileStateImplCopyWith<$Res>
+    implements $UpdateProfileStateCopyWith<$Res> {
+  factory _$$UpdateProfileStateImplCopyWith(_$UpdateProfileStateImpl value,
+          $Res Function(_$UpdateProfileStateImpl) then) =
+      __$$UpdateProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String? nickname, Gender? gender, AgeRange? ageRange, bool hasChanged});
+      {String nickname, Gender gender, AgeRange ageRange, bool hasChanged});
 }
 
 /// @nodoc
-class __$$EditProfileStateImplCopyWithImpl<$Res>
-    extends _$EditProfileStateCopyWithImpl<$Res, _$EditProfileStateImpl>
-    implements _$$EditProfileStateImplCopyWith<$Res> {
-  __$$EditProfileStateImplCopyWithImpl(_$EditProfileStateImpl _value,
-      $Res Function(_$EditProfileStateImpl) _then)
+class __$$UpdateProfileStateImplCopyWithImpl<$Res>
+    extends _$UpdateProfileStateCopyWithImpl<$Res, _$UpdateProfileStateImpl>
+    implements _$$UpdateProfileStateImplCopyWith<$Res> {
+  __$$UpdateProfileStateImplCopyWithImpl(_$UpdateProfileStateImpl _value,
+      $Res Function(_$UpdateProfileStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nickname = freezed,
-    Object? gender = freezed,
-    Object? ageRange = freezed,
+    Object? nickname = null,
+    Object? gender = null,
+    Object? ageRange = null,
     Object? hasChanged = null,
   }) {
-    return _then(_$EditProfileStateImpl(
-      nickname: freezed == nickname
+    return _then(_$UpdateProfileStateImpl(
+      nickname: null == nickname
           ? _value.nickname
           : nickname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: freezed == gender
+              as String,
+      gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
-              as Gender?,
-      ageRange: freezed == ageRange
+              as Gender,
+      ageRange: null == ageRange
           ? _value.ageRange
           : ageRange // ignore: cast_nullable_to_non_nullable
-              as AgeRange?,
+              as AgeRange,
       hasChanged: null == hasChanged
           ? _value.hasChanged
           : hasChanged // ignore: cast_nullable_to_non_nullable
@@ -600,30 +600,33 @@ class __$$EditProfileStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditProfileStateImpl implements _EditProfileState {
-  _$EditProfileStateImpl(
-      {this.nickname, this.gender, this.ageRange, this.hasChanged = false});
+class _$UpdateProfileStateImpl implements _UpdateProfileState {
+  _$UpdateProfileStateImpl(
+      {required this.nickname,
+      required this.gender,
+      required this.ageRange,
+      this.hasChanged = false});
 
   @override
-  final String? nickname;
+  final String nickname;
   @override
-  final Gender? gender;
+  final Gender gender;
   @override
-  final AgeRange? ageRange;
+  final AgeRange ageRange;
   @override
   @JsonKey()
   final bool hasChanged;
 
   @override
   String toString() {
-    return 'EditProfileState(nickname: $nickname, gender: $gender, ageRange: $ageRange, hasChanged: $hasChanged)';
+    return 'UpdateProfileState(nickname: $nickname, gender: $gender, ageRange: $ageRange, hasChanged: $hasChanged)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditProfileStateImpl &&
+            other is _$UpdateProfileStateImpl &&
             (identical(other.nickname, nickname) ||
                 other.nickname == nickname) &&
             (identical(other.gender, gender) || other.gender == gender) &&
@@ -640,29 +643,29 @@ class _$EditProfileStateImpl implements _EditProfileState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EditProfileStateImplCopyWith<_$EditProfileStateImpl> get copyWith =>
-      __$$EditProfileStateImplCopyWithImpl<_$EditProfileStateImpl>(
+  _$$UpdateProfileStateImplCopyWith<_$UpdateProfileStateImpl> get copyWith =>
+      __$$UpdateProfileStateImplCopyWithImpl<_$UpdateProfileStateImpl>(
           this, _$identity);
 }
 
-abstract class _EditProfileState implements EditProfileState {
-  factory _EditProfileState(
-      {final String? nickname,
-      final Gender? gender,
-      final AgeRange? ageRange,
-      final bool hasChanged}) = _$EditProfileStateImpl;
+abstract class _UpdateProfileState implements UpdateProfileState {
+  factory _UpdateProfileState(
+      {required final String nickname,
+      required final Gender gender,
+      required final AgeRange ageRange,
+      final bool hasChanged}) = _$UpdateProfileStateImpl;
 
   @override
-  String? get nickname;
+  String get nickname;
   @override
-  Gender? get gender;
+  Gender get gender;
   @override
-  AgeRange? get ageRange;
+  AgeRange get ageRange;
   @override
   bool get hasChanged;
   @override
   @JsonKey(ignore: true)
-  _$$EditProfileStateImplCopyWith<_$EditProfileStateImpl> get copyWith =>
+  _$$UpdateProfileStateImplCopyWith<_$UpdateProfileStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

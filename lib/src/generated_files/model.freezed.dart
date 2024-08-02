@@ -1705,3 +1705,205 @@ abstract class _UpdateUserInterestCategoryModel
           _$UpdateUserInterestCategoryModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
+
+UpdateUserProfileModel _$UpdateUserProfileModelFromJson(
+    Map<String, dynamic> json) {
+  return _UpdateUserProfileModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UpdateUserProfileModel {
+  int get userId => throw _privateConstructorUsedError;
+  String get nickname => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get ageRange => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateUserProfileModelCopyWith<UpdateUserProfileModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateUserProfileModelCopyWith<$Res> {
+  factory $UpdateUserProfileModelCopyWith(UpdateUserProfileModel value,
+          $Res Function(UpdateUserProfileModel) then) =
+      _$UpdateUserProfileModelCopyWithImpl<$Res, UpdateUserProfileModel>;
+  @useResult
+  $Res call({int userId, String nickname, String gender, String ageRange});
+}
+
+/// @nodoc
+class _$UpdateUserProfileModelCopyWithImpl<$Res,
+        $Val extends UpdateUserProfileModel>
+    implements $UpdateUserProfileModelCopyWith<$Res> {
+  _$UpdateUserProfileModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+    Object? nickname = null,
+    Object? gender = null,
+    Object? ageRange = null,
+  }) {
+    return _then(_value.copyWith(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UpdateUserProfileModelImplCopyWith<$Res>
+    implements $UpdateUserProfileModelCopyWith<$Res> {
+  factory _$$UpdateUserProfileModelImplCopyWith(
+          _$UpdateUserProfileModelImpl value,
+          $Res Function(_$UpdateUserProfileModelImpl) then) =
+      __$$UpdateUserProfileModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int userId, String nickname, String gender, String ageRange});
+}
+
+/// @nodoc
+class __$$UpdateUserProfileModelImplCopyWithImpl<$Res>
+    extends _$UpdateUserProfileModelCopyWithImpl<$Res,
+        _$UpdateUserProfileModelImpl>
+    implements _$$UpdateUserProfileModelImplCopyWith<$Res> {
+  __$$UpdateUserProfileModelImplCopyWithImpl(
+      _$UpdateUserProfileModelImpl _value,
+      $Res Function(_$UpdateUserProfileModelImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+    Object? nickname = null,
+    Object? gender = null,
+    Object? ageRange = null,
+  }) {
+    return _then(_$UpdateUserProfileModelImpl(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      gender: null == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      ageRange: null == ageRange
+          ? _value.ageRange
+          : ageRange // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class _$UpdateUserProfileModelImpl implements _UpdateUserProfileModel {
+  _$UpdateUserProfileModelImpl(
+      {required this.userId,
+      required this.nickname,
+      required this.gender,
+      required this.ageRange});
+
+  factory _$UpdateUserProfileModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateUserProfileModelImplFromJson(json);
+
+  @override
+  final int userId;
+  @override
+  final String nickname;
+  @override
+  final String gender;
+  @override
+  final String ageRange;
+
+  @override
+  String toString() {
+    return 'UpdateUserProfileModel(userId: $userId, nickname: $nickname, gender: $gender, ageRange: $ageRange)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateUserProfileModelImpl &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.ageRange, ageRange) ||
+                other.ageRange == ageRange));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, userId, nickname, gender, ageRange);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateUserProfileModelImplCopyWith<_$UpdateUserProfileModelImpl>
+      get copyWith => __$$UpdateUserProfileModelImplCopyWithImpl<
+          _$UpdateUserProfileModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UpdateUserProfileModelImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UpdateUserProfileModel implements UpdateUserProfileModel {
+  factory _UpdateUserProfileModel(
+      {required final int userId,
+      required final String nickname,
+      required final String gender,
+      required final String ageRange}) = _$UpdateUserProfileModelImpl;
+
+  factory _UpdateUserProfileModel.fromJson(Map<String, dynamic> json) =
+      _$UpdateUserProfileModelImpl.fromJson;
+
+  @override
+  int get userId;
+  @override
+  String get nickname;
+  @override
+  String get gender;
+  @override
+  String get ageRange;
+  @override
+  @JsonKey(ignore: true)
+  _$$UpdateUserProfileModelImplCopyWith<_$UpdateUserProfileModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}

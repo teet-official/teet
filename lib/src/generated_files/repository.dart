@@ -1,4 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:teet/src/feature/auth/domain/entity/age_range_enum.dart';
+import 'package:teet/src/feature/auth/domain/entity/gender_enum.dart';
 import 'package:teet/src/generated_files/entity.dart';
 import 'package:teet/src/generated_files/model.dart';
 import 'package:teet/src/generated_files/source.dart';

@@ -53,6 +53,18 @@ class UserDataSourceImpl implements UserDataSource {
 
     return GetUserByIdModel.fromJson(result);
   }
+
+  @override
+  Future<void> updateUserProfile(
+      UpdateUserProfileModel updateUserProfileModel) async {
+    await client.from('user').update({
+      'nickname': updateUserProfileModel.nickname,
+      'gender': updateUserProfileModel.gender,
+      'age_range': updateUserProfileModel.ageRange,
+    }).eq('id', updateUserProfileModel.userId);
+
+    return;
+  }
 }
 
 @riverpod

@@ -7,4 +7,5 @@ abstract class UserDataSource {
   Future<bool> isExistUserByUid(String uid);
   Future<int> getUserIdByUid(String uid);
   Future<GetUserByIdModel> getUserById(int id);
+  Future<void> updateUserProfile(UpdateUserProfileModel updateUserProfileModel);
 }

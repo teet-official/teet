@@ -21,6 +21,22 @@ class UserRepositoryImpl extends UserRepository {
     final userEntity = getUserByIdModel.toEntity();
     return userEntity;
   }
+
+  @override
+  Future<void> updateUserProfile(
+    int userId,
+    String nickname,
+    Gender gender,
+    AgeRange ageRange,
+  ) async {
+    final updateUserProfileModel = UpdateUserProfileModel(
+      userId: userId,
+      nickname: nickname,
+      gender: gender.value,
+      ageRange: ageRange.value,
+    );
+    await _source.updateUserProfile(updateUserProfileModel);
+  }
 }
 
 @riverpod

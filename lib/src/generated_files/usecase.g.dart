@@ -877,5 +877,182 @@ class _GetUserByIdProviderElement
   @override
   int get id => (origin as GetUserByIdProvider).id;
 }
+
+String _$updateUserProfileHash() => r'544b60b11908d4b3b13b39ac64334f7cfad2c5a5';
+
+/// See also [updateUserProfile].
+@ProviderFor(updateUserProfile)
+const updateUserProfileProvider = UpdateUserProfileFamily();
+
+/// See also [updateUserProfile].
+class UpdateUserProfileFamily extends Family<AsyncValue<void>> {
+  /// See also [updateUserProfile].
+  const UpdateUserProfileFamily();
+
+  /// See also [updateUserProfile].
+  UpdateUserProfileProvider call(
+    int userId,
+    String nickname,
+    Gender gender,
+    AgeRange ageRange,
+  ) {
+    return UpdateUserProfileProvider(
+      userId,
+      nickname,
+      gender,
+      ageRange,
+    );
+  }
+
+  @override
+  UpdateUserProfileProvider getProviderOverride(
+    covariant UpdateUserProfileProvider provider,
+  ) {
+    return call(
+      provider.userId,
+      provider.nickname,
+      provider.gender,
+      provider.ageRange,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'updateUserProfileProvider';
+}
+
+/// See also [updateUserProfile].
+class UpdateUserProfileProvider extends AutoDisposeFutureProvider<void> {
+  /// See also [updateUserProfile].
+  UpdateUserProfileProvider(
+    int userId,
+    String nickname,
+    Gender gender,
+    AgeRange ageRange,
+  ) : this._internal(
+          (ref) => updateUserProfile(
+            ref as UpdateUserProfileRef,
+            userId,
+            nickname,
+            gender,
+            ageRange,
+          ),
+          from: updateUserProfileProvider,
+          name: r'updateUserProfileProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$updateUserProfileHash,
+          dependencies: UpdateUserProfileFamily._dependencies,
+          allTransitiveDependencies:
+              UpdateUserProfileFamily._allTransitiveDependencies,
+          userId: userId,
+          nickname: nickname,
+          gender: gender,
+          ageRange: ageRange,
+        );
+
+  UpdateUserProfileProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.userId,
+    required this.nickname,
+    required this.gender,
+    required this.ageRange,
+  }) : super.internal();
+
+  final int userId;
+  final String nickname;
+  final Gender gender;
+  final AgeRange ageRange;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(UpdateUserProfileRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UpdateUserProfileProvider._internal(
+        (ref) => create(ref as UpdateUserProfileRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        userId: userId,
+        nickname: nickname,
+        gender: gender,
+        ageRange: ageRange,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _UpdateUserProfileProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UpdateUserProfileProvider &&
+        other.userId == userId &&
+        other.nickname == nickname &&
+        other.gender == gender &&
+        other.ageRange == ageRange;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+    hash = _SystemHash.combine(hash, nickname.hashCode);
+    hash = _SystemHash.combine(hash, gender.hashCode);
+    hash = _SystemHash.combine(hash, ageRange.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UpdateUserProfileRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `userId` of this provider.
+  int get userId;
+
+  /// The parameter `nickname` of this provider.
+  String get nickname;
+
+  /// The parameter `gender` of this provider.
+  Gender get gender;
+
+  /// The parameter `ageRange` of this provider.
+  AgeRange get ageRange;
+}
+
+class _UpdateUserProfileProviderElement
+    extends AutoDisposeFutureProviderElement<void> with UpdateUserProfileRef {
+  _UpdateUserProfileProviderElement(super.provider);
+
+  @override
+  int get userId => (origin as UpdateUserProfileProvider).userId;
+  @override
+  String get nickname => (origin as UpdateUserProfileProvider).nickname;
+  @override
+  Gender get gender => (origin as UpdateUserProfileProvider).gender;
+  @override
+  AgeRange get ageRange => (origin as UpdateUserProfileProvider).ageRange;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
