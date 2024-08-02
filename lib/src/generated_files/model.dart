@@ -9,5 +9,6 @@ part '../feature/user/data/model/create_user_model.dart';
 part '../feature/user/data/model/get_all_interest_category_model.dart';
 part '../feature/user/data/model/get_user_by_id_model.dart';
 part '../feature/user/data/model/update_user_interest_category_model.dart';
+part '../feature/user/data/model/update_user_profile_model.dart';
 part 'model.freezed.dart';
 part 'model.g.dart';

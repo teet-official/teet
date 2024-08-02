@@ -24,12 +24,12 @@ class GoRouterProvider extends _$GoRouterProvider {
               )
             ]),
         GoRoute(
-          path: '/profile/edit',
-          builder: (context, state) => const EditProfilePage(),
+          path: '/profile/update',
+          builder: (context, state) => const UpdateProfilePage(),
         ),
         GoRoute(
-          path: '/profile/interest-category/edit',
-          builder: (context, state) => const EditInterestCategoryPage(),
+          path: '/profile/interest-category/update',
+          builder: (context, state) => const UpdateInterestCategoryPage(),
         ),
       ],
     );

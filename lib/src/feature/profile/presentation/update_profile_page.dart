@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:teet/src/feature/auth/presentation/page/sign_up/components/age_range_input_comp.dart';
 import 'package:teet/src/feature/auth/presentation/page/sign_up/components/gender_input_comp.dart';
 import 'package:teet/src/feature/auth/presentation/page/sign_up/components/nickname_input_comp.dart';
 import 'package:teet/src/generated_files/controller.dart';
 
-class EditProfilePage extends ConsumerWidget {
-  const EditProfilePage({super.key});
+class UpdateProfilePage extends ConsumerWidget {
+  const UpdateProfilePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final editProfileState = ref.watch(editProfileControllerProvider);
-    final editProfileNotifier =
-        ref.watch(editProfileControllerProvider.notifier);
-
+    final updateProfileState = ref.watch(updateProfileControllerProvider);
+    final updateProfileNotifier =
+        ref.read(updateProfileControllerProvider.notifier);
+    final userNotifier = ref.read(userControllerProvider.notifier);
     return Scaffold(
         appBar: AppBar(
           title: const Text('내 정보'),
           actions: [
             TextButton(
-              onPressed: editProfileState.hasChanged ? () {} : null,
+              onPressed: updateProfileState.hasChanged
+                  ? () {
+                      userNotifier.updateUserProfile();
+                      context.pop();
+                    }
+                  : null,
               child: const Text('저장'),
             ),
           ],
@@ -33,16 +39,16 @@ class EditProfilePage extends ConsumerWidget {
               },
             ),
             NicknameInputComp(
-              initialValue: editProfileState.nickname,
-              onChangedFunction: editProfileNotifier.updateNickname,
+              initialValue: updateProfileState.nickname,
+              onChangedFunction: updateProfileNotifier.updateNickname,
             ),
             GenderInputComp(
-              selectedGender: editProfileState.gender,
-              onChangedFunction: editProfileNotifier.updateGender,
+              selectedGender: updateProfileState.gender,
+              onChangedFunction: updateProfileNotifier.updateGender,
             ),
             AgeRangeInputComp(
-              selectedAgeRange: editProfileState.ageRange,
-              onChangedFunction: editProfileNotifier.updateAgeRange,
+              selectedAgeRange: updateProfileState.ageRange,
+              onChangedFunction: updateProfileNotifier.updateAgeRange,
             ),
           ],
         ));

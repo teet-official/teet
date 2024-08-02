@@ -1,13 +1,13 @@
 part of '../../../generated_files/controller.dart';
 
 @riverpod
-class EditProfileController extends _$EditProfileController {
+class UpdateProfileController extends _$UpdateProfileController {
   @override
-  EditProfileState build() {
+  UpdateProfileState build() {
     final userProfile =
-        ref.watch(userControllerProvider).requireValue.user.profile;
+        ref.read(userControllerProvider).requireValue.user.profile;
 
-    return EditProfileState(
+    return UpdateProfileState(
       nickname: userProfile.nickname,
       gender: userProfile.gender,
       ageRange: userProfile.ageRange,
@@ -31,7 +31,7 @@ class EditProfileController extends _$EditProfileController {
 
   bool detectHasChanged() {
     final userProfile =
-        ref.watch(userControllerProvider).requireValue.user.profile;
+        ref.read(userControllerProvider).requireValue.user.profile;
     if (userProfile.nickname != state.nickname ||
         userProfile.gender != state.gender ||
         userProfile.ageRange != state.ageRange) {

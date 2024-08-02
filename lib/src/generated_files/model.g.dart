@@ -153,3 +153,21 @@ Map<String, dynamic> _$$UpdateUserInterestCategoryModelImplToJson(
       'user_id': instance.userId,
       'interest_category_id': instance.interestCategoryId,
     };
+
+_$UpdateUserProfileModelImpl _$$UpdateUserProfileModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UpdateUserProfileModelImpl(
+      userId: (json['user_id'] as num).toInt(),
+      nickname: json['nickname'] as String,
+      gender: json['gender'] as String,
+      ageRange: json['age_range'] as String,
+    );
+
+Map<String, dynamic> _$$UpdateUserProfileModelImplToJson(
+        _$UpdateUserProfileModelImpl instance) =>
+    <String, dynamic>{
+      'user_id': instance.userId,
+      'nickname': instance.nickname,
+      'gender': instance.gender,
+      'age_range': instance.ageRange,
+    };

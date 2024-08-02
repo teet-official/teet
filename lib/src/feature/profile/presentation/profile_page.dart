@@ -24,13 +24,13 @@ class ProfilePage extends ConsumerWidget {
           icon: Icons.person_outline_rounded,
           title: '내 정보',
           onTap: () {
-            context.push('/profile/edit');
+            context.push('/profile/update');
           }),
       ProfileSetting(
         icon: Icons.favorite_border,
         title: '내 관심사',
         onTap: () {
-          context.push('/profile/interest-category/edit');
+          context.push('/profile/interest-category/update');
         },
       )
     ];
