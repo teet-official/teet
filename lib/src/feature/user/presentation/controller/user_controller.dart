@@ -23,9 +23,27 @@ class UserController extends _$UserController {
   Future<void> updateUserProfile() async {
     final updateUserProfileState = ref.read(updateProfileControllerProvider);
     final userId = state.requireValue.user.id;
+
+    await ref.read(updateUserProfileProvider(
+            userId,
+            updateUserProfileState.nickname,
+            updateUserProfileState.gender,
+            updateUserProfileState.ageRange)
+        .future);
     ref.invalidate(getUserByIdProvider(userId));
-    ref.invalidateSelf();
-    ref.read(updateUserProfileProvider(userId, updateUserProfileState.nickname,
-        updateUserProfileState.gender, updateUserProfileState.ageRange));
+  }
+
+  Future<void> updateInterestCategory() async {
+    final userId = state.requireValue.user.id;
+    final interestCategoryIds = ref
+        .read(updateInterestCategoryControllerProvider)
+        .selectedInterestCategoryIds;
+
+    await ref.read(updateUserInterestCategoryProvider(
+      userId,
+      interestCategoryIds,
+    ).future);
+
+    ref.invalidate(getUserByIdProvider(userId));
   }
 }

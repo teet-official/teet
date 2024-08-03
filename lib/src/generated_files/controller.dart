@@ -11,10 +11,14 @@ import 'package:teet/src/shared/const/num_const.dart';
 
 part '../feature/auth/presentation/controller/auth_controller.dart';
 part '../feature/auth/presentation/controller/auth_state.dart';
+part '../feature/auth/presentation/controller/interest_category_controller.dart';
+part '../feature/auth/presentation/controller/interest_category_state.dart';
 part '../feature/auth/presentation/controller/sign_up_controller.dart';
 part '../feature/auth/presentation/controller/sign_up_state.dart';
 part '../feature/common/presentation/controller/main_controller.dart';
 part '../feature/common/presentation/controller/main_page_state.dart';
+part '../feature/profile/controller/update_interest_category_controller.dart';
+part '../feature/profile/controller/update_interest_category_state.dart';
 part '../feature/profile/controller/update_profile_controller.dart';
 part '../feature/profile/controller/update_profile_state.dart';
 part '../feature/teet/presentation/controller/teet_controller.dart';

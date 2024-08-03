@@ -1054,5 +1054,155 @@ class _UpdateUserProfileProviderElement
   @override
   AgeRange get ageRange => (origin as UpdateUserProfileProvider).ageRange;
 }
+
+String _$updateUserInterestCategoryHash() =>
+    r'3a4cc2638588631780dba42ce6733eff93b62c7b';
+
+/// See also [updateUserInterestCategory].
+@ProviderFor(updateUserInterestCategory)
+const updateUserInterestCategoryProvider = UpdateUserInterestCategoryFamily();
+
+/// See also [updateUserInterestCategory].
+class UpdateUserInterestCategoryFamily extends Family<AsyncValue<void>> {
+  /// See also [updateUserInterestCategory].
+  const UpdateUserInterestCategoryFamily();
+
+  /// See also [updateUserInterestCategory].
+  UpdateUserInterestCategoryProvider call(
+    int userId,
+    List<int> updateUserInterestCategoryIds,
+  ) {
+    return UpdateUserInterestCategoryProvider(
+      userId,
+      updateUserInterestCategoryIds,
+    );
+  }
+
+  @override
+  UpdateUserInterestCategoryProvider getProviderOverride(
+    covariant UpdateUserInterestCategoryProvider provider,
+  ) {
+    return call(
+      provider.userId,
+      provider.updateUserInterestCategoryIds,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'updateUserInterestCategoryProvider';
+}
+
+/// See also [updateUserInterestCategory].
+class UpdateUserInterestCategoryProvider
+    extends AutoDisposeFutureProvider<void> {
+  /// See also [updateUserInterestCategory].
+  UpdateUserInterestCategoryProvider(
+    int userId,
+    List<int> updateUserInterestCategoryIds,
+  ) : this._internal(
+          (ref) => updateUserInterestCategory(
+            ref as UpdateUserInterestCategoryRef,
+            userId,
+            updateUserInterestCategoryIds,
+          ),
+          from: updateUserInterestCategoryProvider,
+          name: r'updateUserInterestCategoryProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$updateUserInterestCategoryHash,
+          dependencies: UpdateUserInterestCategoryFamily._dependencies,
+          allTransitiveDependencies:
+              UpdateUserInterestCategoryFamily._allTransitiveDependencies,
+          userId: userId,
+          updateUserInterestCategoryIds: updateUserInterestCategoryIds,
+        );
+
+  UpdateUserInterestCategoryProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.userId,
+    required this.updateUserInterestCategoryIds,
+  }) : super.internal();
+
+  final int userId;
+  final List<int> updateUserInterestCategoryIds;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(UpdateUserInterestCategoryRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: UpdateUserInterestCategoryProvider._internal(
+        (ref) => create(ref as UpdateUserInterestCategoryRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        userId: userId,
+        updateUserInterestCategoryIds: updateUserInterestCategoryIds,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _UpdateUserInterestCategoryProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is UpdateUserInterestCategoryProvider &&
+        other.userId == userId &&
+        other.updateUserInterestCategoryIds == updateUserInterestCategoryIds;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+    hash = _SystemHash.combine(hash, updateUserInterestCategoryIds.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin UpdateUserInterestCategoryRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `userId` of this provider.
+  int get userId;
+
+  /// The parameter `updateUserInterestCategoryIds` of this provider.
+  List<int> get updateUserInterestCategoryIds;
+}
+
+class _UpdateUserInterestCategoryProviderElement
+    extends AutoDisposeFutureProviderElement<void>
+    with UpdateUserInterestCategoryRef {
+  _UpdateUserInterestCategoryProviderElement(super.provider);
+
+  @override
+  int get userId => (origin as UpdateUserInterestCategoryProvider).userId;
+  @override
+  List<int> get updateUserInterestCategoryIds =>
+      (origin as UpdateUserInterestCategoryProvider)
+          .updateUserInterestCategoryIds;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
