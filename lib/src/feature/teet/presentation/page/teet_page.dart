@@ -13,7 +13,10 @@ class TeetPage extends ConsumerWidget {
 
     return SafeArea(
       child: switch (state) {
-        AsyncData(:final value) => _buildList(value),
+        AsyncData(:final value) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: _buildList(value),
+          ),
         AsyncError() => const Text('Error'),
         _ => const Text('Loading'),
       },
@@ -55,21 +58,27 @@ class TeetPage extends ConsumerWidget {
               ref.read(teetControllerProvider.notifier).fetchMore();
             }
           },
-          itemBuilder: (context, index) => _buildItem(state.teets[index], ref),
+          itemBuilder: (context, index) =>
+              _buildItem(context, state.teets[index], ref),
           itemCount: state.teets.length,
         ),
       );
     });
   }
 
-  _buildItem(TeetEntity teet, WidgetRef ref) {
+  _buildItem(BuildContext context, TeetEntity teet, WidgetRef ref) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           teet.title,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
-          height: 24,
+          height: 20,
         ),
         AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
@@ -77,30 +86,39 @@ class TeetPage extends ConsumerWidget {
                 ? Column(
                     children: teet.selections
                         .map(
-                          (selection) => ElevatedButton(
-                            onPressed: () {
-                              ref
-                                  .read(teetControllerProvider.notifier)
-                                  .onPressedSelectionButton(teet.id,
-                                      selection.id, selection.isAnswer);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: () {
-                                if (teet.selectedSelectionId == null) {
-                                  return Colors.grey;
-                                }
+                          (selection) => Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  ref
+                                      .read(teetControllerProvider.notifier)
+                                      .onPressedSelectionButton(teet.id,
+                                          selection.id, selection.isAnswer);
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(double.infinity, 40),
+                                  backgroundColor: () {
+                                    if (teet.selectedSelectionId == null) {
+                                      return Colors.grey;
+                                    }
 
-                                if (selection.isAnswer) {
-                                  return Colors.blue;
-                                }
-                                if (teet.selectedSelectionId == selection.id &&
-                                    !selection.isAnswer) {
-                                  return Colors.red;
-                                }
-                                return Colors.grey;
-                              }(),
-                            ),
-                            child: Text(selection.label),
+                                    if (selection.isAnswer) {
+                                      return Colors.blue;
+                                    }
+                                    if (teet.selectedSelectionId ==
+                                            selection.id &&
+                                        !selection.isAnswer) {
+                                      return Colors.red;
+                                    }
+                                    return Colors.grey;
+                                  }(),
+                                ),
+                                child: Text(selection.label),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                            ],
                           ),
                         )
                         .toList())
@@ -108,12 +126,45 @@ class TeetPage extends ConsumerWidget {
                     teet.selections.firstWhere((selection) {
                       return selection.id == teet.selectedSelectionId;
                     }).isAnswer
-                        ? const Text('정답입니다!')
-                        : const Text('오답입니다!'),
+                        ? Text(
+                            '정답입니다!',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      color: Colors.primaries[5],
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                          )
+                        : Text(
+                            '오답입니다!',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                          ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Text(teet.description),
-                    Text(
-                        '정답률: ${teet.answerRate == null ? '-' : '${teet.answerRate}%'}'),
-                    Text('기준일: ${teet.baseDate}')
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                            '정답률: ${teet.answerRate == null ? '-' : '${teet.answerRate}%'}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.grey)),
+                        Text('기준일: ${teet.baseDate}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.grey)),
+                      ],
+                    )
                   ])),
       ],
     );
