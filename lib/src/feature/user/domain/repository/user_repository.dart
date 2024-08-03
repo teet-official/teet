@@ -10,4 +10,6 @@ abstract class UserRepository {
     Gender gender,
     AgeRange ageRange,
   );
+  Future<void> updateUserInterestCategory(
+      int userId, List<int> updateUserInterestCategory);
 }

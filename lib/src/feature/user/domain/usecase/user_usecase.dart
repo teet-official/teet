@@ -24,3 +24,11 @@ Future<void> updateUserProfile(UpdateUserProfileRef ref, int userId,
   final repository = ref.watch(userRepositoryProvider);
   await repository.updateUserProfile(userId, nickname, gender, ageRange);
 }
+
+@riverpod
+Future<void> updateUserInterestCategory(UpdateUserInterestCategoryRef ref,
+    int userId, List<int> updateUserInterestCategoryIds) async {
+  final repository = ref.watch(userRepositoryProvider);
+  await repository.updateUserInterestCategory(
+      userId, updateUserInterestCategoryIds);
+}

@@ -37,6 +37,18 @@ class UserRepositoryImpl extends UserRepository {
     );
     await _source.updateUserProfile(updateUserProfileModel);
   }
+
+  @override
+  Future<void> updateUserInterestCategory(
+      int userId, List<int> updateUserInterestCategory) async {
+    final updateUserInterestCategoryModel = updateUserInterestCategory
+        .map((interestCategoryId) => UpdateUserInterestCategoryModel(
+              userId: userId,
+              interestCategoryId: interestCategoryId,
+            ))
+        .toList();
+    await _source.updateUserInterestCategory(updateUserInterestCategoryModel);
+  }
 }
 
 @riverpod

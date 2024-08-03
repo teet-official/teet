@@ -22,6 +22,24 @@ final authControllerProvider =
 );
 
 typedef _$AuthController = AutoDisposeNotifier<AuthState>;
+String _$interestCategoryControllerHash() =>
+    r'221d6ef8bdc610522564fa1897edd281c71f94cd';
+
+/// See also [InterestCategoryController].
+@ProviderFor(InterestCategoryController)
+final interestCategoryControllerProvider = AutoDisposeAsyncNotifierProvider<
+    InterestCategoryController, InterestCategoryState>.internal(
+  InterestCategoryController.new,
+  name: r'interestCategoryControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$interestCategoryControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$InterestCategoryController
+    = AutoDisposeAsyncNotifier<InterestCategoryState>;
 String _$signUpControllerHash() => r'53cf9c9f825101a5c627715a9ece9621e807009f';
 
 /// See also [SignUpController].
@@ -54,6 +72,24 @@ final mainControllerProvider =
 );
 
 typedef _$MainController = AutoDisposeNotifier<MainPageState>;
+String _$updateInterestCategoryControllerHash() =>
+    r'38af46b29bc29a0c2636ebc7760479c09aecccbb';
+
+/// See also [UpdateInterestCategoryController].
+@ProviderFor(UpdateInterestCategoryController)
+final updateInterestCategoryControllerProvider = AutoDisposeNotifierProvider<
+    UpdateInterestCategoryController, UpdateInterestCategoryState>.internal(
+  UpdateInterestCategoryController.new,
+  name: r'updateInterestCategoryControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$updateInterestCategoryControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$UpdateInterestCategoryController
+    = AutoDisposeNotifier<UpdateInterestCategoryState>;
 String _$updateProfileControllerHash() =>
     r'3f84cad2c8daebe859d9383700610ae322743474';
 
@@ -87,7 +123,7 @@ final teetControllerProvider =
 );
 
 typedef _$TeetController = AutoDisposeAsyncNotifier<TeetPageState>;
-String _$userControllerHash() => r'6dc80d90bf8368e67662bf738ba9da436b774ad4';
+String _$userControllerHash() => r'8b6ff56e85071d95f998cb6cdf0527a6826393f2';
 
 /// See also [UserController].
 @ProviderFor(UserController)

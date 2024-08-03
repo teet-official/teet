@@ -151,6 +151,140 @@ abstract class _AuthState implements AuthState {
 }
 
 /// @nodoc
+mixin _$InterestCategoryState {
+  List<InterestCategoryEntity> get allInterestCategory =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $InterestCategoryStateCopyWith<InterestCategoryState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InterestCategoryStateCopyWith<$Res> {
+  factory $InterestCategoryStateCopyWith(InterestCategoryState value,
+          $Res Function(InterestCategoryState) then) =
+      _$InterestCategoryStateCopyWithImpl<$Res, InterestCategoryState>;
+  @useResult
+  $Res call({List<InterestCategoryEntity> allInterestCategory});
+}
+
+/// @nodoc
+class _$InterestCategoryStateCopyWithImpl<$Res,
+        $Val extends InterestCategoryState>
+    implements $InterestCategoryStateCopyWith<$Res> {
+  _$InterestCategoryStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? allInterestCategory = null,
+  }) {
+    return _then(_value.copyWith(
+      allInterestCategory: null == allInterestCategory
+          ? _value.allInterestCategory
+          : allInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InterestCategoryStateImplCopyWith<$Res>
+    implements $InterestCategoryStateCopyWith<$Res> {
+  factory _$$InterestCategoryStateImplCopyWith(
+          _$InterestCategoryStateImpl value,
+          $Res Function(_$InterestCategoryStateImpl) then) =
+      __$$InterestCategoryStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<InterestCategoryEntity> allInterestCategory});
+}
+
+/// @nodoc
+class __$$InterestCategoryStateImplCopyWithImpl<$Res>
+    extends _$InterestCategoryStateCopyWithImpl<$Res,
+        _$InterestCategoryStateImpl>
+    implements _$$InterestCategoryStateImplCopyWith<$Res> {
+  __$$InterestCategoryStateImplCopyWithImpl(_$InterestCategoryStateImpl _value,
+      $Res Function(_$InterestCategoryStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? allInterestCategory = null,
+  }) {
+    return _then(_$InterestCategoryStateImpl(
+      allInterestCategory: null == allInterestCategory
+          ? _value._allInterestCategory
+          : allInterestCategory // ignore: cast_nullable_to_non_nullable
+              as List<InterestCategoryEntity>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InterestCategoryStateImpl implements _InterestCategoryState {
+  _$InterestCategoryStateImpl(
+      {required final List<InterestCategoryEntity> allInterestCategory})
+      : _allInterestCategory = allInterestCategory;
+
+  final List<InterestCategoryEntity> _allInterestCategory;
+  @override
+  List<InterestCategoryEntity> get allInterestCategory {
+    if (_allInterestCategory is EqualUnmodifiableListView)
+      return _allInterestCategory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allInterestCategory);
+  }
+
+  @override
+  String toString() {
+    return 'InterestCategoryState(allInterestCategory: $allInterestCategory)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InterestCategoryStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other._allInterestCategory, _allInterestCategory));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_allInterestCategory));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InterestCategoryStateImplCopyWith<_$InterestCategoryStateImpl>
+      get copyWith => __$$InterestCategoryStateImplCopyWithImpl<
+          _$InterestCategoryStateImpl>(this, _$identity);
+}
+
+abstract class _InterestCategoryState implements InterestCategoryState {
+  factory _InterestCategoryState(
+          {required final List<InterestCategoryEntity> allInterestCategory}) =
+      _$InterestCategoryStateImpl;
+
+  @override
+  List<InterestCategoryEntity> get allInterestCategory;
+  @override
+  @JsonKey(ignore: true)
+  _$$InterestCategoryStateImplCopyWith<_$InterestCategoryStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SignUpPageState {
   SignUpEntity get signUpEntity => throw _privateConstructorUsedError;
   List<InterestCategoryEntity> get allInterestCategory =>
@@ -486,6 +620,174 @@ abstract class _MainPageState implements MainPageState {
   @JsonKey(ignore: true)
   _$$MainPageStateImplCopyWith<_$MainPageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$UpdateInterestCategoryState {
+  List<int> get selectedInterestCategoryIds =>
+      throw _privateConstructorUsedError;
+  bool get hasMoreThreeInterestCategory => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UpdateInterestCategoryStateCopyWith<UpdateInterestCategoryState>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateInterestCategoryStateCopyWith<$Res> {
+  factory $UpdateInterestCategoryStateCopyWith(
+          UpdateInterestCategoryState value,
+          $Res Function(UpdateInterestCategoryState) then) =
+      _$UpdateInterestCategoryStateCopyWithImpl<$Res,
+          UpdateInterestCategoryState>;
+  @useResult
+  $Res call(
+      {List<int> selectedInterestCategoryIds,
+      bool hasMoreThreeInterestCategory});
+}
+
+/// @nodoc
+class _$UpdateInterestCategoryStateCopyWithImpl<$Res,
+        $Val extends UpdateInterestCategoryState>
+    implements $UpdateInterestCategoryStateCopyWith<$Res> {
+  _$UpdateInterestCategoryStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedInterestCategoryIds = null,
+    Object? hasMoreThreeInterestCategory = null,
+  }) {
+    return _then(_value.copyWith(
+      selectedInterestCategoryIds: null == selectedInterestCategoryIds
+          ? _value.selectedInterestCategoryIds
+          : selectedInterestCategoryIds // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      hasMoreThreeInterestCategory: null == hasMoreThreeInterestCategory
+          ? _value.hasMoreThreeInterestCategory
+          : hasMoreThreeInterestCategory // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UpdateInterestCategoryStateImplCopyWith<$Res>
+    implements $UpdateInterestCategoryStateCopyWith<$Res> {
+  factory _$$UpdateInterestCategoryStateImplCopyWith(
+          _$UpdateInterestCategoryStateImpl value,
+          $Res Function(_$UpdateInterestCategoryStateImpl) then) =
+      __$$UpdateInterestCategoryStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<int> selectedInterestCategoryIds,
+      bool hasMoreThreeInterestCategory});
+}
+
+/// @nodoc
+class __$$UpdateInterestCategoryStateImplCopyWithImpl<$Res>
+    extends _$UpdateInterestCategoryStateCopyWithImpl<$Res,
+        _$UpdateInterestCategoryStateImpl>
+    implements _$$UpdateInterestCategoryStateImplCopyWith<$Res> {
+  __$$UpdateInterestCategoryStateImplCopyWithImpl(
+      _$UpdateInterestCategoryStateImpl _value,
+      $Res Function(_$UpdateInterestCategoryStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? selectedInterestCategoryIds = null,
+    Object? hasMoreThreeInterestCategory = null,
+  }) {
+    return _then(_$UpdateInterestCategoryStateImpl(
+      selectedInterestCategoryIds: null == selectedInterestCategoryIds
+          ? _value._selectedInterestCategoryIds
+          : selectedInterestCategoryIds // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      hasMoreThreeInterestCategory: null == hasMoreThreeInterestCategory
+          ? _value.hasMoreThreeInterestCategory
+          : hasMoreThreeInterestCategory // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateInterestCategoryStateImpl
+    implements _UpdateInterestCategoryState {
+  _$UpdateInterestCategoryStateImpl(
+      {required final List<int> selectedInterestCategoryIds,
+      required this.hasMoreThreeInterestCategory})
+      : _selectedInterestCategoryIds = selectedInterestCategoryIds;
+
+  final List<int> _selectedInterestCategoryIds;
+  @override
+  List<int> get selectedInterestCategoryIds {
+    if (_selectedInterestCategoryIds is EqualUnmodifiableListView)
+      return _selectedInterestCategoryIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedInterestCategoryIds);
+  }
+
+  @override
+  final bool hasMoreThreeInterestCategory;
+
+  @override
+  String toString() {
+    return 'UpdateInterestCategoryState(selectedInterestCategoryIds: $selectedInterestCategoryIds, hasMoreThreeInterestCategory: $hasMoreThreeInterestCategory)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateInterestCategoryStateImpl &&
+            const DeepCollectionEquality().equals(
+                other._selectedInterestCategoryIds,
+                _selectedInterestCategoryIds) &&
+            (identical(other.hasMoreThreeInterestCategory,
+                    hasMoreThreeInterestCategory) ||
+                other.hasMoreThreeInterestCategory ==
+                    hasMoreThreeInterestCategory));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_selectedInterestCategoryIds),
+      hasMoreThreeInterestCategory);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateInterestCategoryStateImplCopyWith<_$UpdateInterestCategoryStateImpl>
+      get copyWith => __$$UpdateInterestCategoryStateImplCopyWithImpl<
+          _$UpdateInterestCategoryStateImpl>(this, _$identity);
+}
+
+abstract class _UpdateInterestCategoryState
+    implements UpdateInterestCategoryState {
+  factory _UpdateInterestCategoryState(
+          {required final List<int> selectedInterestCategoryIds,
+          required final bool hasMoreThreeInterestCategory}) =
+      _$UpdateInterestCategoryStateImpl;
+
+  @override
+  List<int> get selectedInterestCategoryIds;
+  @override
+  bool get hasMoreThreeInterestCategory;
+  @override
+  @JsonKey(ignore: true)
+  _$$UpdateInterestCategoryStateImplCopyWith<_$UpdateInterestCategoryStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
