@@ -41,8 +41,6 @@ class SignUpFirstStepPage extends ConsumerWidget {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
                       ),
                       onPressed: value.canPressNextButton
                           ? () => context.push('/auth/sign-up/second-step')

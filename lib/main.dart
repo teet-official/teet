@@ -34,6 +34,8 @@ class MyApp extends ConsumerWidget {
           backgroundColor: Colors.primaries[5],
           foregroundColor: Colors.white,
           textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         )),
         textTheme: const TextTheme(
           bodySmall: TextStyle(fontSize: 12),
