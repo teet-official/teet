@@ -29,8 +29,11 @@ class GenderInputComp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(children: [
-      const Text('성별'),
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(
+        '성별',
+        style: Theme.of(context).textTheme.labelMedium,
+      ),
       Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         ...genderList.map((gender) {
           return Opacity(
@@ -41,8 +44,14 @@ class GenderInputComp extends ConsumerWidget {
                 },
                 child: Column(
                   children: [
-                    CircleAvatar(child: Text(gender["label"] as String)),
-                    Text(gender["textLabel"] as String)
+                    CircleAvatar(
+                        minRadius: 30,
+                        child: Text(gender["label"] as String,
+                            style: Theme.of(context).textTheme.bodyLarge)),
+                    Text(
+                      gender["textLabel"] as String,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    )
                   ],
                 )),
           );

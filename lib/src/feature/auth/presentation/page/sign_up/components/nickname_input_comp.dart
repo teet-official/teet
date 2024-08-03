@@ -10,9 +10,13 @@ class NicknameInputComp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(children: [
-      const Text('닉네임'),
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(
+        '닉네임',
+        style: Theme.of(context).textTheme.labelMedium,
+      ),
       TextFormField(
+        style: Theme.of(context).textTheme.bodyMedium,
         initialValue: initialValue,
         onChanged: (value) {
           onChangedFunction(value);
