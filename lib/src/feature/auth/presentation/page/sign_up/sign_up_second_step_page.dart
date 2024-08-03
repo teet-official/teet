@@ -15,20 +15,22 @@ class SignUpSecondStepPage extends ConsumerWidget {
         title: const Text('회원가입'),
       ),
       body: switch (state) {
-        AsyncData(:final value) => Column(
-            children: [
-              Flexible(
-                flex: 6,
-                child: InterestCategoryInputComp(
-                    selectedInterestCategoryIds:
-                        value.signUpEntity.selectedInterestCategoryIds,
-                    onChangedFunction: ref
-                        .read(signUpControllerProvider.notifier)
-                        .setInterestCategoryIds),
-              ),
-              Flexible(
-                flex: 1,
-                child: ElevatedButton(
+        AsyncData(:final value) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: Column(
+              children: [
+                Flexible(
+                  child: InterestCategoryInputComp(
+                      selectedInterestCategoryIds:
+                          value.signUpEntity.selectedInterestCategoryIds,
+                      onChangedFunction: ref
+                          .read(signUpControllerProvider.notifier)
+                          .setInterestCategoryIds),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                  ),
                   onPressed: value.canPressSignUpButton
                       ? () async {
                           await ref
@@ -39,9 +41,9 @@ class SignUpSecondStepPage extends ConsumerWidget {
                         }
                       : null,
                   child: const Text('완료'),
-                ),
-              ),
-            ],
+                )
+              ],
+            ),
           ),
         _ => const Text('Loading')
       },

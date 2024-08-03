@@ -17,15 +17,21 @@ class InterestCategoryInputComp extends ConsumerWidget {
 
     return switch (state) {
       AsyncData(:final value) => Column(children: [
-          const Text('관심있는 지식을 알려주세요'),
-          const Text('3개 이상 선택해주세요.'),
-          Text('선택한 관심사: $selectedInterestCategoryIds'),
+          Text(
+            '관심있는 지식을 알려주세요',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          Text(
+            '3개 이상 선택해주세요.',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const SizedBox(height: 20),
           Flexible(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                mainAxisSpacing: 15,
               ),
               itemBuilder: (context, index) {
                 final interestCategory = value.allInterestCategory[index];
