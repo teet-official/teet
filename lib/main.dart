@@ -24,7 +24,26 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Teet',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.primaries[5],
+          surface: Colors.white,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.primaries[5],
+          foregroundColor: Colors.white,
+          textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        )),
+        textTheme: const TextTheme(
+          bodySmall: TextStyle(fontSize: 12),
+          bodyMedium: TextStyle(fontSize: 16),
+          bodyLarge: TextStyle(fontSize: 24),
+          labelMedium: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         useMaterial3: true,
       ),
       routerConfig: router,

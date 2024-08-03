@@ -34,8 +34,8 @@ class AgeRangeInputComp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(children: [
-      const Text('성별'),
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text('연령대', style: Theme.of(context).textTheme.labelMedium),
       Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         ...ageRangeList.map((ageRange) {
           return Opacity(
@@ -45,8 +45,12 @@ class AgeRangeInputComp extends ConsumerWidget {
                 onTap: () {
                   onChangedFunction(ageRange["value"] as AgeRange);
                 },
-                child:
-                    CircleAvatar(child: Text(ageRange["textLabel"] as String))),
+                child: CircleAvatar(
+                    minRadius: 25,
+                    child: Text(
+                      ageRange["textLabel"] as String,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ))),
           );
         })
       ])

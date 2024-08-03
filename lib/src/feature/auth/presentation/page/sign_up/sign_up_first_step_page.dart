@@ -18,29 +18,38 @@ class SignUpFirstStepPage extends ConsumerWidget {
           title: const Text('회원가입'),
         ),
         body: switch (state) {
-          AsyncData(:final value) => Column(
-              children: [
-                NicknameInputComp(
-                    initialValue: value.signUpEntity.nickname,
-                    onChangedFunction: notifier.setNickname),
-                GenderInputComp(
-                    onChangedFunction: notifier.setGender,
-                    selectedGender: value.signUpEntity.gender),
-                AgeRangeInputComp(
-                    onChangedFunction: notifier.setAgeRange,
-                    selectedAgeRange: value.signUpEntity.ageRange),
-                Text(
-                  value.signUpEntity.toString(),
-                ),
-                Text(
-                  value.canPressNextButton.toString(),
-                ),
-                ElevatedButton(
-                    onPressed: value.canPressNextButton
-                        ? () => context.push('/auth/sign-up/second-step')
-                        : null,
-                    child: const Text('다음')),
-              ],
+          AsyncData(:final value) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Column(
+                children: [
+                  Flexible(
+                      child: Column(
+                    children: [
+                      NicknameInputComp(
+                          initialValue: value.signUpEntity.nickname,
+                          onChangedFunction: notifier.setNickname),
+                      const SizedBox(height: 30),
+                      GenderInputComp(
+                          onChangedFunction: notifier.setGender,
+                          selectedGender: value.signUpEntity.gender),
+                      const SizedBox(height: 30),
+                      AgeRangeInputComp(
+                          onChangedFunction: notifier.setAgeRange,
+                          selectedAgeRange: value.signUpEntity.ageRange),
+                    ],
+                  )),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                      ),
+                      onPressed: value.canPressNextButton
+                          ? () => context.push('/auth/sign-up/second-step')
+                          : null,
+                      child: const Text('다음')),
+                ],
+              ),
             ),
           _ => const Text('Loading')
         });
