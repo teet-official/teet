@@ -11,6 +11,7 @@ class TeetEntity with _$TeetEntity {
     required String description,
     required String type,
     required DateTime createdAt,
+    @Default(false) bool showDescription,
     int? answerRate,
     int? selectedSelectionId,
   }) = _TeetEntity;

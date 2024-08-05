@@ -78,4 +78,19 @@ class TeetController extends _$TeetController {
       state = AsyncValue.data(value.copyWith(teets: newTeet));
     }
   }
+
+  void setShowDescription(int currentTeetId) {
+    final value = state.valueOrNull;
+    if (value != null) {
+      final newTeet = value.teets.map((teet) {
+        if (teet.id == currentTeetId) {
+          return teet.copyWith(
+            showDescription: true,
+          );
+        }
+        return teet;
+      }).toList();
+      state = AsyncValue.data(value.copyWith(teets: newTeet));
+    }
+  }
 }

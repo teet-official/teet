@@ -54,6 +54,7 @@ _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       type: json['type'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
+      showDescription: json['showDescription'] as bool? ?? false,
       answerRate: (json['answerRate'] as num?)?.toInt(),
       selectedSelectionId: (json['selectedSelectionId'] as num?)?.toInt(),
     );
@@ -66,6 +67,7 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'description': instance.description,
       'type': instance.type,
       'createdAt': instance.createdAt.toIso8601String(),
+      'showDescription': instance.showDescription,
       'answerRate': instance.answerRate,
       'selectedSelectionId': instance.selectedSelectionId,
     };

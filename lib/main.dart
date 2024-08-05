@@ -46,6 +46,13 @@ class MyApp extends ConsumerWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        appBarTheme: const AppBarTheme(),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.primaries[5],
+            textStyle: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
         useMaterial3: true,
       ),
       routerConfig: router,

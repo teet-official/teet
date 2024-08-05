@@ -38,7 +38,7 @@ class ProfilePage extends ConsumerWidget {
     return SafeArea(
         child: switch (userState) {
       AsyncData(:final value) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,41 +49,48 @@ class ProfilePage extends ConsumerWidget {
                         NetworkImage(value.user.profile.profileImageUrl),
                   ),
                   const SizedBox(width: 16),
-                  Text(value.user.profile.nickname),
+                  Text(
+                    value.user.profile.nickname,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
                 ],
               ),
-              const Text('프로필'),
+              const SizedBox(height: 20),
+              Text('프로필',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      )),
+              const SizedBox(height: 10),
               ...profileSettings.map((profileSetting) {
-                return GestureDetector(
-                    onTap: profileSetting.onTap,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
+                return Column(
+                  children: [
+                    GestureDetector(
+                        onTap: profileSetting.onTap,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Icon(profileSetting.icon),
-                            Text(profileSetting.title),
+                            Row(
+                              children: [
+                                Icon(profileSetting.icon),
+                                const SizedBox(width: 5),
+                                Text(profileSetting.title),
+                              ],
+                            ),
+                            const Icon(Icons.arrow_forward_ios, size: 16),
                           ],
-                        ),
-                        const Icon(Icons.arrow_forward_ios),
-                      ],
-                    ));
+                        )),
+                    const SizedBox(height: 10),
+                  ],
+                );
               }),
-              ElevatedButton(
-                onPressed: () async {
-                  await ref
-                      .read(authControllerProvider.notifier)
-                      .onPressedSignOutButton();
-                  ref
-                      .read(mainControllerProvider.notifier)
-                      .setBottomNavigationBarIndex(0);
-                },
-                child: const Text('Sign Out'),
-              ),
             ],
           ),
         ),
-      _ => const Text('Loading')
+      _ => const Center(
+          child: CircularProgressIndicator(),
+        )
     });
   }
 }

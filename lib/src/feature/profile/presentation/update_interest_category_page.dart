@@ -30,8 +30,11 @@ class UpdateInterestCategoryPage extends ConsumerWidget {
             ),
           ],
         ),
-        body: InterestCategoryInputComp(
-            selectedInterestCategoryIds: state.selectedInterestCategoryIds,
-            onChangedFunction: notifier.setInterestCategoryIds));
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          child: InterestCategoryInputComp(
+              selectedInterestCategoryIds: state.selectedInterestCategoryIds,
+              onChangedFunction: notifier.setInterestCategoryIds),
+        ));
   }
 }
