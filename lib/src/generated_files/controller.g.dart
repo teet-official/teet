@@ -123,7 +123,7 @@ final teetControllerProvider =
 );
 
 typedef _$TeetController = AutoDisposeAsyncNotifier<TeetPageState>;
-String _$userControllerHash() => r'8b6ff56e85071d95f998cb6cdf0527a6826393f2';
+String _$userControllerHash() => r'5689e0c19cd838cf3463608d7f342644bd5a1bd0';
 
 /// See also [UserController].
 @ProviderFor(UserController)

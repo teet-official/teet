@@ -30,27 +30,48 @@ class UpdateProfilePage extends ConsumerWidget {
             ),
           ],
         ),
-        body: Column(
-          children: [
-            Consumer(
-              builder: (context, ref, child) {
-                final userProfile = ref.watch(userControllerProvider).value;
-                return Text('${userProfile?.user.profile.toString()}');
-              },
-            ),
-            NicknameInputComp(
-              initialValue: updateProfileState.nickname,
-              onChangedFunction: updateProfileNotifier.updateNickname,
-            ),
-            GenderInputComp(
-              selectedGender: updateProfileState.gender,
-              onChangedFunction: updateProfileNotifier.updateGender,
-            ),
-            AgeRangeInputComp(
-              selectedAgeRange: updateProfileState.ageRange,
-              onChangedFunction: updateProfileNotifier.updateAgeRange,
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          child: Column(
+            children: [
+              Flexible(
+                  child: Column(
+                children: [
+                  NicknameInputComp(
+                    initialValue: updateProfileState.nickname,
+                    onChangedFunction: updateProfileNotifier.updateNickname,
+                  ),
+                  const SizedBox(height: 30),
+                  GenderInputComp(
+                    selectedGender: updateProfileState.gender,
+                    onChangedFunction: updateProfileNotifier.updateGender,
+                  ),
+                  const SizedBox(height: 30),
+                  AgeRangeInputComp(
+                    selectedAgeRange: updateProfileState.ageRange,
+                    onChangedFunction: updateProfileNotifier.updateAgeRange,
+                  ),
+                ],
+              )),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                    backgroundColor: Colors.primaries[1]),
+                onPressed: () async {
+                  await ref
+                      .read(authControllerProvider.notifier)
+                      .onPressedSignOutButton();
+                  ref
+                      .read(mainControllerProvider.notifier)
+                      .setBottomNavigationBarIndex(0);
+                  if (context.mounted) {
+                    context.go('/');
+                  }
+                },
+                child: const Text('로그아웃'),
+              ),
+            ],
+          ),
         ));
   }
 }

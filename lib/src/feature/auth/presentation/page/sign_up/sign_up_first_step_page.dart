@@ -40,7 +40,8 @@ class SignUpFirstStepPage extends ConsumerWidget {
                   )),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(double.infinity, 50),
+                        minimumSize:
+                            Size(MediaQuery.of(context).size.width, 50),
                       ),
                       onPressed: value.canPressNextButton
                           ? () => context.push('/auth/sign-up/second-step')
@@ -49,7 +50,9 @@ class SignUpFirstStepPage extends ConsumerWidget {
                 ],
               ),
             ),
-          _ => const Text('Loading')
+          _ => const Center(
+              child: CircularProgressIndicator(),
+            )
         });
   }
 }

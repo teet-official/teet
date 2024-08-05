@@ -42,12 +42,16 @@ class MainPage extends ConsumerWidget {
         bottomNavigationBar: CurvedNavigationBar(
           index: state.bottomNavigationBarIndex,
           items: const [
-            Icon(Icons.home_outlined, size: 30),
-            Icon(Icons.account_circle_outlined, size: 30),
+            Icon(Icons.home_outlined, size: 30, color: Colors.white),
+            Icon(
+              Icons.account_circle_outlined,
+              size: 30,
+              color: Colors.white,
+            ),
           ],
-          color: Colors.white,
-          buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
+          color: Colors.primaries[5],
+          buttonBackgroundColor: Colors.primaries[5].shade800,
+          backgroundColor: Colors.white,
           animationCurve: Curves.easeInOutQuart,
           animationDuration: const Duration(milliseconds: 600),
           onTap: (index) {

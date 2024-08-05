@@ -18,7 +18,7 @@ class TeetPage extends ConsumerWidget {
             child: _buildList(value),
           ),
         AsyncError() => const Text('Error'),
-        _ => const Text('Loading'),
+        _ => const Center(child: CircularProgressIndicator()),
       },
     );
   }
@@ -81,39 +81,58 @@ class TeetPage extends ConsumerWidget {
           height: 20,
         ),
         AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
-            child: teet.selectedSelectionId == null
+            duration: const Duration(milliseconds: 400),
+            child: teet.showDescription == false
                 ? Column(
+                    key: const ValueKey<bool>(false),
                     children: teet.selections
                         .map(
                           (selection) => Column(
                             children: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  ref
-                                      .read(teetControllerProvider.notifier)
-                                      .onPressedSelectionButton(teet.id,
-                                          selection.id, selection.isAnswer);
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  minimumSize: const Size(double.infinity, 40),
-                                  backgroundColor: () {
-                                    if (teet.selectedSelectionId == null) {
-                                      return Colors.grey;
-                                    }
-
-                                    if (selection.isAnswer) {
-                                      return Colors.blue;
-                                    }
-                                    if (teet.selectedSelectionId ==
-                                            selection.id &&
-                                        !selection.isAnswer) {
-                                      return Colors.red;
-                                    }
-                                    return Colors.grey;
-                                  }(),
+                              AnimatedSwitcher(
+                                duration: const Duration(milliseconds: 600),
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width,
+                                  key: UniqueKey(),
+                                  child: ElevatedButton(
+                                    onPressed: () async {
+                                      ref
+                                          .read(teetControllerProvider.notifier)
+                                          .onPressedSelectionButton(teet.id,
+                                              selection.id, selection.isAnswer);
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 800));
+                                      ref
+                                          .read(teetControllerProvider.notifier)
+                                          .setShowDescription(teet.id);
+                                    },
+                                    style: ButtonStyle(backgroundColor: () {
+                                      if (teet.selectedSelectionId == null) {
+                                        return WidgetStateProperty.all(
+                                          Colors.grey,
+                                        );
+                                      }
+                                      if (selection.isAnswer) {
+                                        return WidgetStateProperty.all(
+                                          Colors.primaries[5],
+                                        );
+                                      }
+                                      if (teet.selectedSelectionId ==
+                                              selection.id &&
+                                          !selection.isAnswer) {
+                                        return WidgetStateProperty.all(
+                                          Colors.red,
+                                        );
+                                      }
+                                      return WidgetStateProperty.all(
+                                        Colors.grey,
+                                      );
+                                    }()),
+                                    child: Text(
+                                      selection.label,
+                                    ),
+                                  ),
                                 ),
-                                child: Text(selection.label),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -122,7 +141,7 @@ class TeetPage extends ConsumerWidget {
                           ),
                         )
                         .toList())
-                : Column(children: [
+                : Column(key: const ValueKey<bool>(true), children: [
                     teet.selections.firstWhere((selection) {
                       return selection.id == teet.selectedSelectionId;
                     }).isAnswer

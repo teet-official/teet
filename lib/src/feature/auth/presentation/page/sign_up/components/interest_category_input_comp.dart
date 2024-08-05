@@ -52,7 +52,9 @@ class InterestCategoryInputComp extends ConsumerWidget {
             ),
           )
         ]),
-      _ => const Text('Loading')
+      _ => const Center(
+          child: CircularProgressIndicator(),
+        )
     };
   }
 }

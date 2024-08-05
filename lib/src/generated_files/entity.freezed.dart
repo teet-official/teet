@@ -288,6 +288,7 @@ mixin _$TeetEntity {
   String get description => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  bool get showDescription => throw _privateConstructorUsedError;
   int? get answerRate => throw _privateConstructorUsedError;
   int? get selectedSelectionId => throw _privateConstructorUsedError;
 
@@ -310,6 +311,7 @@ abstract class $TeetEntityCopyWith<$Res> {
       String description,
       String type,
       DateTime createdAt,
+      bool showDescription,
       int? answerRate,
       int? selectedSelectionId});
 }
@@ -333,6 +335,7 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
     Object? description = null,
     Object? type = null,
     Object? createdAt = null,
+    Object? showDescription = null,
     Object? answerRate = freezed,
     Object? selectedSelectionId = freezed,
   }) {
@@ -361,6 +364,10 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      showDescription: null == showDescription
+          ? _value.showDescription
+          : showDescription // ignore: cast_nullable_to_non_nullable
+              as bool,
       answerRate: freezed == answerRate
           ? _value.answerRate
           : answerRate // ignore: cast_nullable_to_non_nullable
@@ -388,6 +395,7 @@ abstract class _$$TeetEntityImplCopyWith<$Res>
       String description,
       String type,
       DateTime createdAt,
+      bool showDescription,
       int? answerRate,
       int? selectedSelectionId});
 }
@@ -409,6 +417,7 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
     Object? description = null,
     Object? type = null,
     Object? createdAt = null,
+    Object? showDescription = null,
     Object? answerRate = freezed,
     Object? selectedSelectionId = freezed,
   }) {
@@ -437,6 +446,10 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      showDescription: null == showDescription
+          ? _value.showDescription
+          : showDescription // ignore: cast_nullable_to_non_nullable
+              as bool,
       answerRate: freezed == answerRate
           ? _value.answerRate
           : answerRate // ignore: cast_nullable_to_non_nullable
@@ -459,6 +472,7 @@ class _$TeetEntityImpl extends _TeetEntity {
       required this.description,
       required this.type,
       required this.createdAt,
+      this.showDescription = false,
       this.answerRate,
       this.selectedSelectionId})
       : _selections = selections,
@@ -486,13 +500,16 @@ class _$TeetEntityImpl extends _TeetEntity {
   @override
   final DateTime createdAt;
   @override
+  @JsonKey()
+  final bool showDescription;
+  @override
   final int? answerRate;
   @override
   final int? selectedSelectionId;
 
   @override
   String toString() {
-    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, createdAt: $createdAt, answerRate: $answerRate, selectedSelectionId: $selectedSelectionId)';
+    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, createdAt: $createdAt, showDescription: $showDescription, answerRate: $answerRate, selectedSelectionId: $selectedSelectionId)';
   }
 
   @override
@@ -509,6 +526,8 @@ class _$TeetEntityImpl extends _TeetEntity {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.showDescription, showDescription) ||
+                other.showDescription == showDescription) &&
             (identical(other.answerRate, answerRate) ||
                 other.answerRate == answerRate) &&
             (identical(other.selectedSelectionId, selectedSelectionId) ||
@@ -525,6 +544,7 @@ class _$TeetEntityImpl extends _TeetEntity {
       description,
       type,
       createdAt,
+      showDescription,
       answerRate,
       selectedSelectionId);
 
@@ -550,6 +570,7 @@ abstract class _TeetEntity extends TeetEntity {
       required final String description,
       required final String type,
       required final DateTime createdAt,
+      final bool showDescription,
       final int? answerRate,
       final int? selectedSelectionId}) = _$TeetEntityImpl;
   _TeetEntity._() : super._();
@@ -569,6 +590,8 @@ abstract class _TeetEntity extends TeetEntity {
   String get type;
   @override
   DateTime get createdAt;
+  @override
+  bool get showDescription;
   @override
   int? get answerRate;
   @override

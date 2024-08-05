@@ -13,6 +13,8 @@ class UserController extends _$UserController {
   }
 
   Future<UserState> _fetchData(int userId) async {
+    state = const AsyncLoading();
+
     final user = await ref.watch(getUserByIdProvider(userId).future);
 
     return UserState(
@@ -21,6 +23,8 @@ class UserController extends _$UserController {
   }
 
   Future<void> updateUserProfile() async {
+    state = const AsyncLoading();
+
     final updateUserProfileState = ref.read(updateProfileControllerProvider);
     final userId = state.requireValue.user.id;
 
@@ -34,6 +38,8 @@ class UserController extends _$UserController {
   }
 
   Future<void> updateInterestCategory() async {
+    state = const AsyncLoading();
+
     final userId = state.requireValue.user.id;
     final interestCategoryIds = ref
         .read(updateInterestCategoryControllerProvider)

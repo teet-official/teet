@@ -12,39 +12,51 @@ class SignInPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Sign-in'),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              context.pop();
-            },
-          )),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () async {
-              await ref
-                  .read(authControllerProvider.notifier)
-                  .onPressedGoogleSignInButton();
+          title: const Text('로그인'),
+          leading: context.canPop()
+              ? IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () {
+                    context.pop();
+                  },
+                )
+              : const SizedBox(
+                  width: 1,
+                )),
+      body: Padding(
+        padding: const EdgeInsets.all(30.10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(MediaQuery.of(context).size.width, 50),
+              ),
+              onPressed: () async {
+                await ref
+                    .read(authControllerProvider.notifier)
+                    .onPressedGoogleSignInButton();
 
-              final isSignIn = ref.read(authControllerProvider).isSignIn;
+                final isSignIn = ref.read(authControllerProvider).isSignIn;
 
-              if (!context.mounted) return;
-              if (isSignIn) {
-                ref
-                    .watch(mainControllerProvider.notifier)
-                    .setBottomNavigationBarIndex(0);
-              } else {
-                context.push('/auth/sign-up');
-              }
-            },
-            child: const Column(
-              children: [
-                Text('Sign in with Google'),
-              ],
+                if (!context.mounted) return;
+                if (isSignIn) {
+                  ref
+                      .watch(mainControllerProvider.notifier)
+                      .setBottomNavigationBarIndex(0);
+                } else {
+                  context.push('/auth/sign-up');
+                }
+              },
+              child: const Column(
+                children: [
+                  Text('구글로 로그인하기'),
+                ],
+              ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
