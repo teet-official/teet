@@ -49,7 +49,7 @@ class MainPage extends ConsumerWidget {
               color: Colors.white,
             ),
           ],
-          color: Colors.primaries[5],
+          color: Colors.primaries[5].shade800,
           buttonBackgroundColor: Colors.primaries[5].shade800,
           backgroundColor: Colors.white,
           animationCurve: Curves.easeInOutQuart,
