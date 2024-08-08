@@ -56,9 +56,9 @@
 			</array>
 		</dict>
 	</array>
-	<!-- TEST ADMOB UNTI ID -->
+	<!-- This value is sample unit id. Input your admob id -->
 	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-3940256099942544~2934735716</string>
+	<string>ca-app-pub-YYYYYYYYYYYYYYYY~XXXXXXXXXX</string>
 	<key>SKAdNetworkItems</key>
 		<array>
 			<dict>
