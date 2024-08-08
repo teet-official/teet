@@ -303,7 +303,6 @@ mixin _$TeetSelectionModel {
   int get id => throw _privateConstructorUsedError;
   int get teetId => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  int get labelNo => throw _privateConstructorUsedError;
   bool get isAnswer => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -320,12 +319,7 @@ abstract class $TeetSelectionModelCopyWith<$Res> {
       _$TeetSelectionModelCopyWithImpl<$Res, TeetSelectionModel>;
   @useResult
   $Res call(
-      {int id,
-      int teetId,
-      String label,
-      int labelNo,
-      bool isAnswer,
-      DateTime createdAt});
+      {int id, int teetId, String label, bool isAnswer, DateTime createdAt});
 }
 
 /// @nodoc
@@ -344,7 +338,6 @@ class _$TeetSelectionModelCopyWithImpl<$Res, $Val extends TeetSelectionModel>
     Object? id = null,
     Object? teetId = null,
     Object? label = null,
-    Object? labelNo = null,
     Object? isAnswer = null,
     Object? createdAt = null,
   }) {
@@ -361,10 +354,6 @@ class _$TeetSelectionModelCopyWithImpl<$Res, $Val extends TeetSelectionModel>
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
-      labelNo: null == labelNo
-          ? _value.labelNo
-          : labelNo // ignore: cast_nullable_to_non_nullable
-              as int,
       isAnswer: null == isAnswer
           ? _value.isAnswer
           : isAnswer // ignore: cast_nullable_to_non_nullable
@@ -386,12 +375,7 @@ abstract class _$$TeetSelectionModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
-      int teetId,
-      String label,
-      int labelNo,
-      bool isAnswer,
-      DateTime createdAt});
+      {int id, int teetId, String label, bool isAnswer, DateTime createdAt});
 }
 
 /// @nodoc
@@ -408,7 +392,6 @@ class __$$TeetSelectionModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? teetId = null,
     Object? label = null,
-    Object? labelNo = null,
     Object? isAnswer = null,
     Object? createdAt = null,
   }) {
@@ -425,10 +408,6 @@ class __$$TeetSelectionModelImplCopyWithImpl<$Res>
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
-      labelNo: null == labelNo
-          ? _value.labelNo
-          : labelNo // ignore: cast_nullable_to_non_nullable
-              as int,
       isAnswer: null == isAnswer
           ? _value.isAnswer
           : isAnswer // ignore: cast_nullable_to_non_nullable
@@ -449,7 +428,6 @@ class _$TeetSelectionModelImpl implements _TeetSelectionModel {
       {required this.id,
       required this.teetId,
       required this.label,
-      required this.labelNo,
       required this.isAnswer,
       required this.createdAt});
 
@@ -463,15 +441,13 @@ class _$TeetSelectionModelImpl implements _TeetSelectionModel {
   @override
   final String label;
   @override
-  final int labelNo;
-  @override
   final bool isAnswer;
   @override
   final DateTime createdAt;
 
   @override
   String toString() {
-    return 'TeetSelectionModel(id: $id, teetId: $teetId, label: $label, labelNo: $labelNo, isAnswer: $isAnswer, createdAt: $createdAt)';
+    return 'TeetSelectionModel(id: $id, teetId: $teetId, label: $label, isAnswer: $isAnswer, createdAt: $createdAt)';
   }
 
   @override
@@ -482,7 +458,6 @@ class _$TeetSelectionModelImpl implements _TeetSelectionModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.teetId, teetId) || other.teetId == teetId) &&
             (identical(other.label, label) || other.label == label) &&
-            (identical(other.labelNo, labelNo) || other.labelNo == labelNo) &&
             (identical(other.isAnswer, isAnswer) ||
                 other.isAnswer == isAnswer) &&
             (identical(other.createdAt, createdAt) ||
@@ -492,7 +467,7 @@ class _$TeetSelectionModelImpl implements _TeetSelectionModel {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, teetId, label, labelNo, isAnswer, createdAt);
+      Object.hash(runtimeType, id, teetId, label, isAnswer, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -514,7 +489,6 @@ abstract class _TeetSelectionModel implements TeetSelectionModel {
       {required final int id,
       required final int teetId,
       required final String label,
-      required final int labelNo,
       required final bool isAnswer,
       required final DateTime createdAt}) = _$TeetSelectionModelImpl;
 
@@ -527,8 +501,6 @@ abstract class _TeetSelectionModel implements TeetSelectionModel {
   int get teetId;
   @override
   String get label;
-  @override
-  int get labelNo;
   @override
   bool get isAnswer;
   @override

@@ -7,7 +7,6 @@ class TeetSelectionModel with _$TeetSelectionModel {
     required int id,
     required int teetId,
     required String label,
-    required int labelNo,
     required bool isAnswer,
     required DateTime createdAt,
   }) = _TeetSelectionModel;
@@ -21,7 +20,6 @@ extension TeetSelectionExtension on TeetSelectionModel {
         id: id,
         teetId: teetId,
         label: label,
-        labelNo: labelNo,
         isAnswer: isAnswer,
       );
 }

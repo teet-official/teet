@@ -36,7 +36,6 @@ _$TeetSelectionModelImpl _$$TeetSelectionModelImplFromJson(
       id: (json['id'] as num).toInt(),
       teetId: (json['teet_id'] as num).toInt(),
       label: json['label'] as String,
-      labelNo: (json['label_no'] as num).toInt(),
       isAnswer: json['is_answer'] as bool,
       createdAt: DateTime.parse(json['created_at'] as String),
     );
@@ -47,7 +46,6 @@ Map<String, dynamic> _$$TeetSelectionModelImplToJson(
       'id': instance.id,
       'teet_id': instance.teetId,
       'label': instance.label,
-      'label_no': instance.labelNo,
       'is_answer': instance.isAnswer,
       'created_at': instance.createdAt.toIso8601String(),
     };

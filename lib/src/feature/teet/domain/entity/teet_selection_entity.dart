@@ -6,7 +6,6 @@ class TeetSelectionEntity with _$TeetSelectionEntity {
     required int id,
     required int teetId,
     required String label,
-    required int labelNo,
     required bool isAnswer,
   }) = _TeetSelectionEntity;
 

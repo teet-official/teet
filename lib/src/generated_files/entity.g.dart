@@ -78,7 +78,6 @@ _$TeetSelectionEntityImpl _$$TeetSelectionEntityImplFromJson(
       id: (json['id'] as num).toInt(),
       teetId: (json['teetId'] as num).toInt(),
       label: json['label'] as String,
-      labelNo: (json['labelNo'] as num).toInt(),
       isAnswer: json['isAnswer'] as bool,
     );
 
@@ -88,7 +87,6 @@ Map<String, dynamic> _$$TeetSelectionEntityImplToJson(
       'id': instance.id,
       'teetId': instance.teetId,
       'label': instance.label,
-      'labelNo': instance.labelNo,
       'isAnswer': instance.isAnswer,
     };
 

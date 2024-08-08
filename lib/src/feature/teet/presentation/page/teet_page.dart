@@ -78,7 +78,7 @@ class TeetPage extends ConsumerWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(
-          height: 20,
+          height: 10,
         ),
         AnimatedSwitcher(
             duration: const Duration(milliseconds: 400),
@@ -164,7 +164,8 @@ class TeetPage extends ConsumerWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Text(teet.description),
+                    Text(teet.description,
+                        style: Theme.of(context).textTheme.bodyMedium),
                     const SizedBox(
                       height: 10,
                     ),
@@ -175,12 +176,12 @@ class TeetPage extends ConsumerWidget {
                             '정답률: ${teet.answerRate == null ? '-' : '${teet.answerRate}%'}',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyMedium!
+                                .bodySmall!
                                 .copyWith(color: Colors.grey)),
                         Text('기준일: ${teet.baseDate}',
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyMedium!
+                                .bodySmall!
                                 .copyWith(color: Colors.grey)),
                       ],
                     )
