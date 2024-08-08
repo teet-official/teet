@@ -27,7 +27,14 @@ class TeetPage extends ConsumerWidget {
     final PageController pageController = PageController(
       initialPage: 0,
     );
-
+    if (state.teets.isEmpty) {
+      return const Center(
+        child: Text(
+          '🛠️준비된 티트가 없습니다.🛠️ \n\n빠른 시일내로 티트를 제공하도록 노력하겠습니다',
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
     return Consumer(builder: (context, ref, child) {
       return NotificationListener(
         onNotification: (t) {

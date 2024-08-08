@@ -11,6 +11,15 @@ class TeetController extends _$TeetController {
     final userId = ref.watch(authControllerProvider).userId;
     final teets = await ref.watch(getTeetsProvider(userId, null).future);
 
+    if (teets.isEmpty) {
+      return TeetPageState(
+        isLoading: false,
+        teets: [],
+        lastId: -1,
+        hasReachedMax: true,
+      );
+    }
+
     return TeetPageState(
       isLoading: false,
       teets: teets,
