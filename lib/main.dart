@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/provider.dart';
@@ -8,7 +9,7 @@ import 'package:teet/src/generated_files/provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env"); // 2번코드
-
+  MobileAds.instance.initialize();
   await Supabase.initialize(
       url: dotenv.get('SUPABASE_URL'), anonKey: dotenv.get('SUPABASE_KEY'));
   runApp(const ProviderScope(child: MyApp()));
