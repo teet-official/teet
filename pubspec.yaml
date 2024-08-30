@@ -44,6 +44,7 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   google_sign_in: ^6.2.1
   google_mobile_ads: ^5.1.0
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - .env
+    - assets/lotties/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -87,13 +87,16 @@ class TeetPage extends ConsumerWidget {
           textAlign: TextAlign.center,
         ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
         AnimatedSwitcher(
             duration: const Duration(milliseconds: 400),
-            child: teet.showDescription == false
-                ? TeetMainComp(teet: teet)
-                : TeetDescComp(teet: teet)),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.5,
+              child: teet.showDescription == false
+                  ? TeetMainComp(teet: teet)
+                  : TeetDescComp(teet: teet),
+            )),
       ],
     );
   }

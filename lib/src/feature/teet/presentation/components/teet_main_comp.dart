@@ -18,6 +18,7 @@ class TeetMainComp extends ConsumerWidget {
                   AnimatedSwitcher(
                     duration: const Duration(milliseconds: 600),
                     child: SizedBox(
+                      height: 50,
                       width: MediaQuery.of(context).size.width,
                       key: UniqueKey(),
                       child: ElevatedButton(
@@ -60,7 +61,7 @@ class TeetMainComp extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                 ],
               ),
