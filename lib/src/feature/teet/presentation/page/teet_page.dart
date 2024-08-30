@@ -68,14 +68,15 @@ class TeetPage extends ConsumerWidget {
             }
           },
           itemBuilder: (context, index) =>
-              _buildItem(context, state.teets[index], ref),
+              _buildItem(context, state.teets[index], ref, pageController),
           itemCount: state.teets.length,
         ),
       );
     });
   }
 
-  _buildItem(BuildContext context, TeetEntity teet, WidgetRef ref) {
+  _buildItem(BuildContext context, TeetEntity teet, WidgetRef ref,
+      PageController pageController) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -95,7 +96,7 @@ class TeetPage extends ConsumerWidget {
               height: MediaQuery.of(context).size.height * 0.5,
               child: teet.showDescription == false
                   ? TeetMainComp(teet: teet)
-                  : TeetDescComp(teet: teet),
+                  : TeetDescComp(teet: teet, pageController: pageController),
             )),
       ],
     );

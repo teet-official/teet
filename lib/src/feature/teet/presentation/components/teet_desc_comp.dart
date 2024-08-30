@@ -5,7 +5,9 @@ import 'package:teet/src/generated_files/entity.dart';
 
 class TeetDescComp extends ConsumerStatefulWidget {
   final TeetEntity teet;
-  const TeetDescComp({super.key, required this.teet});
+  final PageController pageController;
+  const TeetDescComp(
+      {super.key, required this.teet, required this.pageController});
 
   @override
   ConsumerState<TeetDescComp> createState() => _TeetDescCompState();
@@ -45,7 +47,7 @@ class _TeetDescCompState extends ConsumerState<TeetDescComp>
   @override
   Widget build(BuildContext context) {
     final teet = widget.teet;
-
+    final pageController = widget.pageController;
     return Stack(
       children: [
         Column(key: const ValueKey<bool>(true), children: [
@@ -97,8 +99,15 @@ class _TeetDescCompState extends ConsumerState<TeetDescComp>
             right: 0,
             child: FadeTransition(
               opacity: _animation,
-              child: Center(
-                child: Lottie.asset('assets/lotties/down_arrow.json'),
+              child: GestureDetector(
+                onTap: () => {
+                  pageController.nextPage(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.linear)
+                },
+                child: Center(
+                  child: Lottie.asset('assets/lotties/down_arrow.json'),
+                ),
               ),
             ),
           ),
