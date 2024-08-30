@@ -1,4 +1,4 @@
-package com.example.teet
+package com.yjs.teet
 
 import io.flutter.embedding.android.FlutterActivity
 
