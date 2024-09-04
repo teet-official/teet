@@ -5,38 +5,21 @@ class TeetDataSourceImpl implements TeetDataSource {
 
   @override
   Future<List<TeetModel>> getTeets(int? userId, int? lastIndex) async {
-    dynamic query;
+    final List<Map<String, dynamic>> result;
+
     if (userId != null) {
-      query = client
-          .from('teet')
-          .select('*, teet_selection(*), teet_user_selected(*)')
-          .isFilter('teet_user_selected', null)
-          .filter('teet_user_selected.user_id', 'eq', userId);
-      if (lastIndex != null) {
-        query = query.filter('id', 'lt', lastIndex);
-      }
-      query = query
-          .order(
-            'id',
-            ascending: false,
-          )
-          .order('id', referencedTable: 'teet_selection', ascending: true)
-          .limit(getTeetsCount);
+      result = await client.rpc('get_teets', params: {
+        'target_user_id': 18,
+        'priority_interests': [3, 9],
+        'last_index': lastIndex,
+        'per_page': getTeetsCount,
+      });
     } else {
-      query = client.from('teet').select('*, teet_selection(*)');
-      if (lastIndex != null) {
-        query = query.filter('id', 'lt', lastIndex);
-      }
-      query = query
-          .order(
-            'id',
-            ascending: false,
-          )
-          .order('id', referencedTable: 'teet_selection', ascending: true)
-          .limit(getTeetsCount);
+      result = await client.rpc('get_teets_anonymous', params: {
+        'per_page': getTeetsCount,
+      });
     }
 
-    final List<Map<String, dynamic>> result = await query;
     return result
         .map(
           (json) => TeetModel.fromJson(json),

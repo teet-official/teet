@@ -5,7 +5,10 @@ class InterestCategoryDataSourceImpl implements InterestCategoryDataSource {
 
   @override
   Future<List<GetAllInterestCategoryModel>> getAllInterestCategories() async {
-    final queryResult = await client.from('interest_category').select();
+    final queryResult = await client
+        .from('interest_category')
+        .select()
+        .order('id', ascending: true);
 
     final result = queryResult
         .map((json) => GetAllInterestCategoryModel.fromJson(json))
