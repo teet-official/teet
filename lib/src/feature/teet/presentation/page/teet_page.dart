@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teet/src/feature/teet/presentation/components/teet_desc_comp.dart';
 import 'package:teet/src/feature/teet/presentation/components/teet_main_comp.dart';
@@ -39,37 +38,37 @@ class TeetPage extends ConsumerWidget {
     }
     return Consumer(builder: (context, ref, child) {
       return NotificationListener(
-        onNotification: (t) {
-          if (t is UserScrollNotification) {
-            if (t.direction == ScrollDirection.reverse &&
-                pageController.page == state.teets.length - 1 &&
+        onNotification: (notification) {
+          if (notification is ScrollEndNotification) {
+            if (pageController.page == state.teets.length - 1 &&
                 state.hasReachedMax) {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('마지막 티트입니다.'),
+                  duration: Duration(seconds: 1),
                 ),
               );
             }
-
-            if (t.direction == ScrollDirection.forward &&
-                pageController.page == 0) {
-              ref.read(teetControllerProvider.notifier).fetchRefresh();
-            }
           }
-          return true;
+          return false;
         },
-        child: PageView.builder(
-          controller: pageController,
-          scrollDirection: Axis.vertical,
-          onPageChanged: (value) {
-            if (value == state.teets.length - 1) {
-              ref.read(teetControllerProvider.notifier).fetchMore();
-            }
+        child: RefreshIndicator(
+          onRefresh: () async {
+            ref.read(teetControllerProvider.notifier).fetchRefresh();
           },
-          itemBuilder: (context, index) =>
-              _buildItem(context, state.teets[index], ref, pageController),
-          itemCount: state.teets.length,
+          child: PageView.builder(
+            controller: pageController,
+            scrollDirection: Axis.vertical,
+            onPageChanged: (value) {
+              if (!state.hasReachedMax && value == state.teets.length - 1) {
+                ref.read(teetControllerProvider.notifier).fetchMore();
+              }
+            },
+            itemBuilder: (context, index) =>
+                _buildItem(context, state.teets[index], ref, pageController),
+            itemCount: state.teets.length,
+          ),
         ),
       );
     });
