@@ -4,13 +4,14 @@ class TeetDataSourceImpl implements TeetDataSource {
   final client = Supabase.instance.client;
 
   @override
-  Future<List<TeetModel>> getTeets(int? userId, int? lastIndex) async {
+  Future<List<TeetModel>> getTeets(
+      int? userId, List<int>? interestsCategoryIds, int? lastIndex) async {
     final List<Map<String, dynamic>> result;
 
     if (userId != null) {
       result = await client.rpc('get_teets', params: {
-        'target_user_id': 18,
-        'priority_interests': [3, 9],
+        'target_user_id': userId,
+        'priority_interests': interestsCategoryIds,
         'last_index': lastIndex,
         'per_page': getTeetsCount,
       });

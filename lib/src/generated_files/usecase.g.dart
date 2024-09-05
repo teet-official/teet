@@ -154,7 +154,7 @@ class _SignUpProviderElement extends AutoDisposeFutureProviderElement<void>
   SignUpEntity get signUpEntity => (origin as SignUpProvider).signUpEntity;
 }
 
-String _$getTeetsHash() => r'fcdffa5bff844dd485dc95636d80fc0c1c8dd3eb';
+String _$getTeetsHash() => r'04d5a8865666e1d5fafb56e5553e302c5a21a596';
 
 /// See also [getTeets].
 @ProviderFor(getTeets)
@@ -168,10 +168,12 @@ class GetTeetsFamily extends Family<AsyncValue<List<TeetEntity>>> {
   /// See also [getTeets].
   GetTeetsProvider call(
     int? userId,
+    List<int>? interestsCategoryIds,
     int? lastIndex,
   ) {
     return GetTeetsProvider(
       userId,
+      interestsCategoryIds,
       lastIndex,
     );
   }
@@ -182,6 +184,7 @@ class GetTeetsFamily extends Family<AsyncValue<List<TeetEntity>>> {
   ) {
     return call(
       provider.userId,
+      provider.interestsCategoryIds,
       provider.lastIndex,
     );
   }
@@ -206,11 +209,13 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
   /// See also [getTeets].
   GetTeetsProvider(
     int? userId,
+    List<int>? interestsCategoryIds,
     int? lastIndex,
   ) : this._internal(
           (ref) => getTeets(
             ref as GetTeetsRef,
             userId,
+            interestsCategoryIds,
             lastIndex,
           ),
           from: getTeetsProvider,
@@ -222,6 +227,7 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
           dependencies: GetTeetsFamily._dependencies,
           allTransitiveDependencies: GetTeetsFamily._allTransitiveDependencies,
           userId: userId,
+          interestsCategoryIds: interestsCategoryIds,
           lastIndex: lastIndex,
         );
 
@@ -233,10 +239,12 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.userId,
+    required this.interestsCategoryIds,
     required this.lastIndex,
   }) : super.internal();
 
   final int? userId;
+  final List<int>? interestsCategoryIds;
   final int? lastIndex;
 
   @override
@@ -253,6 +261,7 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         userId: userId,
+        interestsCategoryIds: interestsCategoryIds,
         lastIndex: lastIndex,
       ),
     );
@@ -267,6 +276,7 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
   bool operator ==(Object other) {
     return other is GetTeetsProvider &&
         other.userId == userId &&
+        other.interestsCategoryIds == interestsCategoryIds &&
         other.lastIndex == lastIndex;
   }
 
@@ -274,6 +284,7 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, userId.hashCode);
+    hash = _SystemHash.combine(hash, interestsCategoryIds.hashCode);
     hash = _SystemHash.combine(hash, lastIndex.hashCode);
 
     return _SystemHash.finish(hash);
@@ -283,6 +294,9 @@ class GetTeetsProvider extends AutoDisposeFutureProvider<List<TeetEntity>> {
 mixin GetTeetsRef on AutoDisposeFutureProviderRef<List<TeetEntity>> {
   /// The parameter `userId` of this provider.
   int? get userId;
+
+  /// The parameter `interestsCategoryIds` of this provider.
+  List<int>? get interestsCategoryIds;
 
   /// The parameter `lastIndex` of this provider.
   int? get lastIndex;
@@ -295,6 +309,9 @@ class _GetTeetsProviderElement
 
   @override
   int? get userId => (origin as GetTeetsProvider).userId;
+  @override
+  List<int>? get interestsCategoryIds =>
+      (origin as GetTeetsProvider).interestsCategoryIds;
   @override
   int? get lastIndex => (origin as GetTeetsProvider).lastIndex;
 }

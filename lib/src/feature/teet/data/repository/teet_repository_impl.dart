@@ -5,8 +5,10 @@ class TeetRepositoryImpl extends TeetRepository {
   final TeetDataSource _source;
 
   @override
-  Future<List<TeetEntity>> getTeets(int? userId, int? lastIndex) async {
-    final models = await _source.getTeets(userId, lastIndex);
+  Future<List<TeetEntity>> getTeets(
+      int? userId, List<int>? interestsCategoryIds, int? lastIndex) async {
+    final models =
+        await _source.getTeets(userId, interestsCategoryIds, lastIndex);
     return models.map((model) => model.toEntity()).toList();
   }
 

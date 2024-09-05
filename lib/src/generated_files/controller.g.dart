@@ -107,7 +107,7 @@ final updateProfileControllerProvider = AutoDisposeNotifierProvider<
 );
 
 typedef _$UpdateProfileController = AutoDisposeNotifier<UpdateProfileState>;
-String _$teetControllerHash() => r'7c10bfecc7e25cbea29eb1cf59a6fa7774511710';
+String _$teetControllerHash() => r'b578fbd42131a019299bd3fb958454afac2c6525';
 
 /// See also [TeetController].
 @ProviderFor(TeetController)

@@ -9,7 +9,15 @@ class TeetController extends _$TeetController {
 
   Future<TeetPageState> _fetchData() async {
     final userId = ref.watch(authControllerProvider).userId;
-    final teets = await ref.watch(getTeetsProvider(userId, null).future);
+    final interestsCategoryIds = ref
+        .watch(userControllerProvider)
+        .valueOrNull
+        ?.user
+        .interestCategories
+        .map((e) => e.id)
+        .toList();
+    final teets = await ref
+        .watch(getTeetsProvider(userId, interestsCategoryIds, null).future);
 
     if (teets.isEmpty) {
       return TeetPageState(
@@ -30,11 +38,18 @@ class TeetController extends _$TeetController {
 
   Future<void> fetchMore() async {
     final userId = ref.watch(authControllerProvider).userId;
+    final interestsCategoryIds = ref
+        .watch(userControllerProvider)
+        .valueOrNull
+        ?.user
+        .interestCategories
+        .map((e) => e.id)
+        .toList();
     final value = state.valueOrNull;
 
     if (value != null && !value.hasReachedMax) {
-      final fetchedData =
-          await ref.watch(getTeetsProvider(userId, value.lastId).future);
+      final fetchedData = await ref.watch(
+          getTeetsProvider(userId, interestsCategoryIds, value.lastId).future);
 
       if (fetchedData.isEmpty) {
         state = AsyncValue.data(value.copyWith(hasReachedMax: true));
@@ -53,7 +68,15 @@ class TeetController extends _$TeetController {
     state = const AsyncLoading();
 
     final userId = ref.watch(authControllerProvider).userId;
-    final teets = await ref.refresh(getTeetsProvider(userId, null).future);
+    final interestsCategoryIds = ref
+        .watch(userControllerProvider)
+        .valueOrNull
+        ?.user
+        .interestCategories
+        .map((e) => e.id)
+        .toList();
+    final teets = await ref
+        .refresh(getTeetsProvider(userId, interestsCategoryIds, null).future);
 
     state = AsyncValue.data(
       TeetPageState(

@@ -1,10 +1,10 @@
 part of '../../../../generated_files/usecase.dart';
 
 @riverpod
-Future<List<TeetEntity>> getTeets(
-    GetTeetsRef ref, int? userId, int? lastIndex) async {
+Future<List<TeetEntity>> getTeets(GetTeetsRef ref, int? userId,
+    List<int>? interestsCategoryIds, int? lastIndex) async {
   final repository = ref.watch(teetRepositoryProvider);
-  return await repository.getTeets(userId, lastIndex);
+  return await repository.getTeets(userId, interestsCategoryIds, lastIndex);
 }
 
 @riverpod
