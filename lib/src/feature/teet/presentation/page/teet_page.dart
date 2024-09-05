@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:teet/src/feature/teet/presentation/components/teet_desc_comp.dart';
 import 'package:teet/src/feature/teet/presentation/components/teet_main_comp.dart';
 import 'package:teet/src/generated_files/controller.dart';
@@ -61,8 +62,26 @@ class TeetPage extends ConsumerWidget {
             controller: pageController,
             scrollDirection: Axis.vertical,
             onPageChanged: (value) {
+              final authState = ref.watch(authControllerProvider);
               if (!state.hasReachedMax && value == state.teets.length - 1) {
-                ref.read(teetControllerProvider.notifier).fetchMore();
+                if (authState.isSignIn) {
+                  ref.read(teetControllerProvider.notifier).fetchMore();
+                } else {
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      content: const Text('더 많은 티트를 풀어보고 싶으면 \n회원가입을 해주세요!'),
+                      duration: const Duration(seconds: 3),
+                      action: SnackBarAction(
+                        label: '회원가입',
+                        onPressed: () {
+                          context.push('/auth/sign-in');
+                        },
+                      ),
+                    ),
+                  );
+                }
               }
             },
             itemBuilder: (context, index) =>
