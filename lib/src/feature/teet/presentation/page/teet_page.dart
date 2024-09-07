@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:teet/src/feature/teet/presentation/components/teet_desc_comp.dart';
+import 'package:teet/src/feature/teet/presentation/components/teet_like_comp.dart';
 import 'package:teet/src/feature/teet/presentation/components/teet_main_comp.dart';
 import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/entity.dart';
@@ -12,23 +13,33 @@ class TeetPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(teetControllerProvider);
+    final PageController pageController = PageController(initialPage: 0);
 
     return SafeArea(
       child: switch (state) {
         AsyncData(:final value) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: _buildList(value),
-          ),
-        AsyncError() => const Text('Error'),
+            child: Scaffold(
+              body: _buildList(value, pageController),
+              floatingActionButton: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  if (value.teets.isNotEmpty) ...[
+                    const TeetLikeComp(),
+                    const SizedBox(height: 16),
+                    const TeetDislikeComp(),
+                  ],
+                ],
+              ),
+            )),
+        AsyncError(:final error) => Text(error.toString()),
         _ => const Center(child: CircularProgressIndicator()),
       },
     );
   }
 
-  _buildList(TeetPageState state) {
-    final PageController pageController = PageController(
-      initialPage: 0,
-    );
+  _buildList(TeetPageState state, PageController pageController) {
     if (state.teets.isEmpty) {
       return const Center(
         child: Text(
@@ -63,6 +74,9 @@ class TeetPage extends ConsumerWidget {
             scrollDirection: Axis.vertical,
             onPageChanged: (value) {
               final authState = ref.watch(authControllerProvider);
+              ref
+                  .read(teetControllerProvider.notifier)
+                  .updateCurrentIndex(value);
               if (!state.hasReachedMax && value == state.teets.length - 1) {
                 if (authState.isSignIn) {
                   ref.read(teetControllerProvider.notifier).fetchMore();

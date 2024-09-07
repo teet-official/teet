@@ -42,6 +42,44 @@ class TeetDataSourceImpl implements TeetDataSource {
       'is_answer': isAnswer,
     });
   }
+
+  @override
+  Future<void> toggleLike(
+    int teetId,
+    int userId,
+    LikeStatus likeStatus,
+  ) async {
+    final existingLike = await client
+        .from('user_teet_reaction')
+        .select('*')
+        .eq('teet_id', teetId)
+        .eq('user_id', userId)
+        .maybeSingle();
+
+    if (existingLike != null) {
+      if (existingLike['reaction'] == likeStatus.value) {
+        await client
+            .from('user_teet_reaction')
+            .delete()
+            .eq('teet_id', teetId)
+            .eq('user_id', userId);
+      } else {
+        await client
+            .from('user_teet_reaction')
+            .update({
+              'reaction': likeStatus.value,
+            })
+            .eq('teet_id', teetId)
+            .eq('user_id', userId);
+      }
+    } else {
+      await client.from('user_teet_reaction').insert({
+        'teet_id': teetId,
+        'user_id': userId,
+        'reaction': likeStatus.value,
+      });
+    }
+  }
 }
 
 @riverpod

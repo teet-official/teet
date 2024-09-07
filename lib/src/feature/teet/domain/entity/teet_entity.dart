@@ -14,6 +14,8 @@ class TeetEntity with _$TeetEntity {
     @Default(false) bool showDescription,
     int? answerRate,
     int? selectedSelectionId,
+    @Default(false) bool isLiked,
+    @Default(false) bool isDisliked,
   }) = _TeetEntity;
 
   String get baseDate => DateUtil.getFormattedDateYYYYMMDD(createdAt);

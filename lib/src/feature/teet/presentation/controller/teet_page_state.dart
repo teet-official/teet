@@ -7,5 +7,6 @@ sealed class TeetPageState with _$TeetPageState {
     required List<TeetEntity> teets,
     required int lastId,
     required bool hasReachedMax,
+    @Default(0) int currentIndex,
   }) = _TeetPageState;
 }

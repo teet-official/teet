@@ -13,3 +13,10 @@ Future<void> solvedTeet(SolvedTeetRef ref, int teetId, int selectionId,
   final repository = ref.watch(teetRepositoryProvider);
   await repository.solvedTeet(teetId, selectionId, userId, isAnswer);
 }
+
+@riverpod
+Future<void> toggleLike(
+    ToggleLikeRef ref, int teetId, int userId, LikeStatus likeStatus) async {
+  final repository = ref.watch(teetRepositoryProvider);
+  await repository.toggleLike(teetId, userId, likeStatus);
+}

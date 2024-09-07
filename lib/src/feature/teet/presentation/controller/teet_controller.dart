@@ -25,6 +25,7 @@ class TeetController extends _$TeetController {
         teets: [],
         lastId: -1,
         hasReachedMax: true,
+        currentIndex: 0,
       );
     }
 
@@ -33,6 +34,7 @@ class TeetController extends _$TeetController {
       teets: teets,
       lastId: teets.last.id,
       hasReachedMax: teets.length < getTeetsCount,
+      currentIndex: 0,
     );
   }
 
@@ -60,6 +62,7 @@ class TeetController extends _$TeetController {
         teets: [...value.teets, ...fetchedData],
         lastId: fetchedData.last.id,
         hasReachedMax: fetchedData.length < getTeetsCount,
+        currentIndex: 0,
       ));
     }
   }
@@ -84,6 +87,7 @@ class TeetController extends _$TeetController {
         teets: teets,
         lastId: teets.last.id,
         hasReachedMax: teets.length < getTeetsCount,
+        currentIndex: 0,
       ),
     );
   }
@@ -111,6 +115,13 @@ class TeetController extends _$TeetController {
     }
   }
 
+  Future<void> updateCurrentIndex(int currentTeetId) async {
+    final value = state.valueOrNull;
+    if (value != null) {
+      state = AsyncValue.data(value.copyWith(currentIndex: currentTeetId));
+    }
+  }
+
   void setShowDescription(int currentTeetId) {
     final value = state.valueOrNull;
     if (value != null) {
@@ -122,6 +133,28 @@ class TeetController extends _$TeetController {
         }
         return teet;
       }).toList();
+      state = AsyncValue.data(value.copyWith(teets: newTeet));
+    }
+  }
+
+  void toggleLike(int currentTeetId, LikeStatus likeStatus) async {
+    final userId = ref.read(authControllerProvider).userId;
+    final value = state.valueOrNull;
+    if (value != null) {
+      final newTeet = value.teets.map((teet) {
+        if (teet.id == currentTeetId) {
+          if (likeStatus == LikeStatus.like) {
+            return teet.copyWith(
+                isLiked: teet.isLiked ? false : true, isDisliked: false);
+          } else {
+            return teet.copyWith(
+                isLiked: false, isDisliked: teet.isDisliked ? false : true);
+          }
+        }
+        return teet;
+      }).toList();
+      await ref
+          .read(toggleLikeProvider(currentTeetId, userId!, likeStatus).future);
       state = AsyncValue.data(value.copyWith(teets: newTeet));
     }
   }

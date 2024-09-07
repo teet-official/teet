@@ -977,6 +977,7 @@ mixin _$TeetPageState {
   List<TeetEntity> get teets => throw _privateConstructorUsedError;
   int get lastId => throw _privateConstructorUsedError;
   bool get hasReachedMax => throw _privateConstructorUsedError;
+  int get currentIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TeetPageStateCopyWith<TeetPageState> get copyWith =>
@@ -990,7 +991,11 @@ abstract class $TeetPageStateCopyWith<$Res> {
       _$TeetPageStateCopyWithImpl<$Res, TeetPageState>;
   @useResult
   $Res call(
-      {bool isLoading, List<TeetEntity> teets, int lastId, bool hasReachedMax});
+      {bool isLoading,
+      List<TeetEntity> teets,
+      int lastId,
+      bool hasReachedMax,
+      int currentIndex});
 }
 
 /// @nodoc
@@ -1010,6 +1015,7 @@ class _$TeetPageStateCopyWithImpl<$Res, $Val extends TeetPageState>
     Object? teets = null,
     Object? lastId = null,
     Object? hasReachedMax = null,
+    Object? currentIndex = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -1028,6 +1034,10 @@ class _$TeetPageStateCopyWithImpl<$Res, $Val extends TeetPageState>
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -1041,7 +1051,11 @@ abstract class _$$TeetPageStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isLoading, List<TeetEntity> teets, int lastId, bool hasReachedMax});
+      {bool isLoading,
+      List<TeetEntity> teets,
+      int lastId,
+      bool hasReachedMax,
+      int currentIndex});
 }
 
 /// @nodoc
@@ -1059,6 +1073,7 @@ class __$$TeetPageStateImplCopyWithImpl<$Res>
     Object? teets = null,
     Object? lastId = null,
     Object? hasReachedMax = null,
+    Object? currentIndex = null,
   }) {
     return _then(_$TeetPageStateImpl(
       isLoading: null == isLoading
@@ -1077,6 +1092,10 @@ class __$$TeetPageStateImplCopyWithImpl<$Res>
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
               as bool,
+      currentIndex: null == currentIndex
+          ? _value.currentIndex
+          : currentIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1088,7 +1107,8 @@ class _$TeetPageStateImpl implements _TeetPageState {
       {required this.isLoading,
       required final List<TeetEntity> teets,
       required this.lastId,
-      required this.hasReachedMax})
+      required this.hasReachedMax,
+      this.currentIndex = 0})
       : _teets = teets;
 
   @override
@@ -1105,10 +1125,13 @@ class _$TeetPageStateImpl implements _TeetPageState {
   final int lastId;
   @override
   final bool hasReachedMax;
+  @override
+  @JsonKey()
+  final int currentIndex;
 
   @override
   String toString() {
-    return 'TeetPageState(isLoading: $isLoading, teets: $teets, lastId: $lastId, hasReachedMax: $hasReachedMax)';
+    return 'TeetPageState(isLoading: $isLoading, teets: $teets, lastId: $lastId, hasReachedMax: $hasReachedMax, currentIndex: $currentIndex)';
   }
 
   @override
@@ -1121,12 +1144,19 @@ class _$TeetPageStateImpl implements _TeetPageState {
             const DeepCollectionEquality().equals(other._teets, _teets) &&
             (identical(other.lastId, lastId) || other.lastId == lastId) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
-                other.hasReachedMax == hasReachedMax));
+                other.hasReachedMax == hasReachedMax) &&
+            (identical(other.currentIndex, currentIndex) ||
+                other.currentIndex == currentIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_teets), lastId, hasReachedMax);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      const DeepCollectionEquality().hash(_teets),
+      lastId,
+      hasReachedMax,
+      currentIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -1140,7 +1170,8 @@ abstract class _TeetPageState implements TeetPageState {
       {required final bool isLoading,
       required final List<TeetEntity> teets,
       required final int lastId,
-      required final bool hasReachedMax}) = _$TeetPageStateImpl;
+      required final bool hasReachedMax,
+      final int currentIndex}) = _$TeetPageStateImpl;
 
   @override
   bool get isLoading;
@@ -1150,6 +1181,8 @@ abstract class _TeetPageState implements TeetPageState {
   int get lastId;
   @override
   bool get hasReachedMax;
+  @override
+  int get currentIndex;
   @override
   @JsonKey(ignore: true)
   _$$TeetPageStateImplCopyWith<_$TeetPageStateImpl> get copyWith =>

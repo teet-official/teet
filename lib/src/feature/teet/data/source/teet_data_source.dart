@@ -10,4 +10,6 @@ abstract class TeetDataSource {
     int userId,
     bool isAnswer,
   );
+
+  Future<void> toggleLike(int teetId, int userId, LikeStatus likeStatus);
 }

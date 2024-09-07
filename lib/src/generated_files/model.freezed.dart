@@ -27,6 +27,8 @@ mixin _$TeetModel {
   String get description => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  bool? get reaction =>
+      throw _privateConstructorUsedError; // 0: like, 1: dislike
   int? get answerRate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,6 +49,7 @@ abstract class $TeetModelCopyWith<$Res> {
       String description,
       DateTime createdAt,
       String type,
+      bool? reaction,
       int? answerRate});
 }
 
@@ -69,6 +72,7 @@ class _$TeetModelCopyWithImpl<$Res, $Val extends TeetModel>
     Object? description = null,
     Object? createdAt = null,
     Object? type = null,
+    Object? reaction = freezed,
     Object? answerRate = freezed,
   }) {
     return _then(_value.copyWith(
@@ -96,6 +100,10 @@ class _$TeetModelCopyWithImpl<$Res, $Val extends TeetModel>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      reaction: freezed == reaction
+          ? _value.reaction
+          : reaction // ignore: cast_nullable_to_non_nullable
+              as bool?,
       answerRate: freezed == answerRate
           ? _value.answerRate
           : answerRate // ignore: cast_nullable_to_non_nullable
@@ -119,6 +127,7 @@ abstract class _$$TeetModelImplCopyWith<$Res>
       String description,
       DateTime createdAt,
       String type,
+      bool? reaction,
       int? answerRate});
 }
 
@@ -139,6 +148,7 @@ class __$$TeetModelImplCopyWithImpl<$Res>
     Object? description = null,
     Object? createdAt = null,
     Object? type = null,
+    Object? reaction = freezed,
     Object? answerRate = freezed,
   }) {
     return _then(_$TeetModelImpl(
@@ -166,6 +176,10 @@ class __$$TeetModelImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      reaction: freezed == reaction
+          ? _value.reaction
+          : reaction // ignore: cast_nullable_to_non_nullable
+              as bool?,
       answerRate: freezed == answerRate
           ? _value.answerRate
           : answerRate // ignore: cast_nullable_to_non_nullable
@@ -185,6 +199,7 @@ class _$TeetModelImpl implements _TeetModel {
       required this.description,
       required this.createdAt,
       required this.type,
+      this.reaction,
       this.answerRate})
       : _teetSelection = teetSelection;
 
@@ -210,11 +225,14 @@ class _$TeetModelImpl implements _TeetModel {
   @override
   final String type;
   @override
+  final bool? reaction;
+// 0: like, 1: dislike
+  @override
   final int? answerRate;
 
   @override
   String toString() {
-    return 'TeetModel(id: $id, title: $title, teetSelection: $teetSelection, description: $description, createdAt: $createdAt, type: $type, answerRate: $answerRate)';
+    return 'TeetModel(id: $id, title: $title, teetSelection: $teetSelection, description: $description, createdAt: $createdAt, type: $type, reaction: $reaction, answerRate: $answerRate)';
   }
 
   @override
@@ -231,6 +249,8 @@ class _$TeetModelImpl implements _TeetModel {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.type, type) || other.type == type) &&
+            (identical(other.reaction, reaction) ||
+                other.reaction == reaction) &&
             (identical(other.answerRate, answerRate) ||
                 other.answerRate == answerRate));
   }
@@ -245,6 +265,7 @@ class _$TeetModelImpl implements _TeetModel {
       description,
       createdAt,
       type,
+      reaction,
       answerRate);
 
   @JsonKey(ignore: true)
@@ -269,6 +290,7 @@ abstract class _TeetModel implements TeetModel {
       required final String description,
       required final DateTime createdAt,
       required final String type,
+      final bool? reaction,
       final int? answerRate}) = _$TeetModelImpl;
 
   factory _TeetModel.fromJson(Map<String, dynamic> json) =
@@ -287,6 +309,8 @@ abstract class _TeetModel implements TeetModel {
   @override
   String get type;
   @override
+  bool? get reaction;
+  @override // 0: like, 1: dislike
   int? get answerRate;
   @override
   @JsonKey(ignore: true)

@@ -16,6 +16,7 @@ _$TeetModelImpl _$$TeetModelImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       type: json['type'] as String,
+      reaction: json['reaction'] as bool?,
       answerRate: (json['answer_rate'] as num?)?.toInt(),
     );
 
@@ -27,6 +28,7 @@ Map<String, dynamic> _$$TeetModelImplToJson(_$TeetModelImpl instance) =>
       'description': instance.description,
       'created_at': instance.createdAt.toIso8601String(),
       'type': instance.type,
+      'reaction': instance.reaction,
       'answer_rate': instance.answerRate,
     };
 

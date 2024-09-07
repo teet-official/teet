@@ -493,6 +493,167 @@ class _SolvedTeetProviderElement extends AutoDisposeFutureProviderElement<void>
   bool get isAnswer => (origin as SolvedTeetProvider).isAnswer;
 }
 
+String _$toggleLikeHash() => r'defaa60c77639dec97dbf15e3b1670ad0e1fd5ac';
+
+/// See also [toggleLike].
+@ProviderFor(toggleLike)
+const toggleLikeProvider = ToggleLikeFamily();
+
+/// See also [toggleLike].
+class ToggleLikeFamily extends Family<AsyncValue<void>> {
+  /// See also [toggleLike].
+  const ToggleLikeFamily();
+
+  /// See also [toggleLike].
+  ToggleLikeProvider call(
+    int teetId,
+    int userId,
+    LikeStatus likeStatus,
+  ) {
+    return ToggleLikeProvider(
+      teetId,
+      userId,
+      likeStatus,
+    );
+  }
+
+  @override
+  ToggleLikeProvider getProviderOverride(
+    covariant ToggleLikeProvider provider,
+  ) {
+    return call(
+      provider.teetId,
+      provider.userId,
+      provider.likeStatus,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'toggleLikeProvider';
+}
+
+/// See also [toggleLike].
+class ToggleLikeProvider extends AutoDisposeFutureProvider<void> {
+  /// See also [toggleLike].
+  ToggleLikeProvider(
+    int teetId,
+    int userId,
+    LikeStatus likeStatus,
+  ) : this._internal(
+          (ref) => toggleLike(
+            ref as ToggleLikeRef,
+            teetId,
+            userId,
+            likeStatus,
+          ),
+          from: toggleLikeProvider,
+          name: r'toggleLikeProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$toggleLikeHash,
+          dependencies: ToggleLikeFamily._dependencies,
+          allTransitiveDependencies:
+              ToggleLikeFamily._allTransitiveDependencies,
+          teetId: teetId,
+          userId: userId,
+          likeStatus: likeStatus,
+        );
+
+  ToggleLikeProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.teetId,
+    required this.userId,
+    required this.likeStatus,
+  }) : super.internal();
+
+  final int teetId;
+  final int userId;
+  final LikeStatus likeStatus;
+
+  @override
+  Override overrideWith(
+    FutureOr<void> Function(ToggleLikeRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ToggleLikeProvider._internal(
+        (ref) => create(ref as ToggleLikeRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        teetId: teetId,
+        userId: userId,
+        likeStatus: likeStatus,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<void> createElement() {
+    return _ToggleLikeProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ToggleLikeProvider &&
+        other.teetId == teetId &&
+        other.userId == userId &&
+        other.likeStatus == likeStatus;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, teetId.hashCode);
+    hash = _SystemHash.combine(hash, userId.hashCode);
+    hash = _SystemHash.combine(hash, likeStatus.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin ToggleLikeRef on AutoDisposeFutureProviderRef<void> {
+  /// The parameter `teetId` of this provider.
+  int get teetId;
+
+  /// The parameter `userId` of this provider.
+  int get userId;
+
+  /// The parameter `likeStatus` of this provider.
+  LikeStatus get likeStatus;
+}
+
+class _ToggleLikeProviderElement extends AutoDisposeFutureProviderElement<void>
+    with ToggleLikeRef {
+  _ToggleLikeProviderElement(super.provider);
+
+  @override
+  int get teetId => (origin as ToggleLikeProvider).teetId;
+  @override
+  int get userId => (origin as ToggleLikeProvider).userId;
+  @override
+  LikeStatus get likeStatus => (origin as ToggleLikeProvider).likeStatus;
+}
+
 String _$getAllInterestCategoriesHash() =>
     r'6ebd283aff35d42a114eee89da387279f7b79742';
 

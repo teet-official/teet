@@ -21,6 +21,11 @@ class TeetRepositoryImpl extends TeetRepository {
   ) async {
     await _source.solvedTeet(teetId, selectionId, userId, isAnswer);
   }
+
+  @override
+  Future<void> toggleLike(int teetId, int userId, LikeStatus likeStatus) async {
+    await _source.toggleLike(teetId, userId, likeStatus);
+  }
 }
 
 @riverpod

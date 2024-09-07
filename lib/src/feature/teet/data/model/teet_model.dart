@@ -10,6 +10,7 @@ class TeetModel with _$TeetModel {
     required String description,
     required DateTime createdAt,
     required String type,
+    bool? reaction, // 0: like, 1: dislike
     int? answerRate,
   }) = _TeetModel;
 
@@ -25,6 +26,8 @@ extension TeetExtension on TeetModel {
             teetSelection.map((selection) => selection.toEntity()).toList(),
         description: description,
         type: type,
+        isLiked: reaction == true,
+        isDisliked: reaction == false,
         answerRate: answerRate,
         createdAt: createdAt,
       );

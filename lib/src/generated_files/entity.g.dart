@@ -57,6 +57,8 @@ _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
       showDescription: json['showDescription'] as bool? ?? false,
       answerRate: (json['answerRate'] as num?)?.toInt(),
       selectedSelectionId: (json['selectedSelectionId'] as num?)?.toInt(),
+      isLiked: json['isLiked'] as bool? ?? false,
+      isDisliked: json['isDisliked'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
@@ -70,6 +72,8 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'showDescription': instance.showDescription,
       'answerRate': instance.answerRate,
       'selectedSelectionId': instance.selectedSelectionId,
+      'isLiked': instance.isLiked,
+      'isDisliked': instance.isDisliked,
     };
 
 _$TeetSelectionEntityImpl _$$TeetSelectionEntityImplFromJson(
