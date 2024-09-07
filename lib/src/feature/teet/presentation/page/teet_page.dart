@@ -13,6 +13,7 @@ class TeetPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(teetControllerProvider);
+    final authState = ref.watch(authControllerProvider);
     final PageController pageController = PageController(initialPage: 0);
 
     return SafeArea(
@@ -25,7 +26,7 @@ class TeetPage extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  if (value.teets.isNotEmpty) ...[
+                  if (value.teets.isNotEmpty && authState.isSignIn) ...[
                     const TeetLikeComp(),
                     const SizedBox(height: 16),
                     const TeetDislikeComp(),
