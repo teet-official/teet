@@ -16,28 +16,52 @@ class TeetPage extends ConsumerWidget {
     final authState = ref.watch(authControllerProvider);
     final PageController pageController = PageController(initialPage: 0);
 
-    return SafeArea(
-      child: switch (state) {
-        AsyncData(:final value) => Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Scaffold(
-              body: _buildList(value, pageController),
-              floatingActionButton: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  if (value.teets.isNotEmpty && authState.isSignIn) ...[
-                    const TeetLikeComp(),
-                    const SizedBox(height: 16),
-                    const TeetDislikeComp(),
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
+      color: _getBackgroundColor(state),
+      child: SafeArea(
+        child: switch (state) {
+          AsyncData(:final value) => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: Scaffold(
+                backgroundColor: Colors.transparent,
+                body: _buildList(value, pageController),
+                floatingActionButton: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    if (value.teets.isNotEmpty && authState.isSignIn) ...[
+                      const TeetLikeComp(),
+                      const SizedBox(height: 16),
+                      const TeetDislikeComp(),
+                    ],
                   ],
-                ],
-              ),
-            )),
-        AsyncError(:final error) => Text(error.toString()),
-        _ => const Center(child: CircularProgressIndicator()),
-      },
+                ),
+              )),
+          AsyncError(:final error) => Text(error.toString()),
+          _ => const Center(child: CircularProgressIndicator()),
+        },
+      ),
     );
+  }
+
+  Color _getBackgroundColor(AsyncValue<TeetPageState> state) {
+    if (state.valueOrNull == null) return Colors.white;
+
+    final currentTeet =
+        state.valueOrNull!.teets[state.valueOrNull!.currentIndex];
+    final isDescriptionShown = currentTeet.showDescription == true;
+    final isCorrectAnswer =
+        currentTeet.selections.firstWhere((element) => element.isAnswer).id ==
+            currentTeet.selectedSelectionId;
+
+    if (isDescriptionShown && isCorrectAnswer) {
+      return Colors.primaries[5].withOpacity(0.1);
+    } else if (isDescriptionShown && !isCorrectAnswer) {
+      return Colors.primaries[2].withOpacity(0.1);
+    } else {
+      return Colors.white.withOpacity(0.1);
+    }
   }
 
   _buildList(TeetPageState state, PageController pageController) {
