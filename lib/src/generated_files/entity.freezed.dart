@@ -286,7 +286,7 @@ mixin _$TeetEntity {
   List<TeetSelectionEntity> get selections =>
       throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
+  TeetType get type => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   bool get showDescription => throw _privateConstructorUsedError;
   int? get answerRate => throw _privateConstructorUsedError;
@@ -311,7 +311,7 @@ abstract class $TeetEntityCopyWith<$Res> {
       String title,
       List<TeetSelectionEntity> selections,
       String description,
-      String type,
+      TeetType type,
       DateTime createdAt,
       bool showDescription,
       int? answerRate,
@@ -365,7 +365,7 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as TeetType,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -407,7 +407,7 @@ abstract class _$$TeetEntityImplCopyWith<$Res>
       String title,
       List<TeetSelectionEntity> selections,
       String description,
-      String type,
+      TeetType type,
       DateTime createdAt,
       bool showDescription,
       int? answerRate,
@@ -459,7 +459,7 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as TeetType,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -524,7 +524,7 @@ class _$TeetEntityImpl extends _TeetEntity {
   @override
   final String description;
   @override
-  final String type;
+  final TeetType type;
   @override
   final DateTime createdAt;
   @override
@@ -607,7 +607,7 @@ abstract class _TeetEntity extends TeetEntity {
       required final String title,
       required final List<TeetSelectionEntity> selections,
       required final String description,
-      required final String type,
+      required final TeetType type,
       required final DateTime createdAt,
       final bool showDescription,
       final int? answerRate,
@@ -628,7 +628,7 @@ abstract class _TeetEntity extends TeetEntity {
   @override
   String get description;
   @override
-  String get type;
+  TeetType get type;
   @override
   DateTime get createdAt;
   @override

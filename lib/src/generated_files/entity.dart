@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:teet/src/feature/auth/domain/entity/age_range_enum.dart';
 import 'package:teet/src/feature/auth/domain/entity/gender_enum.dart';
+import 'package:teet/src/shared/const/teet_type_const.dart';
 import 'package:teet/src/shared/util/date_util.dart';
 
 part '../feature/auth/domain/entity/sign_up_entity.dart';

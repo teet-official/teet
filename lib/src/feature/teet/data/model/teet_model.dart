@@ -25,7 +25,7 @@ extension TeetExtension on TeetModel {
         selections:
             teetSelection.map((selection) => selection.toEntity()).toList(),
         description: description,
-        type: type,
+        type: TeetType.fromString(type),
         isLiked: reaction == true,
         isDisliked: reaction == false,
         answerRate: answerRate,

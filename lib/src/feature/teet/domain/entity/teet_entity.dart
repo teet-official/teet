@@ -9,7 +9,7 @@ class TeetEntity with _$TeetEntity {
     required String title,
     required List<TeetSelectionEntity> selections,
     required String description,
-    required String type,
+    required TeetType type,
     required DateTime createdAt,
     @Default(false) bool showDescription,
     int? answerRate,

@@ -52,7 +52,7 @@ _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
           .map((e) => TeetSelectionEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
       description: json['description'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$TeetTypeEnumMap, json['type']),
       createdAt: DateTime.parse(json['createdAt'] as String),
       showDescription: json['showDescription'] as bool? ?? false,
       answerRate: (json['answerRate'] as num?)?.toInt(),
@@ -67,7 +67,7 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'title': instance.title,
       'selections': instance.selections,
       'description': instance.description,
-      'type': instance.type,
+      'type': _$TeetTypeEnumMap[instance.type]!,
       'createdAt': instance.createdAt.toIso8601String(),
       'showDescription': instance.showDescription,
       'answerRate': instance.answerRate,
@@ -75,6 +75,11 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'isLiked': instance.isLiked,
       'isDisliked': instance.isDisliked,
     };
+
+const _$TeetTypeEnumMap = {
+  TeetType.fourSelection: 'fourSelection',
+  TeetType.oxSelection: 'oxSelection',
+};
 
 _$TeetSelectionEntityImpl _$$TeetSelectionEntityImplFromJson(
         Map<String, dynamic> json) =>
