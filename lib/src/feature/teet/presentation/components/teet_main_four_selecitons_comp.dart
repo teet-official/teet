@@ -18,7 +18,7 @@ class TeetMainFourSelectionsComp extends ConsumerWidget {
                   AnimatedSwitcher(
                     duration: const Duration(milliseconds: 600),
                     child: SizedBox(
-                      height: 50,
+                      height: MediaQuery.of(context).size.height * 0.08,
                       width: MediaQuery.of(context).size.width,
                       key: UniqueKey(),
                       child: ElevatedButton(
@@ -33,29 +33,20 @@ class TeetMainFourSelectionsComp extends ConsumerWidget {
                               .read(teetControllerProvider.notifier)
                               .setShowDescription(teet.id);
                         },
-                        style: ButtonStyle(backgroundColor: () {
-                          if (teet.selectedSelectionId == null) {
-                            return WidgetStateProperty.all(
-                              Colors.grey,
-                            );
-                          }
-                          if (selection.isAnswer) {
-                            return WidgetStateProperty.all(
-                              Colors.primaries[5],
-                            );
-                          }
-                          if (teet.selectedSelectionId == selection.id &&
-                              !selection.isAnswer) {
-                            return WidgetStateProperty.all(
-                              Colors.red,
-                            );
-                          }
-                          return WidgetStateProperty.all(
-                            Colors.grey,
-                          );
-                        }()),
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all(
+                            _getBackgroundColor(teet, selection),
+                          ),
+                          elevation: WidgetStateProperty.all(5),
+                          shadowColor: WidgetStateProperty.all(Colors.black),
+                        ),
                         child: Text(
                           selection.label,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -67,5 +58,18 @@ class TeetMainFourSelectionsComp extends ConsumerWidget {
               ),
             )
             .toList());
+  }
+
+  Color _getBackgroundColor(TeetEntity teet, TeetSelectionEntity selection) {
+    if (teet.selectedSelectionId == null) {
+      return Colors.grey;
+    }
+    if (selection.isAnswer) {
+      return Colors.primaries[5];
+    }
+    if (teet.selectedSelectionId == selection.id && !selection.isAnswer) {
+      return Colors.red;
+    }
+    return Colors.grey;
   }
 }

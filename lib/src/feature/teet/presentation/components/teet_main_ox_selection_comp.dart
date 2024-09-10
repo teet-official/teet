@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/entity.dart';
+import 'package:teet/src/shared/const/ox_selection_const.dart';
 
 class TeetMainOxSelectionComp extends ConsumerWidget {
   final TeetEntity teet;
@@ -31,29 +32,22 @@ class TeetMainOxSelectionComp extends ConsumerWidget {
                           .read(teetControllerProvider.notifier)
                           .setShowDescription(teet.id);
                     },
-                    style: ButtonStyle(backgroundColor: () {
-                      if (teet.selectedSelectionId == null) {
-                        return WidgetStateProperty.all(
-                          Colors.grey,
-                        );
-                      }
-                      if (selection.isAnswer) {
-                        return WidgetStateProperty.all(
-                          Colors.primaries[5],
-                        );
-                      }
-                      if (teet.selectedSelectionId == selection.id &&
-                          !selection.isAnswer) {
-                        return WidgetStateProperty.all(
-                          Colors.red,
-                        );
-                      }
-                      return WidgetStateProperty.all(
-                        Colors.grey,
-                      );
-                    }()),
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(
+                        selection.label == OxSelectionConst.O
+                            ? Colors.primaries[5]
+                            : Colors.primaries[1],
+                      ),
+                      elevation: WidgetStateProperty.all(10),
+                      shadowColor: WidgetStateProperty.all(Colors.black),
+                    ),
                     child: Text(
                       selection.label,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: MediaQuery.of(context).size.width * 0.25,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
