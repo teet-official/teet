@@ -20,7 +20,7 @@ final adMobProvider = AutoDisposeNotifierProvider<AdMob, BannerAd>.internal(
 );
 
 typedef _$AdMob = AutoDisposeNotifier<BannerAd>;
-String _$goRouterProviderHash() => r'bf364308bc7a685066fd51751eefc461ba5169b6';
+String _$goRouterProviderHash() => r'eb0eef4c6ef6e8b5dd838f8dae41cbec95b25d17';
 
 /// See also [GoRouterProvider].
 @ProviderFor(GoRouterProvider)

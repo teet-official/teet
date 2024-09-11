@@ -35,12 +35,30 @@ class TeetDataSourceImpl implements TeetDataSource {
     int userId,
     bool isAnswer,
   ) async {
-    await client.from('teet_user_selected').insert({
-      'teet_id': teetId,
-      'selection_id': selectionId,
-      'user_id': userId,
-      'is_answer': isAnswer,
-    });
+    final existingSelection = await client
+        .from('teet_user_selected')
+        .select('*')
+        .eq('teet_id', teetId)
+        .eq('user_id', userId)
+        .maybeSingle();
+
+    if (existingSelection == null) {
+      await client.from('teet_user_selected').insert({
+        'teet_id': teetId,
+        'selection_id': selectionId,
+        'user_id': userId,
+        'is_answer': isAnswer,
+      });
+    } else {
+      await client
+          .from('teet_user_selected')
+          .update({
+            'selection_id': selectionId,
+            'is_answer': isAnswer,
+          })
+          .eq('teet_id', teetId)
+          .eq('user_id', userId);
+    }
   }
 
   @override
@@ -79,6 +97,41 @@ class TeetDataSourceImpl implements TeetDataSource {
         'reaction': likeStatus.value,
       });
     }
+  }
+
+  @override
+  Future<List<TeetModel>> getRecentTeets(
+    int userId,
+    int? lastIndex,
+  ) async {
+    final List<Map<String, dynamic>> result =
+        await client.rpc('get_recent_teets', params: {
+      'target_user_id': userId,
+      'last_index': lastIndex,
+      'per_page': getTeetsCount,
+    });
+
+    return result
+        .map(
+          (json) => TeetModel.fromJson(json),
+        )
+        .toList();
+  }
+
+  @override
+  Future<List<TeetModel>> getLikedTeets(int userId, int? lastIndex) async {
+    final List<Map<String, dynamic>> result =
+        await client.rpc('get_liked_teets', params: {
+      'target_user_id': userId,
+      'last_index': lastIndex,
+      'per_page': getTeetsCount,
+    });
+
+    return result
+        .map(
+          (json) => TeetModel.fromJson(json),
+        )
+        .toList();
   }
 }
 

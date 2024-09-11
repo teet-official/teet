@@ -18,6 +18,8 @@ _$TeetModelImpl _$$TeetModelImplFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       reaction: json['reaction'] as bool?,
       answerRate: (json['answer_rate'] as num?)?.toInt(),
+      likedId: (json['liked_id'] as num?)?.toInt(),
+      solvedId: (json['solved_id'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$TeetModelImplToJson(_$TeetModelImpl instance) =>
@@ -30,6 +32,8 @@ Map<String, dynamic> _$$TeetModelImplToJson(_$TeetModelImpl instance) =>
       'type': instance.type,
       'reaction': instance.reaction,
       'answer_rate': instance.answerRate,
+      'liked_id': instance.likedId,
+      'solved_id': instance.solvedId,
     };
 
 _$TeetSelectionModelImpl _$$TeetSelectionModelImplFromJson(

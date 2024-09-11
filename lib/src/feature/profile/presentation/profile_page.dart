@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:teet/src/generated_files/controller.dart';
+import 'package:teet/src/shared/const/teet_filter_type_const.dart';
 
 class ProfileSetting {
   final IconData icon;
@@ -35,6 +36,23 @@ class ProfilePage extends ConsumerWidget {
       )
     ];
 
+    List<ProfileSetting> teetSettings = [
+      ProfileSetting(
+        icon: Icons.history,
+        title: '최근에 푼 티트',
+        onTap: () {
+          context.push('/teet?filter=${TeetFilterType.recent}');
+        },
+      ),
+      ProfileSetting(
+        icon: Icons.favorite,
+        title: '좋아요 누른 티트',
+        onTap: () {
+          context.push('/teet?filter=${TeetFilterType.like}');
+        },
+      ),
+    ];
+
     return SafeArea(
         child: switch (userState) {
       AsyncData(:final value) => Padding(
@@ -66,8 +84,10 @@ class ProfilePage extends ConsumerWidget {
               ...profileSettings.map((profileSetting) {
                 return Column(
                   children: [
-                    GestureDetector(
-                        onTap: profileSetting.onTap,
+                    InkWell(
+                      onTap: profileSetting.onTap,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -80,8 +100,40 @@ class ProfilePage extends ConsumerWidget {
                             ),
                             const Icon(Icons.arrow_forward_ios, size: 16),
                           ],
-                        )),
-                    const SizedBox(height: 10),
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }),
+              const SizedBox(height: 20),
+              Text('티트',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontWeight: FontWeight.bold,
+                      )),
+              const SizedBox(height: 10),
+              ...teetSettings.map((teetSetting) {
+                return Column(
+                  children: [
+                    InkWell(
+                      onTap: teetSetting.onTap,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(teetSetting.icon),
+                                const SizedBox(width: 5),
+                                Text(teetSetting.title),
+                              ],
+                            ),
+                            const Icon(Icons.arrow_forward_ios, size: 16),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 );
               }),

@@ -2,6 +2,8 @@ part of '../../../../generated_files/controller.dart';
 
 @riverpod
 class TeetController extends _$TeetController {
+  String? _filterType;
+
   @override
   FutureOr<TeetPageState> build() async {
     return _fetchData();
@@ -16,8 +18,24 @@ class TeetController extends _$TeetController {
         .interestCategories
         .map((e) => e.id)
         .toList();
-    final teets = await ref
-        .watch(getTeetsProvider(userId, interestsCategoryIds, null).future);
+
+    List<TeetEntity> teets;
+    int lastId;
+
+    switch (_filterType) {
+      case TeetFilterType.recent:
+        teets = await ref.watch(getRecentTeetsProvider(userId!, null).future);
+        lastId = teets.last.solvedId ?? -1;
+        break;
+      case TeetFilterType.like:
+        teets = await ref.watch(getLikedTeetsProvider(userId!, null).future);
+        lastId = teets.last.likedId ?? -1;
+        break;
+      default:
+        teets = await ref
+            .watch(getTeetsProvider(userId, interestsCategoryIds, null).future);
+        lastId = teets.last.id;
+    }
 
     if (teets.isEmpty) {
       return TeetPageState(
@@ -32,7 +50,7 @@ class TeetController extends _$TeetController {
     return TeetPageState(
       isLoading: false,
       teets: teets,
-      lastId: teets.last.id,
+      lastId: lastId,
       hasReachedMax: teets.length < getTeetsCount,
       currentIndex: 0,
     );
@@ -50,8 +68,25 @@ class TeetController extends _$TeetController {
     final value = state.valueOrNull;
 
     if (value != null && !value.hasReachedMax) {
-      final fetchedData = await ref.watch(
-          getTeetsProvider(userId, interestsCategoryIds, value.lastId).future);
+      List<TeetEntity> fetchedData;
+      int lastId = value.lastId;
+      switch (_filterType) {
+        case TeetFilterType.recent:
+          fetchedData = await ref
+              .watch(getRecentTeetsProvider(userId!, value.lastId).future);
+          lastId = fetchedData.last.solvedId ?? -1;
+          break;
+        case TeetFilterType.like:
+          fetchedData = await ref
+              .watch(getLikedTeetsProvider(userId!, value.lastId).future);
+          lastId = fetchedData.last.likedId ?? -1;
+          break;
+        default:
+          fetchedData = await ref.watch(
+              getTeetsProvider(userId, interestsCategoryIds, value.lastId)
+                  .future);
+          lastId = fetchedData.last.id;
+      }
 
       if (fetchedData.isEmpty) {
         state = AsyncValue.data(value.copyWith(hasReachedMax: true));
@@ -60,7 +95,7 @@ class TeetController extends _$TeetController {
 
       state = AsyncValue.data(value.copyWith(
         teets: [...value.teets, ...fetchedData],
-        lastId: fetchedData.last.id,
+        lastId: lastId,
         hasReachedMax: fetchedData.length < getTeetsCount,
         currentIndex: 0,
       ));
@@ -78,14 +113,29 @@ class TeetController extends _$TeetController {
         .interestCategories
         .map((e) => e.id)
         .toList();
-    final teets = await ref
-        .refresh(getTeetsProvider(userId, interestsCategoryIds, null).future);
+
+    List<TeetEntity> teets;
+    int lastId;
+    switch (_filterType) {
+      case TeetFilterType.recent:
+        teets = await ref.watch(getRecentTeetsProvider(userId!, null).future);
+        lastId = teets.last.solvedId ?? -1;
+        break;
+      case TeetFilterType.like:
+        teets = await ref.watch(getLikedTeetsProvider(userId!, null).future);
+        lastId = teets.last.likedId ?? -1;
+        break;
+      default:
+        teets = await ref
+            .watch(getTeetsProvider(userId, interestsCategoryIds, null).future);
+        lastId = teets.last.id;
+    }
 
     state = AsyncValue.data(
       TeetPageState(
         isLoading: false,
         teets: teets,
-        lastId: teets.last.id,
+        lastId: lastId,
         hasReachedMax: teets.length < getTeetsCount,
         currentIndex: 0,
       ),
@@ -157,5 +207,11 @@ class TeetController extends _$TeetController {
           .read(toggleLikeProvider(currentTeetId, userId!, likeStatus).future);
       state = AsyncValue.data(value.copyWith(teets: newTeet));
     }
+  }
+
+  void setFilterType(String? filterType) {
+    state = const AsyncLoading();
+    _filterType = filterType;
+    ref.invalidateSelf();
   }
 }

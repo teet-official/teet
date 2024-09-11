@@ -6,9 +6,11 @@ import 'package:teet/src/feature/teet/presentation/components/teet_like_comp.dar
 import 'package:teet/src/feature/teet/presentation/components/teet_main_comp.dart';
 import 'package:teet/src/generated_files/controller.dart';
 import 'package:teet/src/generated_files/entity.dart';
+import 'package:teet/src/shared/const/teet_filter_type_const.dart';
 
 class TeetPage extends ConsumerWidget {
-  const TeetPage({super.key});
+  final String? filterType;
+  const TeetPage({super.key, this.filterType});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +34,6 @@ class TeetPage extends ConsumerWidget {
                   children: [
                     if (value.teets.isNotEmpty && authState.isSignIn) ...[
                       const TeetLikeComp(),
-                      const SizedBox(height: 16),
                       const TeetDislikeComp(),
                     ],
                   ],
@@ -47,6 +48,7 @@ class TeetPage extends ConsumerWidget {
 
   Color _getBackgroundColor(AsyncValue<TeetPageState> state) {
     if (state.valueOrNull == null) return Colors.white;
+    if (state.valueOrNull!.teets.isEmpty) return Colors.white;
 
     final currentTeet =
         state.valueOrNull!.teets[state.valueOrNull!.currentIndex];
@@ -65,11 +67,21 @@ class TeetPage extends ConsumerWidget {
   }
 
   _buildList(TeetPageState state, PageController pageController) {
+    const emptyTeetTextMap = {
+      TeetFilterType.recent: '📖 최근에 푼 티트가 없어요. 📖\n\n티트를 풀어보며 지식을 늘려보세요',
+      TeetFilterType.like: '❤️ 좋아요 누른 티트가 없어요. ❤️\n\n마음에 드는 티트에 좋아요를 눌러보세요',
+    };
     if (state.teets.isEmpty) {
-      return const Center(
+      return Center(
+        heightFactor: 5,
         child: Text(
-          '🛠️준비된 티트가 없습니다.🛠️ \n\n빠른 시일내로 티트를 제공하도록 노력하겠습니다',
+          emptyTeetTextMap[filterType] ??
+              '🛠️ 준비된 티트가 없어요. 🛠️ \n\n빠른 시일내로 티트를 제공하도록 노력하겠습니다',
           textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       );
     }
@@ -135,7 +147,9 @@ class TeetPage extends ConsumerWidget {
   _buildItem(BuildContext context, TeetEntity teet, WidgetRef ref,
       PageController pageController) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: filterType != null
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       children: [
         Text(
           teet.title,

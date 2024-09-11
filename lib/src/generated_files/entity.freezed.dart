@@ -293,6 +293,8 @@ mixin _$TeetEntity {
   int? get selectedSelectionId => throw _privateConstructorUsedError;
   bool get isLiked => throw _privateConstructorUsedError;
   bool get isDisliked => throw _privateConstructorUsedError;
+  int? get likedId => throw _privateConstructorUsedError;
+  int? get solvedId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -317,7 +319,9 @@ abstract class $TeetEntityCopyWith<$Res> {
       int? answerRate,
       int? selectedSelectionId,
       bool isLiked,
-      bool isDisliked});
+      bool isDisliked,
+      int? likedId,
+      int? solvedId});
 }
 
 /// @nodoc
@@ -344,6 +348,8 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
     Object? selectedSelectionId = freezed,
     Object? isLiked = null,
     Object? isDisliked = null,
+    Object? likedId = freezed,
+    Object? solvedId = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -390,6 +396,14 @@ class _$TeetEntityCopyWithImpl<$Res, $Val extends TeetEntity>
           ? _value.isDisliked
           : isDisliked // ignore: cast_nullable_to_non_nullable
               as bool,
+      likedId: freezed == likedId
+          ? _value.likedId
+          : likedId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      solvedId: freezed == solvedId
+          ? _value.solvedId
+          : solvedId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -413,7 +427,9 @@ abstract class _$$TeetEntityImplCopyWith<$Res>
       int? answerRate,
       int? selectedSelectionId,
       bool isLiked,
-      bool isDisliked});
+      bool isDisliked,
+      int? likedId,
+      int? solvedId});
 }
 
 /// @nodoc
@@ -438,6 +454,8 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
     Object? selectedSelectionId = freezed,
     Object? isLiked = null,
     Object? isDisliked = null,
+    Object? likedId = freezed,
+    Object? solvedId = freezed,
   }) {
     return _then(_$TeetEntityImpl(
       id: null == id
@@ -484,6 +502,14 @@ class __$$TeetEntityImplCopyWithImpl<$Res>
           ? _value.isDisliked
           : isDisliked // ignore: cast_nullable_to_non_nullable
               as bool,
+      likedId: freezed == likedId
+          ? _value.likedId
+          : likedId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      solvedId: freezed == solvedId
+          ? _value.solvedId
+          : solvedId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -502,7 +528,9 @@ class _$TeetEntityImpl extends _TeetEntity {
       this.answerRate,
       this.selectedSelectionId,
       this.isLiked = false,
-      this.isDisliked = false})
+      this.isDisliked = false,
+      this.likedId,
+      this.solvedId})
       : _selections = selections,
         super._();
 
@@ -540,10 +568,14 @@ class _$TeetEntityImpl extends _TeetEntity {
   @override
   @JsonKey()
   final bool isDisliked;
+  @override
+  final int? likedId;
+  @override
+  final int? solvedId;
 
   @override
   String toString() {
-    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, createdAt: $createdAt, showDescription: $showDescription, answerRate: $answerRate, selectedSelectionId: $selectedSelectionId, isLiked: $isLiked, isDisliked: $isDisliked)';
+    return 'TeetEntity(id: $id, title: $title, selections: $selections, description: $description, type: $type, createdAt: $createdAt, showDescription: $showDescription, answerRate: $answerRate, selectedSelectionId: $selectedSelectionId, isLiked: $isLiked, isDisliked: $isDisliked, likedId: $likedId, solvedId: $solvedId)';
   }
 
   @override
@@ -568,7 +600,10 @@ class _$TeetEntityImpl extends _TeetEntity {
                 other.selectedSelectionId == selectedSelectionId) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.isDisliked, isDisliked) ||
-                other.isDisliked == isDisliked));
+                other.isDisliked == isDisliked) &&
+            (identical(other.likedId, likedId) || other.likedId == likedId) &&
+            (identical(other.solvedId, solvedId) ||
+                other.solvedId == solvedId));
   }
 
   @JsonKey(ignore: true)
@@ -585,7 +620,9 @@ class _$TeetEntityImpl extends _TeetEntity {
       answerRate,
       selectedSelectionId,
       isLiked,
-      isDisliked);
+      isDisliked,
+      likedId,
+      solvedId);
 
   @JsonKey(ignore: true)
   @override
@@ -613,7 +650,9 @@ abstract class _TeetEntity extends TeetEntity {
       final int? answerRate,
       final int? selectedSelectionId,
       final bool isLiked,
-      final bool isDisliked}) = _$TeetEntityImpl;
+      final bool isDisliked,
+      final int? likedId,
+      final int? solvedId}) = _$TeetEntityImpl;
   _TeetEntity._() : super._();
 
   factory _TeetEntity.fromJson(Map<String, dynamic> json) =
@@ -641,6 +680,10 @@ abstract class _TeetEntity extends TeetEntity {
   bool get isLiked;
   @override
   bool get isDisliked;
+  @override
+  int? get likedId;
+  @override
+  int? get solvedId;
   @override
   @JsonKey(ignore: true)
   _$$TeetEntityImplCopyWith<_$TeetEntityImpl> get copyWith =>

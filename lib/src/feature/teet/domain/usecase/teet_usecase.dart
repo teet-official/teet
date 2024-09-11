@@ -20,3 +20,17 @@ Future<void> toggleLike(
   final repository = ref.watch(teetRepositoryProvider);
   await repository.toggleLike(teetId, userId, likeStatus);
 }
+
+@riverpod
+Future<List<TeetEntity>> getRecentTeets(
+    GetRecentTeetsRef ref, int userId, int? lastIndex) async {
+  final repository = ref.watch(teetRepositoryProvider);
+  return await repository.getRecentTeets(userId, lastIndex);
+}
+
+@riverpod
+Future<List<TeetEntity>> getLikedTeets(
+    GetLikedTeetsRef ref, int userId, int? lastIndex) async {
+  final repository = ref.watch(teetRepositoryProvider);
+  return await repository.getLikedTeets(userId, lastIndex);
+}

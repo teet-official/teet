@@ -12,6 +12,8 @@ class TeetModel with _$TeetModel {
     required String type,
     bool? reaction, // 0: like, 1: dislike
     int? answerRate,
+    int? likedId,
+    int? solvedId,
   }) = _TeetModel;
 
   factory TeetModel.fromJson(Map<String, dynamic> json) =>
@@ -28,6 +30,8 @@ extension TeetExtension on TeetModel {
         type: TeetType.fromString(type),
         isLiked: reaction == true,
         isDisliked: reaction == false,
+        likedId: likedId,
+        solvedId: solvedId,
         answerRate: answerRate,
         createdAt: createdAt,
       );

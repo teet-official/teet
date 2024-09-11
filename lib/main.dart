@@ -10,8 +10,12 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env"); // 2번코드
   MobileAds.instance.initialize();
-  await Supabase.initialize(
-      url: dotenv.get('SUPABASE_URL'), anonKey: dotenv.get('SUPABASE_KEY'));
+  try {
+    await Supabase.initialize(
+        url: dotenv.get('SUPABASE_URL'), anonKey: dotenv.get('SUPABASE_KEY'));
+  } catch (e) {
+    print(e);
+  }
   runApp(const ProviderScope(child: MyApp()));
 }
 

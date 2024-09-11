@@ -15,4 +15,11 @@ abstract class TeetRepository {
   );
 
   Future<void> toggleLike(int teetId, int userId, LikeStatus likeStatus);
+
+  Future<List<TeetEntity>> getRecentTeets(
+    int userId,
+    int? lastIndex,
+  );
+
+  Future<List<TeetEntity>> getLikedTeets(int userId, int? lastIndex);
 }

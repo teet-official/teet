@@ -59,6 +59,8 @@ _$TeetEntityImpl _$$TeetEntityImplFromJson(Map<String, dynamic> json) =>
       selectedSelectionId: (json['selectedSelectionId'] as num?)?.toInt(),
       isLiked: json['isLiked'] as bool? ?? false,
       isDisliked: json['isDisliked'] as bool? ?? false,
+      likedId: (json['likedId'] as num?)?.toInt(),
+      solvedId: (json['solvedId'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
@@ -74,6 +76,8 @@ Map<String, dynamic> _$$TeetEntityImplToJson(_$TeetEntityImpl instance) =>
       'selectedSelectionId': instance.selectedSelectionId,
       'isLiked': instance.isLiked,
       'isDisliked': instance.isDisliked,
+      'likedId': instance.likedId,
+      'solvedId': instance.solvedId,
     };
 
 const _$TeetTypeEnumMap = {

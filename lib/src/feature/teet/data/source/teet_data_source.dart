@@ -12,4 +12,11 @@ abstract class TeetDataSource {
   );
 
   Future<void> toggleLike(int teetId, int userId, LikeStatus likeStatus);
+
+  Future<List<TeetModel>> getRecentTeets(
+    int userId,
+    int? lastIndex,
+  );
+
+  Future<List<TeetModel>> getLikedTeets(int userId, int? lastIndex);
 }

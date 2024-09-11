@@ -8,6 +8,7 @@ import 'package:teet/src/feature/common/presentation/page/main_page.dart';
 import 'package:teet/src/feature/common/presentation/page/splash_page.dart';
 import 'package:teet/src/feature/profile/presentation/update_interest_category_page.dart';
 import 'package:teet/src/feature/profile/presentation/update_profile_page.dart';
+import 'package:teet/src/feature/teet/presentation/page/teet_filter_page.dart';
 import 'package:teet/src/shared/ad_mob/ad_mob_service.dart';
 
 part '../shared/ad_mob/ad_mob_provider.dart';

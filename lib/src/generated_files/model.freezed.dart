@@ -30,6 +30,8 @@ mixin _$TeetModel {
   bool? get reaction =>
       throw _privateConstructorUsedError; // 0: like, 1: dislike
   int? get answerRate => throw _privateConstructorUsedError;
+  int? get likedId => throw _privateConstructorUsedError;
+  int? get solvedId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +52,9 @@ abstract class $TeetModelCopyWith<$Res> {
       DateTime createdAt,
       String type,
       bool? reaction,
-      int? answerRate});
+      int? answerRate,
+      int? likedId,
+      int? solvedId});
 }
 
 /// @nodoc
@@ -74,6 +78,8 @@ class _$TeetModelCopyWithImpl<$Res, $Val extends TeetModel>
     Object? type = null,
     Object? reaction = freezed,
     Object? answerRate = freezed,
+    Object? likedId = freezed,
+    Object? solvedId = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -108,6 +114,14 @@ class _$TeetModelCopyWithImpl<$Res, $Val extends TeetModel>
           ? _value.answerRate
           : answerRate // ignore: cast_nullable_to_non_nullable
               as int?,
+      likedId: freezed == likedId
+          ? _value.likedId
+          : likedId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      solvedId: freezed == solvedId
+          ? _value.solvedId
+          : solvedId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -128,7 +142,9 @@ abstract class _$$TeetModelImplCopyWith<$Res>
       DateTime createdAt,
       String type,
       bool? reaction,
-      int? answerRate});
+      int? answerRate,
+      int? likedId,
+      int? solvedId});
 }
 
 /// @nodoc
@@ -150,6 +166,8 @@ class __$$TeetModelImplCopyWithImpl<$Res>
     Object? type = null,
     Object? reaction = freezed,
     Object? answerRate = freezed,
+    Object? likedId = freezed,
+    Object? solvedId = freezed,
   }) {
     return _then(_$TeetModelImpl(
       id: null == id
@@ -184,6 +202,14 @@ class __$$TeetModelImplCopyWithImpl<$Res>
           ? _value.answerRate
           : answerRate // ignore: cast_nullable_to_non_nullable
               as int?,
+      likedId: freezed == likedId
+          ? _value.likedId
+          : likedId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      solvedId: freezed == solvedId
+          ? _value.solvedId
+          : solvedId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -200,7 +226,9 @@ class _$TeetModelImpl implements _TeetModel {
       required this.createdAt,
       required this.type,
       this.reaction,
-      this.answerRate})
+      this.answerRate,
+      this.likedId,
+      this.solvedId})
       : _teetSelection = teetSelection;
 
   factory _$TeetModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -229,10 +257,14 @@ class _$TeetModelImpl implements _TeetModel {
 // 0: like, 1: dislike
   @override
   final int? answerRate;
+  @override
+  final int? likedId;
+  @override
+  final int? solvedId;
 
   @override
   String toString() {
-    return 'TeetModel(id: $id, title: $title, teetSelection: $teetSelection, description: $description, createdAt: $createdAt, type: $type, reaction: $reaction, answerRate: $answerRate)';
+    return 'TeetModel(id: $id, title: $title, teetSelection: $teetSelection, description: $description, createdAt: $createdAt, type: $type, reaction: $reaction, answerRate: $answerRate, likedId: $likedId, solvedId: $solvedId)';
   }
 
   @override
@@ -252,7 +284,10 @@ class _$TeetModelImpl implements _TeetModel {
             (identical(other.reaction, reaction) ||
                 other.reaction == reaction) &&
             (identical(other.answerRate, answerRate) ||
-                other.answerRate == answerRate));
+                other.answerRate == answerRate) &&
+            (identical(other.likedId, likedId) || other.likedId == likedId) &&
+            (identical(other.solvedId, solvedId) ||
+                other.solvedId == solvedId));
   }
 
   @JsonKey(ignore: true)
@@ -266,7 +301,9 @@ class _$TeetModelImpl implements _TeetModel {
       createdAt,
       type,
       reaction,
-      answerRate);
+      answerRate,
+      likedId,
+      solvedId);
 
   @JsonKey(ignore: true)
   @override
@@ -291,7 +328,9 @@ abstract class _TeetModel implements TeetModel {
       required final DateTime createdAt,
       required final String type,
       final bool? reaction,
-      final int? answerRate}) = _$TeetModelImpl;
+      final int? answerRate,
+      final int? likedId,
+      final int? solvedId}) = _$TeetModelImpl;
 
   factory _TeetModel.fromJson(Map<String, dynamic> json) =
       _$TeetModelImpl.fromJson;
@@ -312,6 +351,10 @@ abstract class _TeetModel implements TeetModel {
   bool? get reaction;
   @override // 0: like, 1: dislike
   int? get answerRate;
+  @override
+  int? get likedId;
+  @override
+  int? get solvedId;
   @override
   @JsonKey(ignore: true)
   _$$TeetModelImplCopyWith<_$TeetModelImpl> get copyWith =>

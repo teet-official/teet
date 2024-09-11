@@ -26,6 +26,21 @@ class TeetRepositoryImpl extends TeetRepository {
   Future<void> toggleLike(int teetId, int userId, LikeStatus likeStatus) async {
     await _source.toggleLike(teetId, userId, likeStatus);
   }
+
+  @override
+  Future<List<TeetEntity>> getRecentTeets(
+    int userId,
+    int? lastIndex,
+  ) async {
+    final models = await _source.getRecentTeets(userId, lastIndex);
+    return models.map((model) => model.toEntity()).toList();
+  }
+
+  @override
+  Future<List<TeetEntity>> getLikedTeets(int userId, int? lastIndex) async {
+    final models = await _source.getLikedTeets(userId, lastIndex);
+    return models.map((model) => model.toEntity()).toList();
+  }
 }
 
 @riverpod

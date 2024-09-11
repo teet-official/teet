@@ -16,6 +16,11 @@ class GoRouterProvider extends _$GoRouterProvider {
           builder: (context, state) => const MainPage(),
         ),
         GoRoute(
+          path: '/teet',
+          builder: (context, state) =>
+              TeetFilterPage(filter: state.uri.queryParameters['filter']!),
+        ),
+        GoRoute(
           path: '/auth/sign-in',
           builder: (context, state) => const SignInPage(),
         ),
